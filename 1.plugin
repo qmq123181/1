@@ -1,0 +1,9 @@
+#!name=adapty
+#!desc=adapty
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1060.png
+
+[Script]
+http-response ^https?:\/\/api\.adapty\.io\/api\/v\d\/sdk\/(analytics\/profiles|in-apps\/(apple\/receipt\/validate|purchase-containers)|purchase\/app-store) script-path=https://raw.githubusercontent.com/qmq123181/1/refs/heads/main/1.js, requires-body=true, timeout=60, tag=adapty
+
+[MITM]
+hostname = api.adapty.io
