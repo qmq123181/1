@@ -1,3 +1,7 @@
+#!name=自用解锁合集
+#!desc=解锁会员，Revenuecat、iTunes系列可能冲突，Adapty须根据源库更新
+#!date=2025-3-25
+
 [Script]
 # Revenuecat-系列 hostname = api.revenuecat.com, api.rc-backup.com
 http-response ^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/Reheji.js, requires-body=true, timeout=60, tag=Reheji
