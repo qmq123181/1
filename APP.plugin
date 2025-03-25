@@ -1,26 +1,25 @@
 [Script]
-#合集系列来自叮当猫
-#Revenuecat-系列 hostname = api.revenuecat.com, api.rc-backup.com
+# Revenuecat-系列 hostname = api.revenuecat.com, api.rc-backup.com
 http-response ^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/Reheji.js, requires-body=true, timeout=60, tag=Reheji
 
 http-request ^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/Reheji.js, timeout=60, tag=Reheji
 
-#iTunes-系列 hostname = buy.itunes.apple.com
+# iTunes-系列 hostname = buy.itunes.apple.com
 http-response ^https?:\/\/buy\.itunes\.apple\.com\/verifyReceipt$ script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/iTunes.js, requires-body=true, timeout=60, tag=iTunes
 
-#Bending-系列 hostname = *.oracle.bendingspoonsapps.com
+# Bending-系列 hostname = *.oracle.bendingspoonsapps.com
 http-response ^https?:\/\/.*\.oracle\.bendingspoonsapps\.com\/v\d\/(users\/.+|purchases\/verify) script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/bending.js, requires-body=true, timeout=60, tag=bending
 
-#Adapty-系列 hostname = api.adapty.io
+# Adapty-系列 hostname = api.adapty.io
 http-response ^https?:\/\/api\.adapty\.io\/api\/v\d\/sdk\/(analytics\/profiles|in-apps\/(apple\/receipt\/validate|purchase-containers)|purchase\/app-store) script-path=https://raw.githubusercontent.com/qmq123181/1/refs/heads/main/adapty.js, requires-body=true, timeout=60, tag=adapty
 
-#Qonversion-系列 hostname = api.qonversion.io
+# Qonversion-系列 hostname = api.qonversion.io
 http-response ^https?:\/\/api\.qonversion\.io\/v\d\/user\/(init|purchase) script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/qonversion.js, requires-body=true, timeout=60, tag=qonversion
 
-#Apphud-系列 hostname = *.apphud.com
+# Apphud-系列 hostname = *.apphud.com
 http-response ^https?:\/\/.*\.apphud\.com\/v\d\/(subscriptions|customers)$ script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/apphud.js, requires-body=true, timeout=60, tag=apphud
 
-#SNOW-系列 hostname = *.snow.me
+# SNOW-系列 hostname = *.snow.me
 http-response ^https?:\/\/.*\.snow\.me\/v\d\/purchase\/subscription\/subscriber\/status script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/snow.js, requires-body=true, timeout=60, tag=snow
 
 # 堆糖 hostname = *.duitang.com
@@ -29,11 +28,40 @@ http-response ^https?:\/\/.*\.duitang\.com\/napi script-path=https://raw.githubu
 # 西窗烛 hostname = lchttpapi.xczim.com
 http-response ^https?:\/\/lchttpapi\.xczim\.com\/1.1\/users script-path=https://raw.githubusercontent.com/Guding88/Script/main/xichuangzhu.js, requires-body=true, tag=西窗烛
 
-#网易蜗牛阅读 hostname=p.du.163.com
+# 网易蜗牛阅读 hostname = p.du.163.com
 http-response ^https?:\/\/p\.du\.163\.com\/gain\/readtime\/info\.json script-path=https://raw.githubusercontent.com/deezertidal/private/main/wnds.js, requires-body=true, tag=网易蜗牛阅读
 
-#Bilibili 1080P hostname=app.bilibili.com
+# Bilibili 1080P hostname = app.bilibili.com
 http-response ^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo\? script-path=https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js, requires-body=true, tag=bilibili解锁画质
 
+# 解锁GoodNotes&Notability内购会员 hostname = isi.csan.*, notability.com
+http-response ^https:\/\/isi\.csan.[a-z.]+\/.+\/(receipts$|subscribers\/[^/]+$) script-path=https://gist.githubusercontent.com/ddgksf2013/980624ef4722ee4ca805a74dc61ca9a3/raw/Goodbility.Vip.js, requires-body=true, timeout=60, tag=Goodbility.Vip1
+http-request ^https:\/\/isi\.csan.[a-z.]+\/.+\/(receipts|subscribers) script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/deleteHeader.js, timeout=60, tag=Goodbility.Vip2
+http-response ^https?:\/\/notability\.com\/global script-path=https://gist.githubusercontent.com/ddgksf2013/980624ef4722ee4ca805a74dc61ca9a3/raw/Goodbility.Vip.js, requires-body=true, timeout=60, tag=Goodbility.Vip3
+
+# Nicegram 1.5.6 Pro hostname = nicegram.cloud
+http-response ^https?:\/\/nicegram\.cloud\/api\/v\d\/(ai-assistant\/purchase-list|user\/info|telegram\/auth) script-path=https://github.com/ddgksf2013/MoYu/raw/master/NicegramProCrack.js, requires-body=true, timeout=60, tag=Nicegram 1.5.6 解锁会员（下载视频用）
+
+# Keep hostname = *keep*,162.14.5.*,42.187.199.*,101.42.124.*
+http-response ^https?:\/\/(api|kit).gotokeep\.com\/(nuocha|gerudo|athena|nuocha\/plans|suit\/v5\/smart|kprime\/v4\/suit\/sales)\/ script-path=https://raw.githubusercontent.com/WeiGiegie/666/main/keep.js, requires-body=true, timeout=60, tag=keep
+
+# 7动 hostname = pc7dong.com
+http-response ^https?:\/\/pc7dong.com\/seveng.+api\/ script-path=https://raw.githubusercontent.com/WeiGiegie/666/main/7dong.js, requires-body=true, timeout=60, tag=7动
+
+# widget island hostname = api.widgetisland.cn
+http-response ^https:\/\/api\.widgetisland\.cn\/app\/ios\/vip\/info(.?)+ script-path=https://raw.githubusercontent.com/afengye/QX/main/zjd.js, requires-body=true, timeout=60, tag=widget island
+
+# fun widgets hostname = widget.haoqimiao.net
+http-response ^https:\/\/widget\.haoqimiao\.net\/api\/user\/info script-path=https://raw.githubusercontent.com/afengye/QX/main/fwxzj.js, requires-body=true, timeout=60, tag=fun widgets
+
+# Duet hostname = rdp.duetdisplay.com
+http-response https://rdp.duetdisplay.com/v1/users/validateReceipt script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/refs/heads/main/DuetDisplay.js, requires-body=true, timeout=60, tag=Duet
+
+# 简讯 hostname = api.tipsoon.com
+http-response ^https://api\.tipsoon\.com/api/v1/user/info script-path=https://raw.githubusercontent.com/SheepFJ/Sheep/refs/heads/main/jianxun/vip.js, requires-body=true, timeout=60, tag=简讯
+
+# Artgo 
+http-response http:\/\/api\.artgo\.ltd script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/artgo.js, requires-body=true, timeout=60, tag=artgo
+
 [MITM]
-hostname = api.revenuecat.com, api.rc-backup.com, buy.itunes.apple.com, *.oracle.bendingspoonsapps.com, api.adapty.io, api.qonversion.io, *.apphud.com, *.snow.me, *.duitang.com, lchttpapi.xczim.com, p.du.163.com, app.bilibili.com
+hostname = api.revenuecat.com, api.rc-backup.com, buy.itunes.apple.com, *.oracle.bendingspoonsapps.com, api.adapty.io, api.qonversion.io, *.apphud.com, *.snow.me, *.duitang.com, lchttpapi.xczim.com, p.du.163.com, app.bilibili.com, isi.csan.*,notability.com, nicegram.cloud, *keep*,162.14.5.*,42.187.199.*,101.42.124.*, pc7dong.com, api.widgetisland.cn, widget.haoqimiao.net, rdp.duetdisplay.com, api.tipsoon.com
