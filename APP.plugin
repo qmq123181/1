@@ -1,6 +1,7 @@
-#!name=解锁合集（除Revenuecat系列）
-#!desc=常用解锁会员，Adapty须根据源库更新
-#!date=2025-3-25
+#!name = APP
+#!desc = 常用解锁会员
+#!icon = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/Available.png
+#!date = 2025-3-25
 
 [Argument]
 Bending-系列 = switch, true, false, tag = Bending-系列, desc = 是否启用ddm的Bending-系列
@@ -13,6 +14,7 @@ SNOW-系列 = switch, true, false, tag = SNOW-系列, desc = 是否启用ddm的S
 网易蜗牛阅读 = switch, true, false, tag = 网易蜗牛阅读, desc = 是否启用网易蜗牛阅读
 bilibili解锁画质 = switch, true, false, tag = bilibili解锁画质, desc = 是否启用bilibili解锁画质
 解锁GoodNotes&Notability内购会员 = switch, true, false, tag = 解锁GoodNotes&Notability内购会员, desc = 是否启用解锁GoodNotes&Notability内购会员
+Notability（一次性解锁） = switch, true, false, tag = Notability（一次性解锁）, desc = 是否启用Notability（一次性解锁）
 Nicegram 1.5.6 解锁会员 = switch, true, false, tag = Nicegram 1.5.6 解锁会员, desc = 是否启用Nicegram 1.5.6 解锁会员
 Keep = switch, true, false, tag = Keep, desc = 是否启用Keep
 7动 = switch, true, false, tag = 7动, desc = 是否启用7动
@@ -21,7 +23,8 @@ fun widgets = switch, true, false, tag = fun widgets, desc = 是否启用fun wid
 Duet = switch, true, false, tag = Duet, desc = 是否启用Duet
 简讯 = switch, true, false, tag = 简讯, desc = 是否启用简讯
 Artgo = switch, true, false, tag = Artgo, desc = 是否启用Artgo
-
+ntPlayer（一次性解锁） = switch, true, false, tag = ntPlayer（一次性解锁）, desc = 是否启用ntPlayer（一次性解锁）
+Mico（一次性解锁） = switch, true, false, tag = Mico（一次性解锁）, desc = 是否启用Mico（一次性解锁）
 
 [Script]
 
@@ -29,7 +32,7 @@ Artgo = switch, true, false, tag = Artgo, desc = 是否启用Artgo
 http-response ^https?:\/\/.*\.oracle\.bendingspoonsapps\.com\/v\d\/(users\/.+|purchases\/verify) script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/bending.js, requires-body=true, enable={Bending-系列}, tag=bending
 
 # Adapty-系列 hostname = api.adapty.io
-http-response ^https?:\/\/api\.adapty\.io\/api\/v\d\/sdk\/(analytics\/profiles|in-apps\/(apple\/receipt\/validate|purchase-containers)|purchase\/app-store) script-path=https://raw.githubusercontent.com/qmq123181/1/refs/heads/main/adapty.js, requires-body=true, enable={Adapty-系列}, tag=adapty
+http-response ^https?:\/\/api\.adapty\.io\/api\/v\d\/sdk\/(analytics\/profiles|in-apps\/(apple\/receipt\/validate|purchase-containers)|purchase\/app-store) script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/adapty.js, requires-body=true, enable={Adapty-系列}, tag=adapty
 
 # Qonversion-系列 hostname = api.qonversion.io
 http-response ^https?:\/\/api\.qonversion\.io\/v\d\/user\/(init|purchase) script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/qonversion.js, requires-body=true, enable={Qonversion-系列}, tag=qonversion
@@ -53,9 +56,12 @@ http-response ^https?:\/\/p\.du\.163\.com\/gain\/readtime\/info\.json script-pat
 http-response ^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo\? script-path=https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js, requires-body=true, enable={bilibili解锁画质}, tag=bilibili解锁画质
 
 # 解锁GoodNotes&Notability内购会员 hostname = isi.csan.*, notability.com
-http-response ^https:\/\/isi\.csan.[a-z.]+\/.+\/(receipts$|subscribers\/[^/]+$) script-path=https://gist.githubusercontent.com/ddgksf2013/980624ef4722ee4ca805a74dc61ca9a3/raw/Goodbility.Vip.js, requires-body=true, enable={解锁GoodNotes&Notability内购会员}, tag=Goodbility.Vip1
-http-request ^https:\/\/isi\.csan.[a-z.]+\/.+\/(receipts|subscribers) script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/deleteHeader.js, enable={解锁GoodNotes&Notability内购会员}, tag=Goodbility.Vip2
-http-response ^https?:\/\/notability\.com\/global script-path=https://gist.githubusercontent.com/ddgksf2013/980624ef4722ee4ca805a74dc61ca9a3/raw/Goodbility.Vip.js, requires-body=true, enable={解锁GoodNotes&Notability内购会员}, tag=Goodbility.Vip3
+http-response ^https:\/\/isi\.csan.[a-z.]+\/.+\/(receipts$|subscribers\/[^/]+$) script-path=https://gist.githubusercontent.com/ddgksf2013/980624ef4722ee4ca805a74dc61ca9a3/raw/Goodbility.Vip.js, requires-body=true, enable={解锁GoodNotes&Notability内购会员}, tag=Goodbility
+http-request ^https:\/\/isi\.csan.[a-z.]+\/.+\/(receipts|subscribers) script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/deleteHeader.js, enable={解锁GoodNotes&Notability内购会员}, tag=Goodbility
+http-response ^https?:\/\/notability\.com\/global script-path=https://gist.githubusercontent.com/ddgksf2013/980624ef4722ee4ca805a74dc61ca9a3/raw/Goodbility.Vip.js, requires-body=true, enable={解锁GoodNotes&Notability内购会员}, tag=Goodbility
+
+#Notability（一次性解锁） hostname = notability.com
+http-response https://notability.com/global script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/refs/heads/main/Not.js, requires-body=true, enable={Notability（一次性解锁）}, tag=Notability
 
 # Nicegram 1.5.6 Pro hostname = nicegram.cloud
 http-response ^https?:\/\/nicegram\.cloud\/api\/v\d\/(ai-assistant\/purchase-list|user\/info|telegram\/auth) script-path=https://github.com/ddgksf2013/MoYu/raw/master/NicegramProCrack.js, requires-body=true, enable={Nicegram 1.5.6 解锁会员}, tag=Nicegram 1.5.6 解锁会员（下载视频用）
@@ -81,5 +87,12 @@ http-response ^https://api\.tipsoon\.com/api/v1/user/info script-path=https://ra
 # Artgo 
 http-response http:\/\/api\.artgo\.ltd script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/artgo.js, requires-body=true, enable={Artgo}, tag=Artgo
 
+#ntPlayer（一次性解锁） hostname = api.revenuecat.com
+http-response ^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) script-path=https://raw.githubusercontent.com/afengye/QX/main/ntPlayer.js, requires-body=true, enable={ntPlayer（一次性解锁）}, tag=ntPlayer
+http-request ^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) script-path=https://raw.githubusercontent.com/afengye/QX/main/ntPlayer.js, enable={ntPlayer（一次性解锁）}, tag=ntPlayer
+
+#Mico（一次性解锁） hostname = buy.itunes.apple.com
+http-response ^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/main/itunes/wkmusic.js, requires-body=true, enable={Mico（一次性解锁）}, tag=wkmusic
+
 [MITM]
-hostname = *.oracle.bendingspoonsapps.com, api.adapty.io, api.qonversion.io, *.apphud.com, *.snow.me, *.duitang.com, lchttpapi.xczim.com, p.du.163.com, app.bilibili.com, isi.csan.*,notability.com, nicegram.cloud, *keep*,162.14.5.*,42.187.199.*,101.42.124.*, pc7dong.com, api.widgetisland.cn, widget.haoqimiao.net, rdp.duetdisplay.com, api.tipsoon.com
+hostname = *.oracle.bendingspoonsapps.com, api.adapty.io, api.qonversion.io, *.apphud.com, *.snow.me, *.duitang.com, lchttpapi.xczim.com, p.du.163.com, app.bilibili.com, isi.csan.*,notability.com, nicegram.cloud, *keep*,162.14.5.*,42.187.199.*,101.42.124.*, pc7dong.com, api.widgetisland.cn, widget.haoqimiao.net, rdp.duetdisplay.com, api.tipsoon.com, api.revenuecat.com, buy.itunes.apple.com
