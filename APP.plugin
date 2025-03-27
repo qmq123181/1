@@ -17,6 +17,7 @@ Nicegram 1.5.6 解锁会员 = switch, true, false, tag = Nicegram 1.5.6 解锁�
 Keep = switch, true, false, tag = Keep, desc = 是否启用Keep
 7动 = switch, true, false, tag = 7动, desc = 是否启用7动
 widget island = switch, true, false, tag = widget island, desc = 是否启用widget island
+fun widgets = switch, true, false, tag = fun widgets, desc = 是否启用fun widgets
 Duet = switch, true, false, tag = Duet, desc = 是否启用Duet
 简讯 = switch, true, false, tag = 简讯, desc = 是否启用简讯
 Artgo = switch, true, false, tag = Artgo, desc = 是否启用Artgo
@@ -52,33 +53,33 @@ http-response ^https?:\/\/p\.du\.163\.com\/gain\/readtime\/info\.json script-pat
 http-response ^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo\? script-path=https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js, requires-body=true, enable={bilibili解锁画质}, tag=bilibili解锁画质
 
 # 解锁GoodNotes&Notability内购会员 hostname = isi.csan.*, notability.com
-http-response ^https:\/\/isi\.csan.[a-z.]+\/.+\/(receipts$|subscribers\/[^/]+$) script-path=https://gist.githubusercontent.com/ddgksf2013/980624ef4722ee4ca805a74dc61ca9a3/raw/Goodbility.Vip.js, requires-body=true, timeout=60, enable={解锁GoodNotes&Notability内购会员}, tag=Goodbility.Vip1
-http-request ^https:\/\/isi\.csan.[a-z.]+\/.+\/(receipts|subscribers) script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/deleteHeader.js, timeout=60, enable={解锁GoodNotes&Notability内购会员}, tag=Goodbility.Vip2
-http-response ^https?:\/\/notability\.com\/global script-path=https://gist.githubusercontent.com/ddgksf2013/980624ef4722ee4ca805a74dc61ca9a3/raw/Goodbility.Vip.js, requires-body=true, timeout=60, enable={解锁GoodNotes&Notability内购会员}, tag=Goodbility.Vip3
+http-response ^https:\/\/isi\.csan.[a-z.]+\/.+\/(receipts$|subscribers\/[^/]+$) script-path=https://gist.githubusercontent.com/ddgksf2013/980624ef4722ee4ca805a74dc61ca9a3/raw/Goodbility.Vip.js, requires-body=true, enable={解锁GoodNotes&Notability内购会员}, tag=Goodbility.Vip1
+http-request ^https:\/\/isi\.csan.[a-z.]+\/.+\/(receipts|subscribers) script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/deleteHeader.js, enable={解锁GoodNotes&Notability内购会员}, tag=Goodbility.Vip2
+http-response ^https?:\/\/notability\.com\/global script-path=https://gist.githubusercontent.com/ddgksf2013/980624ef4722ee4ca805a74dc61ca9a3/raw/Goodbility.Vip.js, requires-body=true, enable={解锁GoodNotes&Notability内购会员}, tag=Goodbility.Vip3
 
 # Nicegram 1.5.6 Pro hostname = nicegram.cloud
-http-response ^https?:\/\/nicegram\.cloud\/api\/v\d\/(ai-assistant\/purchase-list|user\/info|telegram\/auth) script-path=https://github.com/ddgksf2013/MoYu/raw/master/NicegramProCrack.js, requires-body=true, timeout=60, enable={Nicegram 1.5.6 解锁会员}, tag=Nicegram 1.5.6 解锁会员（下载视频用）
+http-response ^https?:\/\/nicegram\.cloud\/api\/v\d\/(ai-assistant\/purchase-list|user\/info|telegram\/auth) script-path=https://github.com/ddgksf2013/MoYu/raw/master/NicegramProCrack.js, requires-body=true, enable={Nicegram 1.5.6 解锁会员}, tag=Nicegram 1.5.6 解锁会员（下载视频用）
 
 # Keep hostname = *keep*,162.14.5.*,42.187.199.*,101.42.124.*
-http-response ^https?:\/\/(api|kit).gotokeep\.com\/(nuocha|gerudo|athena|nuocha\/plans|suit\/v5\/smart|kprime\/v4\/suit\/sales)\/ script-path=https://raw.githubusercontent.com/WeiGiegie/666/main/keep.js, requires-body=true, timeout=60, enable={Keep}, tag=Keep
+http-response ^https?:\/\/(api|kit).gotokeep\.com\/(nuocha|gerudo|athena|nuocha\/plans|suit\/v5\/smart|kprime\/v4\/suit\/sales)\/ script-path=https://raw.githubusercontent.com/WeiGiegie/666/main/keep.js, requires-body=true, enable={Keep}, tag=Keep
 
 # 7动 hostname = pc7dong.com
-http-response ^https?:\/\/pc7dong.com\/seveng.+api\/ script-path=https://raw.githubusercontent.com/WeiGiegie/666/main/7dong.js, requires-body=true, timeout=60, enable={7动}, tag=7动
+http-response ^https?:\/\/pc7dong.com\/seveng.+api\/ script-path=https://raw.githubusercontent.com/WeiGiegie/666/main/7dong.js, requires-body=true, enable={7动}, tag=7动
 
 # widget island hostname = api.widgetisland.cn
-http-response ^https:\/\/api\.widgetisland\.cn\/app\/ios\/vip\/info(.?)+ script-path=https://raw.githubusercontent.com/afengye/QX/main/zjd.js, requires-body=true, timeout=60, enable={widget island}, tag=widget island
+http-response ^https:\/\/api\.widgetisland\.cn\/app\/ios\/vip\/info(.?)+ script-path=https://raw.githubusercontent.com/afengye/QX/main/zjd.js, requires-body=true, enable={widget island}, tag=widget island
 
 # fun widgets hostname = widget.haoqimiao.net
-http-response ^https:\/\/widget\.haoqimiao\.net\/api\/user\/info script-path=https://raw.githubusercontent.com/afengye/QX/main/fwxzj.js, requires-body=true, timeout=60, enable={fun widgets}, tag=fun widgets
+http-response ^https:\/\/widget\.haoqimiao\.net\/api\/user\/info script-path=https://raw.githubusercontent.com/afengye/QX/main/fwxzj.js, requires-body=true, enable={fun widgets}, tag=fun widgets
 
 # Duet hostname = rdp.duetdisplay.com
-http-response https://rdp.duetdisplay.com/v1/users/validateReceipt script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/refs/heads/main/DuetDisplay.js, requires-body=true, timeout=60, enable={Duet}, tag=Duet
+http-response https://rdp.duetdisplay.com/v1/users/validateReceipt script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/refs/heads/main/DuetDisplay.js, requires-body=true, enable={Duet}, tag=Duet
 
 # 简讯 hostname = api.tipsoon.com
-http-response ^https://api\.tipsoon\.com/api/v1/user/info script-path=https://raw.githubusercontent.com/SheepFJ/Sheep/refs/heads/main/jianxun/vip.js, requires-body=true, timeout=60, enable={简讯}, tag=简讯
+http-response ^https://api\.tipsoon\.com/api/v1/user/info script-path=https://raw.githubusercontent.com/SheepFJ/Sheep/refs/heads/main/jianxun/vip.js, requires-body=true, enable={简讯}, tag=简讯
 
 # Artgo 
-http-response http:\/\/api\.artgo\.ltd script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/artgo.js, requires-body=true, timeout=60, enable={Artgo}, tag=Artgo
+http-response http:\/\/api\.artgo\.ltd script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/artgo.js, requires-body=true, enable={Artgo}, tag=Artgo
 
 [MITM]
 hostname = *.oracle.bendingspoonsapps.com, api.adapty.io, api.qonversion.io, *.apphud.com, *.snow.me, *.duitang.com, lchttpapi.xczim.com, p.du.163.com, app.bilibili.com, isi.csan.*,notability.com, nicegram.cloud, *keep*,162.14.5.*,42.187.199.*,101.42.124.*, pc7dong.com, api.widgetisland.cn, widget.haoqimiao.net, rdp.duetdisplay.com, api.tipsoon.com
