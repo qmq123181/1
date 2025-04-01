@@ -22,6 +22,8 @@ widget island = switch, true, false, tag = widget island, desc = 是否启用wid
 fun widgets = switch, true, false, tag = fun widgets, desc = 是否启用fun widgets
 Duet = switch, true, false, tag = Duet, desc = 是否启用Duet
 简讯 = switch, true, false, tag = 简讯, desc = 是否启用简讯
+团团记账 = switch, true, false, tag = 团团记账, desc = 是否启用团团记账
+AppRaven = switch, true, false, tag = AppRaven, desc = 是否启用AppRaven
 Artgo = switch, true, false, tag = Artgo, desc = 是否启用Artgo
 ntPlayer（一次性解锁） = switch, true, false, tag = ntPlayer（一次性解锁）, desc = 是否启用ntPlayer（一次性解锁）
 Mico（一次性解锁） = switch, true, false, tag = Mico（一次性解锁）, desc = 是否启用Mico（一次性解锁）
@@ -60,7 +62,7 @@ http-response ^https:\/\/isi\.csan.[a-z.]+\/.+\/(receipts$|subscribers\/[^/]+$) 
 http-request ^https:\/\/isi\.csan.[a-z.]+\/.+\/(receipts|subscribers) script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/deleteHeader.js, enable={解锁GoodNotes&Notability内购会员}, tag=Goodbility
 http-response ^https?:\/\/notability\.com\/global script-path=https://gist.githubusercontent.com/ddgksf2013/980624ef4722ee4ca805a74dc61ca9a3/raw/Goodbility.Vip.js, requires-body=true, enable={解锁GoodNotes&Notability内购会员}, tag=Goodbility
 
-#Notability（一次性解锁） hostname = notability.com
+# Notability（一次性解锁） hostname = notability.com
 http-response https://notability.com/global script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/refs/heads/main/Not.js, requires-body=true, enable={Notability（一次性解锁）}, tag=Notability
 
 # Nicegram 1.5.6 Pro hostname = nicegram.cloud
@@ -84,15 +86,21 @@ http-response https://rdp.duetdisplay.com/v1/users/validateReceipt script-path=h
 # 简讯 hostname = api.tipsoon.com
 http-response ^https://api\.tipsoon\.com/api/v1/user/info script-path=https://raw.githubusercontent.com/SheepFJ/Sheep/refs/heads/main/jianxun/vip.js, requires-body=true, enable={简讯}, tag=简讯
 
+# 团团记账 hostname = gs.gateway.gameley.cn
+http-response ^https:\/\/gs\.gateway\.gameley\.cn\/np-book-user\/(open\/list|user\/refresh\/token) script-path=https://raw.githubusercontent.com/afengye/QX/main/ttjz.js, requires-body=true, enable={团团记账}, tag=团团记账
+
+# AppRaven hostname = appraven.net
+http-response ^https:\/\/appraven\.net\/appraven\/graphql script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/main/AppRaven.js, requires-body=true, enable={AppRaven}, tag=AppRaven解锁
+
 # Artgo 
 http-response http:\/\/api\.artgo\.ltd script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/artgo.js, requires-body=true, enable={Artgo}, tag=Artgo
 
-#ntPlayer（一次性解锁） hostname = api.revenuecat.com
+# ntPlayer（一次性解锁） hostname = api.revenuecat.com
 http-response ^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) script-path=https://raw.githubusercontent.com/afengye/QX/main/ntPlayer.js, requires-body=true, enable={ntPlayer（一次性解锁）}, tag=ntPlayer
-http-request ^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) script-path=https://raw.githubusercontent.com/afengye/QX/main/ntPlayer.js, enable={ntPlayer（一次性解锁）}, tag=ntPlayer
+http-request ^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) script-path=https://raw.githubusercontent.com/afengye/QX/main/ntPlayer.js, requires-body=true, enable={ntPlayer（一次性解锁）}, tag=ntPlayer
 
-#Mico（一次性解锁） hostname = buy.itunes.apple.com
+# Mico（一次性解锁） hostname = buy.itunes.apple.com
 http-response ^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/main/itunes/wkmusic.js, requires-body=true, enable={Mico（一次性解锁）}, tag=wkmusic
 
 [MITM]
-hostname = *.oracle.bendingspoonsapps.com, api.adapty.io, api.qonversion.io, *.apphud.com, *.snow.me, *.duitang.com, lchttpapi.xczim.com, p.du.163.com, app.bilibili.com, isi.csan.*,notability.com, nicegram.cloud, *keep*,162.14.5.*,42.187.199.*,101.42.124.*, pc7dong.com, api.widgetisland.cn, widget.haoqimiao.net, rdp.duetdisplay.com, api.tipsoon.com, api.revenuecat.com, buy.itunes.apple.com
+hostname = *.oracle.bendingspoonsapps.com, api.adapty.io, api.qonversion.io, *.apphud.com, *.snow.me, *.duitang.com, lchttpapi.xczim.com, p.du.163.com, app.bilibili.com, isi.csan.*,notability.com, nicegram.cloud, *keep*,162.14.5.*,42.187.199.*,101.42.124.*, pc7dong.com, api.widgetisland.cn, widget.haoqimiao.net, rdp.duetdisplay.com, api.tipsoon.com, gs.gateway.gameley.cn, appraven.net, api.revenuecat.com, buy.itunes.apple.com
