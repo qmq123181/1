@@ -25,7 +25,7 @@ Duet = switch, true, false, tag = Duet, desc = 是否启用Duet
 团团记账 = switch, true, false, tag = 团团记账, desc = 是否启用团团记账
 AppRaven = switch, true, false, tag = AppRaven, desc = 是否启用AppRaven
 Artgo = switch, true, false, tag = Artgo, desc = 是否启用Artgo
-ntPlayer（一次性解锁） = switch, true, false, tag = ntPlayer（一次性解锁）, desc = 是否启用ntPlayer（一次性解锁）
+#ntPlayer（一次性解锁） = switch, true, false, tag = ntPlayer（一次性解锁）, desc = 是否启用ntPlayer（一次性解锁）
 Mico（一次性解锁） = switch, true, false, tag = Mico（一次性解锁）, desc = 是否启用Mico（一次性解锁）
 
 [Script]
@@ -95,12 +95,12 @@ http-response ^https:\/\/appraven\.net\/appraven\/graphql script-path=https://ra
 # Artgo 
 http-response http:\/\/api\.artgo\.ltd script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/artgo.js, requires-body=true, enable={Artgo}, tag=Artgo
 
-# ntPlayer（一次性解锁） hostname = api.revenuecat.com
-http-response ^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) script-path=https://raw.githubusercontent.com/afengye/QX/main/ntPlayer.js, requires-body=true, enable={ntPlayer（一次性解锁）}, tag=ntPlayer
-http-request ^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) script-path=https://raw.githubusercontent.com/afengye/QX/main/ntPlayer.js, requires-body=true, enable={ntPlayer（一次性解锁）}, tag=ntPlayer
+# ntPlayer（一次性解锁） hostname = api.revenuecat.com（未写入[MITM]）
+# http-response ^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) script-path=https://raw.githubusercontent.com/afengye/QX/main/ntPlayer.js, requires-body=true, enable={ntPlayer（一次性解锁）}, tag=ntPlayer
+# http-request ^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) script-path=https://raw.githubusercontent.com/afengye/QX/main/ntPlayer.js, requires-body=true, enable={ntPlayer（一次性解锁）}, tag=ntPlayer
 
 # Mico（一次性解锁） hostname = buy.itunes.apple.com
 http-response ^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/main/itunes/wkmusic.js, requires-body=true, enable={Mico（一次性解锁）}, tag=wkmusic
 
 [MITM]
-hostname = *.oracle.bendingspoonsapps.com, api.adapty.io, api.qonversion.io, *.apphud.com, *.snow.me, *.duitang.com, lchttpapi.xczim.com, p.du.163.com, app.bilibili.com, isi.csan.*,notability.com, nicegram.cloud, *keep*,162.14.5.*,42.187.199.*,101.42.124.*, pc7dong.com, api.widgetisland.cn, widget.haoqimiao.net, rdp.duetdisplay.com, api.tipsoon.com, gs.gateway.gameley.cn, appraven.net, api.revenuecat.com, buy.itunes.apple.com
+hostname = *.oracle.bendingspoonsapps.com, api.adapty.io, api.qonversion.io, *.apphud.com, *.snow.me, *.duitang.com, lchttpapi.xczim.com, p.du.163.com, app.bilibili.com, isi.csan.*,notability.com, nicegram.cloud, *keep*,162.14.5.*,42.187.199.*,101.42.124.*, pc7dong.com, api.widgetisland.cn, widget.haoqimiao.net, rdp.duetdisplay.com, api.tipsoon.com, gs.gateway.gameley.cn, appraven.net, buy.itunes.apple.com
