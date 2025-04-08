@@ -27,7 +27,7 @@ AppRaven = switch, true, false, tag = AppRaven, desc = 是否启用AppRaven
 Artgo = switch, true, false, tag = Artgo, desc = 是否启用Artgo
 # ntPlayer（一次性解锁） = switch, true, false, tag = ntPlayer（一次性解锁）, desc = 是否启用ntPlayer（一次性解锁）
 # Mico（一次性解锁） = switch, true, false, tag = Mico（一次性解锁）, desc = 是否启用Mico（一次性解锁）
-
+VidSheep视频聚合 = switch, true, false, tag = VidSheep视频聚合, desc = 是否启用VidSheep视频聚合
 [Script]
 
 # Bending-系列 hostname = *.oracle.bendingspoonsapps.com
@@ -102,5 +102,8 @@ http-response http:\/\/api\.artgo\.ltd script-path=https://raw.githubusercontent
 # Mico（一次性解锁） hostname = buy.itunes.apple.com（未写入[MITM]）
 # http-response ^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/main/itunes/wkmusic.js, requires-body=true, enable={Mico（一次性解锁）}, tag=wkmusic
 
+# VidSheep视频聚合 hostname = api.sheep.com
+http-response ^https:\/\/api\.sheep\.com\/sheep\/videoPolymerization\/(?:zhanshi\/sheep_vod_info_(\d+)|videoword\/([^\/]+)|) script-path=https://raw.githubusercontent.com/SheepFJ/VidSheep/main/VidSheep/main/mainlogic.js, enable={VidSheep视频聚合}, tag=VidSheep
+
 [MITM]
-hostname = *.oracle.bendingspoonsapps.com, api.adapty.io, api.qonversion.io, *.apphud.com, *.snow.me, *.duitang.com, lchttpapi.xczim.com, p.du.163.com, app.bilibili.com, isi.csan.*,notability.com, nicegram.cloud, *keep*,162.14.5.*,42.187.199.*,101.42.124.*, pc7dong.com, api.widgetisland.cn, widget.haoqimiao.net, rdp.duetdisplay.com, api.tipsoon.com, gs.gateway.gameley.cn, appraven.net
+hostname = *.oracle.bendingspoonsapps.com, api.adapty.io, api.qonversion.io, *.apphud.com, *.snow.me, *.duitang.com, lchttpapi.xczim.com, p.du.163.com, app.bilibili.com, isi.csan.*,notability.com, nicegram.cloud, *keep*,162.14.5.*,42.187.199.*,101.42.124.*, pc7dong.com, api.widgetisland.cn, widget.haoqimiao.net, rdp.duetdisplay.com, api.tipsoon.com, gs.gateway.gameley.cn, appraven.net, api.sheep.com
