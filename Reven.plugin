@@ -1,6 +1,6 @@
 [Rewrite]
-^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/[^/]+$) 302 https://rc-backup.lovebabyforever.workers.dev
-^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/[^/]+$) 302 https://reven.lovebabyforever.workers.dev
+^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/[^/]+$) header https://rc-backup.lovebabyforever.workers.dev
+^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/[^/]+$) header https://reven.lovebabyforever.workers.dev
 
 [MITM]
 hostname = api.revenuecat.com, api.rc-backup.com
