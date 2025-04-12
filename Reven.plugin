@@ -1,0 +1,6 @@
+[Script]
+http-response ^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/[^/]+$) script-path = https://rc-backup.lovebabyforever.workers.dev, requires-body = true, tag = RevenueCat解锁
+http-request ^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/[^/]+$) script-path = https://reven.lovebabyforever.workers.dev, requires-body = false, tag = RevenueCat解锁
+
+[MITM]
+hostname = api.revenuecat.com, api.rc-backup.com
