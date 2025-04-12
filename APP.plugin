@@ -116,11 +116,11 @@ http-response https://carrotweather.herokuapp.com/parse/functions/findSubscripti
 
 [MITM]
 hostname = *.oracle.bendingspoonsapps.com,
- api.adapty.io,
- api.qonversion.io,
- *.apphud.com,
- *.snow.me,
- *.duitang.com,
+api.adapty.io,
+api.qonversion.io,
+*.apphud.com,
+*.snow.me,
+*.duitang.com,
  lchttpapi.xczim.com,
  p.du.163.com,
  app.bilibili.com,
