@@ -115,25 +115,4 @@ http-response ^https:\/\/api\.imem\.app\/api\/premium\/getOwnStatus script-path=
 http-response https://carrotweather.herokuapp.com/parse/functions/findSubscriptionsForUserId script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/main/carrot.js, requires-body=true, enable={carrot（一年）}, tag=carrot
 
 [MITM]
-hostname = *.oracle.bendingspoonsapps.com,
-api.adapty.io,
-api.qonversion.io,
-*.apphud.com,
-*.snow.me,
-*.duitang.com,
- lchttpapi.xczim.com,
- p.du.163.com,
- app.bilibili.com,
- isi.csan.*,notability.com,
- nicegram.cloud,
- *keep*,162.14.5.*,42.187.199.*,101.42.124.*,
- pc7dong.com,
- api.widgetisland.cn,
- widget.haoqimiao.net,
- rdp.duetdisplay.com,
- api.tipsoon.com,
- gs.gateway.gameley.cn,
- appraven.net,
- api.sheep.com,
- api.imem.app,
- carrotweather.herokuapp.com
+hostname = *.oracle.bendingspoonsapps.com, api.adapty.io, api.qonversion.io, *.apphud.com, *.snow.me, *.duitang.com, lchttpapi.xczim.com, p.du.163.com, app.bilibili.com, isi.csan.*,notability.com, nicegram.cloud, *keep*,162.14.5.*,42.187.199.*,101.42.124.*, pc7dong.com, api.widgetisland.cn, widget.haoqimiao.net, rdp.duetdisplay.com, api.tipsoon.com, gs.gateway.gameley.cn, appraven.net, api.sheep.com, api.imem.app, carrotweather.herokuapp.com
