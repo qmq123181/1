@@ -29,6 +29,7 @@ Artgo = switch, true, false, tag = Artgo, desc = 是否启用Artgo
 # Mico（一次性解锁） = switch, true, false, tag = Mico（一次性解锁）, desc = 是否启用Mico（一次性解锁）
 VidSheep视频聚合 = switch, true, false, tag = VidSheep视频聚合, desc = 是否启用VidSheep视频聚合
 iMe（一次性解锁）= switch, true, false, tag = iMe（一次性解锁）, desc = 是否启用iMe（一次性解锁）
+carrot（一年）= switch, true, false, tag = carrot（一年）, desc = 是否启用carrot（一年）
 
 [Script]
 
