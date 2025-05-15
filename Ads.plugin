@@ -1,29 +1,4 @@
 [Rule]
-# 广告联盟
-AND, ((OR,((DOMAIN-SUFFIX, amemv.com), (DOMAIN-SUFFIX, zijieapi.com))), (DOMAIN-KEYWORD,-misc-)), REJECT
-DOMAIN-KEYWORD, ads.g.doubleclick, REJECT
-DOMAIN-SUFFIX, ads.linkedin.com, REJECT
-DOMAIN-SUFFIX, ads.vungle.com, REJECT
-DOMAIN-SUFFIX, adservice.google.com, REJECT
-DOMAIN-SUFFIX, applovin.com, REJECT
-DOMAIN-SUFFIX, applvn.com, REJECT
-DOMAIN-SUFFIX, appsflyer.com, REJECT
-DOMAIN-SUFFIX, appsflyersdk.com, REJECT
-DOMAIN-SUFFIX, kuaishouzt.com, REJECT
-DOMAIN-SUFFIX, unityads.unity3d.com, REJECT
-DOMAIN-SUFFIX, v.smtcdns.com, REJECT
-DOMAIN, ad.zijieapi.com, REJECT
-DOMAIN, adtracker.adfunlink.com, REJECT
-DOMAIN, dig.bdurl.net, REJECT
-DOMAIN, et.tanx.com, REJECT
-DOMAIN, init.supersonicads.com, REJECT
-DOMAIN, janapi.jd.com, REJECT
-DOMAIN, mercury-gateway.ixiaochuan.cn, REJECT
-DOMAIN, mon.toutiaocloud.com, REJECT
-DOMAIN, pagead2.googlesyndication-cn.com, REJECT
-DOMAIN, tangram.e.qq.com, REJECT
-DOMAIN, ws.tapjoyads.com, REJECT
-DOMAIN, www.googleadservices.com, REJECT
 
 # >>>>>>>>>>>>>>> ✅ B ✅ <<<<<<<<<<<<<<< #
 # 哔哩哔哩
