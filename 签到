@@ -1,35 +1,17 @@
 #!name = 定时任务
-#!desc = 每天自动完成相关任务，根据需求进入插件打开相应开关即可。\nB站扫码获取cookie时，保持相关脚本开启，打开APP根据推送提示操作，使用后需关闭脚本，失效后再次打开即可。B站两种获取方式不可兼用。\n首次安装插件需打开对应 APP 或 小程序 获取Cookie。
-#!openUrl = 
-#!author = FoKit[https://github.com/FoKit], Sliverkiss[https://github.com/Sliverkiss], ClydeTime[https://github.com/ClydeTime], wish[https://github.com/mist-whisper], ZenmoFeiShi[https://github.com/ZenmoFeiShi],chavyleung[https://github.com/chavyleung]
-#!tag = 功能增强
-#!system = iOS iPadOS
-#!system_version = 15
-#!loon_version = 3.2.9(837)
 #!homepage = https://github.com/mist-whisper/Loon/blob/master/README.md
 #!icon = https://raw.githubusercontent.com/mist-whisper/Icon/master/MyIcon/DailyBonus.png
-#!date = 2025-05-09 19:22:00
 
 [Argument]
 BiliBili_Cookie_QR = switch,"false","true",tag=B站扫码账号捕获,desc=使用扫码方式获取Cookie
 BiliBili_Cookie_APP = switch,"false","true",tag=B站客户端账号捕获,desc=获取客户端Cookie
-Soul_Cookie = switch,"false","true",tag=Soul账号捕获,desc=获取Cookie
-
 BiliBili_DailyBonus = switch,"false","true",tag=B站每日等级任务,desc=每天自动完成哔哩哔哩等级任务
-SoulSing_DailyBonus = switch,"false","true",tag=Soul金币签到,desc=每天自动完成Soul签到任务
-
 BiliBili_CRONEXP = input,"0 8 * * *",tag=B站定时参数,desc=这里需要输入符合CRON表达式的参数
-Soul_CRONEXP = input,"0 11 * * *",tag=Soul定时参数,desc=这里需要输入符合CRON表达式的参数
 
 [Script]
-# B站
 http-response ^https?:\/\/app\.bilibili\.com\/x\/resource\/fingerprint\? script-path=https://raw.githubusercontent.com/ClydeTime/BiliBili/main/js/BiliBiliDailyBonus.js, timeout=30,tag=B站Cookie(扫码),enable={BiliBili_Cookie_QR}
 http-request ^https?:\/\/app\.bilibili\.com\/x\/resource\/fingerprint\? script-path=https://raw.githubusercontent.com/ClydeTime/BiliBili/main/js/BiliBiliDailyBonus.js,tag=B站Cookie(APP),enable={BiliBili_Cookie_APP}
 cron {BiliBili_CRONEXP} script-path=https://raw.githubusercontent.com/ClydeTime/BiliBili/main/js/BiliBiliDailyBonus.js,tag=B站每日等级任务,enable={BiliBili_DailyBonus}
 
-# Soul
-http-request ^https:\/\/increase-openapi\.soulapp\.cn\/increase\/sign\/userSign script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/refs/heads/main/SoulSing.js,timeout=60, tag=SoulCookie,enable={Soul_Cookie}
-cron {Soul_CRONEXP} script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/refs/heads/main/SoulSing.js, timeout=120,tag=Soul金币签到,enable={SoulSing_DailyBonus}
-
 [MITM]
-hostname = app.bilibili.com, increase-openapi.soulapp.cn
+hostname = app.bilibili.com
