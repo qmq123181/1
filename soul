@@ -1,0 +1,59 @@
+[Argument]
+Soul_Cookie = switch,"false","true",tag=Soul账号捕获,desc=获取Cookie
+SoulSing_DailyBonus = switch,"false","true",tag=Soul金币签到,desc=每天自动完成Soul签到任务
+Soul_CRONEXP = input,"0 11 * * *",tag=Soul定时参数,desc=这里需要输入符合CRON表达式的参数
+chatPri = switch,"true",tag=私聊免礼,desc=开启/关闭功能
+picRead = switch,"true",tag=阅后即焚,desc=开启/关闭功能
+
+[Rewrite]
+# 广告下发
+^https:\/\/ssp\.soulapp\.cn\/api\/q reject-dict
+^https:\/\/47\.110\.187\.87\/winterfell\/(?:v2\/)?getIpByDomain reject-dict
+# 主页瞬间指导
+^https:\/\/post\.soulapp\.cn\/v\d\/post\/homepage\/guide\/card reject-dict
+# 去除青少年弹窗
+^https:\/\/api-account\.soulapp\.cn\/teenager\/config reject-dict
+# 谁看过我横幅广告
+^https:\/\/api-a\.soulapp\.cn\/official\/scene\/module reject-dict
+# 主页右下角悬浮广告
+^https:\/\/api-user\.soulapp\.cn\/furion\/position\/content reject-dict
+# 拒绝收集用户数据
+^https:\/\/data-collector\.soulapp\.cn\/api\/data\/report\/v2 reject-dict
+# 去除聊天界面再遇见
+^https:\/\/api-chat\.soulapp\.cn\/chat\/entrance\/first reject
+# 去除通讯录右下角机器人图标
+^https:\/\/api-chat\.soulapp\.cn\/addressBook\/showBubblingEnter reject
+# 去除首次私聊打开去除顶部聊天信息卡片
+^https:\/\/api-user\.soulapp\.cn\/user\/matchRelation\/getChatCard reject
+# 去除表情推荐
+^https:\/\/api-chat\.soulapp\.cn\/chat\/interact\/getEmojiList reject
+# 去除我的页面soul币活动推荐
+^https:\/\/increase-openapi\.soulapp\.cn\/increase\/fission\/getHomePageRedIcon reject
+# 去除首次私聊打开星球交汇小卡片
+^https:\/\/api-chat\.soulapp\.cn\/similar\/post\/intersect\/trigger reject
+# 去除首次打开私聊界面底部瞬间表情推荐
+^https:\/\/api-chat\.soulapp\.cn\/chat\/guide\/defaultWord reject
+# 去除聊天输入文字时的gif表情推荐
+^https:\/\/api-chat\.soulapp\.cn\/chat\/emoji\/recommend reject
+# 去除私聊瞬间小横幅
+^https:\/\/api-a\.soulapp\.cn\/shara\/app\/url reject
+# 私聊快捷菜单
+^https:\/\/api-chat\.soulapp\.cn\/chat\/quick\/menu reject
+# 私聊用户匹配推荐
+^https:\/\/api-chat\.soulapp\.cn\/chat\/session\/quickButtonCheck reject-dict
+# 派对体验反馈
+^https:\/\/chat-live\.soulapp\.cn\/live\/config\/rec-feedback reject-dict
+# 广场关注tab用户派对推荐
+^https:\/\/post\.soulapp\.cn\/post\/relationUser\/chatRooms reject-dict
+# 聊天页通讯录tab邀请好友回归横幅
+^https:\/\/increase-openapi\.soulapp\.cn\/increase\/dusting\/getAddressBookDustings reject-dict
+# 派对的关注tab隐藏猜我喜欢的派对
+^https:\/\/chat-live\.soulapp\.cn\/live\/queryRelevantList reject-dict
+# 主页ai描述推荐
+^https:\/\/api-user\.soulapp\.cn\/user\/desc\/getUserPersonalDesc reject-dict
+
+[Script]
+http-request ^https:\/\/increase-openapi\.soulapp\.cn\/increase\/sign\/userSign script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/refs/heads/main/SoulSing.js,timeout=60, tag=SoulCookie,enable={Soul_Cookie}
+cron {Soul_CRONEXP} script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/refs/heads/main/SoulSing.js, timeout=120,tag=Soul金币签到,enable={SoulSing_DailyBonus}
+http-response ^https:\/\/api-chat\.soulapp\.cn\/chat\/limitInfo script-path = https://klraw.pages.dev/kelv1n1n/script/refs/heads/main/js/soul.js?token=209863, requires-body=true, tag=去除私聊限制, enable={chatPri}
+http-response ^https:\/\/api-chat\.soulapp\.cn\/snapchat\/url script-path = https://klraw.pages.dev/kelv1n1n/script/refs/heads/main/js/soul.js?token=209863, requires-body=true, tag=私聊阅后即焚, enable={picRead}
