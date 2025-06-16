@@ -104,7 +104,7 @@ http-response https://www.pdreamer.com/aymyProd/api/getUserInfo script-path=http
 http-response ^https:\/\/medi\.dxzzy321\.top\/api\/rest\/commerce\/integrate\/vip\/perform script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/vivacut.js, requires-body=true, enable={vivacut}, tag=vivacut
 
 # WPS国际版净化 hostname = firebaseremoteconfig.googleapis.com
-http-response https://firebaseremoteconfig.googleapis.com/v1/projects/wps-ios-351108/namespaces/firebase:fetch?key=.*? script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Scripts/wps/WPS.js, requires-body=true, tag=WPS
+http-response ^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/wps-ios-351108\/namespaces\/firebase:fetch\?key=.*? script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Scripts/wps/WPS.js, requires-body=true, tag=WPS
 
 [MITM]
 hostname = api.adapty.io, *.duitang.com, lchttpapi.xczim.com, p.du.163.com, app.bilibili.com, isi.csan.*,notability.com, nicegram.cloud, *keep*,162.14.5.*,42.187.199.*,101.42.124.*, pc7dong.com, api.widgetisland.cn, widget.haoqimiao.net, rdp.duetdisplay.com, api.tipsoon.com, gs.gateway.gameley.cn, appraven.net, api.imem.app, carrotweather.herokuapp.com, www.pdreamer.com, medi.dxzzy321.top, firebaseremoteconfig.googleapis.com
