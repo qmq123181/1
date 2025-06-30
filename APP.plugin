@@ -27,6 +27,7 @@ iMe（一次性解锁）= switch, true, false, tag = iMe（一次性解锁）, d
 carrot（一年）= switch, true, false, tag = carrot（一年）, desc = 是否启用carrot（一年）
 让我喵喵 = switch, true, false, tag = 让我喵喵, desc = 是否启用让我喵喵
 vivacut = switch, true, false, tag = vivacut, desc = 是否启用vivacut
+熊猫睡眠 = switch, true, false, tag =  熊猫睡眠
 
 [Script]
 
@@ -102,5 +103,8 @@ http-response https://www.pdreamer.com/aymyProd/api/getUserInfo script-path=http
 # vivacut hostname = medi.dxzzy321.top
 http-response ^https:\/\/medi\.dxzzy321\.top\/api\/rest\/commerce\/integrate\/vip\/perform script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/vivacut.js, requires-body=true, enable={vivacut}, tag=vivacut
 
+# > 熊猫助眠&课程+会员解锁 hostname = sleep.navolove.com
+http-response ^https?:\/\/sleep.navolove.com\/api\/(refresh_user_info\?|get_ad_list).*$ script-path=https://raw.githubusercontent.com/WeiGiegie/666/main/xmsm.js, requires-body=true, enable={熊猫睡眠}, tag=xmsm
+
 [MITM]
-hostname = api.adapty.io, *.duitang.com, lchttpapi.xczim.com, p.du.163.com, app.bilibili.com, isi.csan.*,notability.com, nicegram.cloud, *keep*,162.14.5.*,42.187.199.*,101.42.124.*, pc7dong.com, api.widgetisland.cn, widget.haoqimiao.net, rdp.duetdisplay.com, api.tipsoon.com, gs.gateway.gameley.cn, appraven.net, api.imem.app, carrotweather.herokuapp.com, www.pdreamer.com, medi.dxzzy321.top
+hostname = api.adapty.io, *.duitang.com, lchttpapi.xczim.com, p.du.163.com, app.bilibili.com, isi.csan.*,notability.com, nicegram.cloud, *keep*,162.14.5.*,42.187.199.*,101.42.124.*, pc7dong.com, api.widgetisland.cn, widget.haoqimiao.net, rdp.duetdisplay.com, api.tipsoon.com, gs.gateway.gameley.cn, appraven.net, api.imem.app, carrotweather.herokuapp.com, www.pdreamer.com, medi.dxzzy321.top,sleep.navolove.com
