@@ -4,7 +4,6 @@
 #!date = 2025-3-25
 
 [Argument]
-Adapty-系列 = switch, true, false, tag = Adapty-系列, desc = 是否启用ddm的Adapty-系列
 西窗烛 = switch, true, false, tag = 西窗烛, desc = 是否启用西窗烛
 网易蜗牛阅读 = switch, true, false, tag = 网易蜗牛阅读, desc = 是否启用网易蜗牛阅读
 bilibili解锁画质 = switch, true, false, tag = bilibili解锁画质, desc = 是否启用bilibili解锁画质
@@ -17,16 +16,12 @@ widget island = switch, true, false, tag = widget island, desc = 是否启用wid
 fun widgets = switch, true, false, tag = fun widgets, desc = 是否启用fun widgets
 Duet = switch, true, false, tag = Duet, desc = 是否启用Duet
 简讯 = switch, true, false, tag = 简讯, desc = 是否启用简讯
-AppRaven = switch, true, false, tag = AppRaven, desc = 是否启用AppRaven
 # ntPlayer（一次性解锁） = switch, true, false, tag = ntPlayer（一次性解锁）, desc = 是否启用ntPlayer（一次性解锁）
 # Mico（一次性解锁） = switch, true, false, tag = Mico（一次性解锁）, desc = 是否启用Mico（一次性解锁）
 iMe（一次性解锁）= switch, true, false, tag = iMe（一次性解锁）, desc = 是否启用iMe（一次性解锁）
 carrot（一年）= switch, true, false, tag = carrot（一年）, desc = 是否启用carrot（一年）
 
 [Script]
-
-# Adapty-系列 hostname = api.adapty.io
-http-response ^https?:\/\/api\.adapty\.io\/api\/v\d\/sdk\/(analytics\/profiles|in-apps\/(apple\/receipt\/validate|purchase-containers)|purchase\/app-store) script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/adapty.js, requires-body=true, enable={Adapty-系列}, tag=adapty
 
 # 西窗烛 hostname = lchttpapi.xczim.com
 http-response ^https?:\/\/lchttpapi\.xczim\.com\/1.1\/users script-path=https://raw.githubusercontent.com/Guding88/Script/main/xichuangzhu.js, requires-body=true, enable={西窗烛}, tag=西窗烛
@@ -66,9 +61,6 @@ http-response https://rdp.duetdisplay.com/v1/users/validateReceipt script-path=h
 # 简讯 hostname = api.tipsoon.com
 http-response ^https://api\.tipsoon\.com/api/v1/user/info script-path=https://raw.githubusercontent.com/SheepFJ/Sheep/refs/heads/main/jianxun/vip.js, requires-body=true, enable={简讯}, tag=简讯
 
-# AppRaven hostname = appraven.net
-http-response ^https:\/\/appraven\.net\/appraven\/graphql script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/main/AppRaven.js, requires-body=true, enable={AppRaven}, tag=AppRaven解锁
-
 # ntPlayer（一次性解锁） hostname = api.revenuecat.com（未写入[MITM]）
 # http-response ^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) script-path=https://raw.githubusercontent.com/afengye/QX/main/ntPlayer.js, requires-body=true, enable={ntPlayer（一次性解锁）}, tag=ntPlayer
 # http-request ^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) script-path=https://raw.githubusercontent.com/afengye/QX/main/ntPlayer.js, requires-body=true, enable={ntPlayer（一次性解锁）}, tag=ntPlayer
@@ -83,4 +75,4 @@ http-response ^https:\/\/api\.imem\.app\/api\/premium\/getOwnStatus script-path=
 http-response https://carrotweather.herokuapp.com/parse/functions/findSubscriptionsForUserId script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/main/carrot.js, requires-body=true, enable={carrot（一年）}, tag=carrot
 
 [MITM]
-hostname = api.adapty.io, lchttpapi.xczim.com, p.du.163.com, app.bilibili.com, isi.csan.*,notability.com, nicegram.cloud, *keep*,162.14.5.*,42.187.199.*,101.42.124.*, pc7dong.com, api.widgetisland.cn, widget.haoqimiao.net, rdp.duetdisplay.com, api.tipsoon.com, appraven.net, api.imem.app, carrotweather.herokuapp.com
+hostname = lchttpapi.xczim.com, p.du.163.com, app.bilibili.com, isi.csan.*,notability.com, nicegram.cloud, *keep*,162.14.5.*,42.187.199.*,101.42.124.*, pc7dong.com, api.widgetisland.cn, widget.haoqimiao.net, rdp.duetdisplay.com, api.tipsoon.com, api.imem.app, carrotweather.herokuapp.com
