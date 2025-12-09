@@ -8,7 +8,6 @@
 网易蜗牛阅读 = switch, true, false, tag = 网易蜗牛阅读, desc = 是否启用网易蜗牛阅读
 bilibili解锁画质 = switch, true, false, tag = bilibili解锁画质, desc = 是否启用bilibili解锁画质
 #Notability（一次性解锁） = switch, true, false, tag = Notability（一次性解锁）, desc = 是否启用Notability（一次性解锁）
-Nicegram 1.5.6 解锁会员 = switch, true, false, tag = Nicegram 1.5.6 解锁会员, desc = 是否启用Nicegram 1.5.6 解锁会员
 Keep = switch, true, false, tag = Keep, desc = 是否启用Keep
 7动 = switch, true, false, tag = 7动, desc = 是否启用7动
 widget island = switch, true, false, tag = widget island, desc = 是否启用widget island
@@ -33,9 +32,6 @@ http-response ^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo\? script-pa
 
 # Notability（一次性解锁） hostname = notability.com（未写入[MITM]）
 #http-response https://notability.com/global script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/refs/heads/main/Not.js, requires-body=true, enable={Notability（一次性解锁）}, tag=Notability
-
-# Nicegram 1.5.6 Pro hostname = nicegram.cloud
-http-response ^https?:\/\/nicegram\.cloud\/api\/v\d\/(ai-assistant\/purchase-list|user\/info|telegram\/auth) script-path=https://github.com/ddgksf2013/MoYu/raw/master/NicegramProCrack.js, requires-body=true, enable={Nicegram 1.5.6 解锁会员}, tag=Nicegram 1.5.6 解锁会员（下载视频用）
 
 # Keep hostname = *keep*,162.14.5.*,42.187.199.*,101.42.124.*
 http-response ^https?:\/\/(api|kit).gotokeep\.com\/(nuocha|gerudo|athena|nuocha\/plans|suit\/v5\/smart|kprime\/v4\/suit\/sales)\/ script-path=https://raw.githubusercontent.com/WeiGiegie/666/main/keep.js, requires-body=true, enable={Keep}, tag=Keep
@@ -69,4 +65,4 @@ http-response ^https:\/\/api\.imem\.app\/api\/premium\/getOwnStatus script-path=
 http-response https://carrotweather.herokuapp.com/parse/functions/findSubscriptionsForUserId script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/main/carrot.js, requires-body=true, enable={carrot（一年）}, tag=carrot
 
 [MITM]
-hostname = lchttpapi.xczim.com, p.du.163.com, app.bilibili.com, nicegram.cloud, *keep*,162.14.5.*,42.187.199.*,101.42.124.*, pc7dong.com, api.widgetisland.cn, widget.haoqimiao.net, rdp.duetdisplay.com, api.tipsoon.com, api.imem.app, carrotweather.herokuapp.com
+hostname = lchttpapi.xczim.com, p.du.163.com, app.bilibili.com, *keep*,162.14.5.*,42.187.199.*,101.42.124.*, pc7dong.com, api.widgetisland.cn, widget.haoqimiao.net, rdp.duetdisplay.com, api.tipsoon.com, api.imem.app, carrotweather.herokuapp.com
