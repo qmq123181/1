@@ -1,4 +1,4 @@
 [Rewrite]
 (https:\/\/)?t\.me\/(.+) 302 turrit://resolve?domain=$2
 [MITM]
-t.me
+hostname=t.me
