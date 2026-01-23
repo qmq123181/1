@@ -7,17 +7,15 @@
 西窗烛 = switch, true, false, tag = 西窗烛, desc = 是否启用西窗烛
 网易蜗牛阅读 = switch, true, false, tag = 网易蜗牛阅读, desc = 是否启用网易蜗牛阅读
 bilibili解锁画质 = switch, true, false, tag = bilibili解锁画质, desc = 是否启用bilibili解锁画质
-#Notability（一次性解锁） = switch, true, false, tag = Notability（一次性解锁）, desc = 是否启用Notability（一次性解锁）
+# Notability（一次性解锁） = switch, true, false, tag = Notability（一次性解锁）, desc = 是否启用Notability（一次性解锁）
 Keep = switch, true, false, tag = Keep, desc = 是否启用Keep
 7动 = switch, true, false, tag = 7动, desc = 是否启用7动
-widget island = switch, true, false, tag = widget island, desc = 是否启用widget island
-fun widgets = switch, true, false, tag = fun widgets, desc = 是否启用fun widgets
-Duet = switch, true, false, tag = Duet, desc = 是否启用Duet
+# Duet = switch, true, false, tag = Duet, desc = 是否启用Duet
 简讯 = switch, true, false, tag = 简讯, desc = 是否启用简讯
 # ntPlayer（一次性解锁） = switch, true, false, tag = ntPlayer（一次性解锁）, desc = 是否启用ntPlayer（一次性解锁）
 # Mico（一次性解锁） = switch, true, false, tag = Mico（一次性解锁）, desc = 是否启用Mico（一次性解锁）
-iMe（一次性解锁）= switch, true, false, tag = iMe（一次性解锁）, desc = 是否启用iMe（一次性解锁）
-carrot（一年）= switch, true, false, tag = carrot（一年）, desc = 是否启用carrot（一年）
+# iMe（一次性解锁）= switch, true, false, tag = iMe（一次性解锁）, desc = 是否启用iMe（一次性解锁）
+# carrot（一年）= switch, true, false, tag = carrot（一年）, desc = 是否启用carrot（一年）
 
 [Script]
 
@@ -30,13 +28,6 @@ http-response ^https?:\/\/p\.du\.163\.com\/gain\/readtime\/info\.json script-pat
 # Bilibili 1080P hostname = app.bilibili.com
 http-response ^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo\? script-path=https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js, requires-body=true, enable={bilibili解锁画质}, tag=bilibili解锁画质
 
-# 解锁GoodNotes&Notability内购会员 hostname = isi.csan.*, notability.com
-http-response ^https:\/\/isi\.csan.[a-z.]+\/.+\/(receipts$|subscribers\/[^/]+$) script-path=https://gist.githubusercontent.com/ddgksf2013/980624ef4722ee4ca805a74dc61ca9a3/raw/Goodbility.Vip.js, requires-body=true
-
-http-response ^https:\/\/isi\.csan.[a-z.]+\/.+\/(receipts|subscribers) script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/deleteHeader.js, requires-body=true
-
-http-response ^https?:\/\/notability\.com\/global script-path=https://gist.githubusercontent.com/ddgksf2013/980624ef4722ee4ca805a74dc61ca9a3/raw/Goodbility.Vip.js, requires-body=true
-
 # Notability（一次性解锁） hostname = notability.com（未写入[MITM]）
 #http-response https://notability.com/global script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/refs/heads/main/Not.js, requires-body=true, enable={Notability（一次性解锁）}, tag=Notability
 
@@ -46,14 +37,8 @@ http-response ^https?:\/\/(api|kit).gotokeep\.com\/(nuocha|gerudo|athena|nuocha\
 # 7动 hostname = pc7dong.com
 http-response ^https?:\/\/pc7dong.com\/seveng.+api\/ script-path=https://raw.githubusercontent.com/WeiGiegie/666/main/7dong.js, requires-body=true, enable={7动}, tag=7动
 
-# widget island hostname = api.widgetisland.cn
-http-response ^https:\/\/api\.widgetisland\.cn\/app\/ios\/vip\/info(.?)+ script-path=https://raw.githubusercontent.com/afengye/QX/main/zjd.js, requires-body=true, enable={widget island}, tag=widget island
-
-# fun widgets hostname = widget.haoqimiao.net
-http-response ^https:\/\/widget\.haoqimiao\.net\/api\/user\/info script-path=https://raw.githubusercontent.com/afengye/QX/main/fwxzj.js, requires-body=true, enable={fun widgets}, tag=fun widgets
-
-# Duet hostname = rdp.duetdisplay.com
-http-response https://rdp.duetdisplay.com/v1/users/validateReceipt script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/refs/heads/main/DuetDisplay.js, requires-body=true, enable={Duet}, tag=Duet
+# Duet hostname = rdp.duetdisplay.com（未写入[MITM]）
+#http-response https://rdp.duetdisplay.com/v1/users/validateReceipt script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/refs/heads/main/DuetDisplay.js, requires-body=true, enable={Duet}, tag=Duet
 
 # 简讯 hostname = api.tipsoon.com
 http-response ^https://api\.tipsoon\.com/api/v1/user/info script-path=https://raw.githubusercontent.com/SheepFJ/Sheep/refs/heads/main/jianxun/vip.js, requires-body=true, enable={简讯}, tag=简讯
@@ -65,11 +50,11 @@ http-response ^https://api\.tipsoon\.com/api/v1/user/info script-path=https://ra
 # Mico（一次性解锁） hostname = buy.itunes.apple.com（未写入[MITM]）
 # http-response ^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/main/itunes/wkmusic.js, requires-body=true, enable={Mico（一次性解锁）}, tag=wkmusic
 
-# iMe hostname = api.imem.app
-http-response ^https:\/\/api\.imem\.app\/api\/premium\/getOwnStatus script-path=https://raw.githubusercontent.com/Mike-offers/Rewrite/refs/heads/master/QuantumultX/iMe.js, requires-body=true, enable={iMe（一次性解锁）}, tag=iMe
+# iMe hostname = api.imem.app（未写入[MITM]）
+#http-response ^https:\/\/api\.imem\.app\/api\/premium\/getOwnStatus script-path=https://raw.githubusercontent.com/Mike-offers/Rewrite/refs/heads/master/QuantumultX/iMe.js, requires-body=true, enable={iMe（一次性解锁）}, tag=iMe
 
-# carrot hostname = carrotweather.herokuapp.com
-http-response https://carrotweather.herokuapp.com/parse/functions/findSubscriptionsForUserId script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/main/carrot.js, requires-body=true, enable={carrot（一年）}, tag=carrot
+# carrot hostname = carrotweather.herokuapp.com（未写入[MITM]）
+#http-response https://carrotweather.herokuapp.com/parse/functions/findSubscriptionsForUserId script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/main/carrot.js, requires-body=true, enable={carrot（一年）}, tag=carrot
 
 [MITM]
-hostname = lchttpapi.xczim.com, p.du.163.com, app.bilibili.com,isi.csan.*, notability.com, *keep*,162.14.5.*,42.187.199.*,101.42.124.*, pc7dong.com, api.widgetisland.cn, widget.haoqimiao.net, rdp.duetdisplay.com, api.tipsoon.com, api.imem.app, carrotweather.herokuapp.com
+hostname = lchttpapi.xczim.com, p.du.163.com, app.bilibili.com, *keep*,162.14.5.*,42.187.199.*,101.42.124.*, pc7dong.com, api.tipsoon.com
