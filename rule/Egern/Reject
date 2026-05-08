@@ -1,0 +1,11 @@
+#屏蔽ios更新
+DOMAIN,updates-http.cdn-apple.com
+DOMAIN,gdmf.apple.com
+DOMAIN,mesu.apple.com
+#NB助手
+DOMAIN,api-dsp.8ziben.com
+DOMAIN,sdk.zhangyuyidong.cn
+DOMAIN,open.e.kuaishou.cn
+DOMAIN,v66-ad.ndcjl.com
+DOMAIN-SUFFIX,yximgs.com
+DOMAIN-SUFFIX,adkwai.com
