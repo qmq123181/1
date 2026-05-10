@@ -12,7 +12,7 @@ Strategy = select, "auto", "lifetime_sub", "year", "month", "all", tag=注入策
 
 [Script]
 http-response ^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt script-path=https://reven.jsforbaby.workers.dev/reven/loon-itunes.js, requires-body=true, tag=iTunes转发, argument=[{Enabled},{Expires},{Country}]
-http-response ^https:\/\/(api\.revenuecat\.com|api\.rc-backup\.com|rc\.visionarytech\.ltd|revenue\.cuto\.app|proxy\.linearity\.io|subscriptions-api\.superwall\.com|api\.adapty\.io)\/ script-path=https://reven.jsforbaby.workers.dev/reven/loon-redirect.js, requires-body=true, timeout=20, tag=Reven转发, argument=[{Bypass},{Strategy}]
+http-request ^https:\/\/(api\.revenuecat\.com|api\.rc-backup\.com|rc\.visionarytech\.ltd|revenue\.cuto\.app|proxy\.linearity\.io|subscriptions-api\.superwall\.com|api\.adapty\.io)\/ script-path=https://reven.jsforbaby.workers.dev/reven/loon-redirect.js, requires-body=true, timeout=20, tag=Reven转发, argument=[{Bypass},{Strategy}]
 [Mitm]
 hostname = buy.itunes.apple.com, api.revenuecat.com, api.rc-backup.com, rc.visionarytech.ltd, revenue.cuto.app, proxy.linearity.io, subscriptions-api.superwall.com, api.adapty.io
 
