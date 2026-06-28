@@ -9,3 +9,8 @@ DOMAIN,open.e.kuaishou.cn
 DOMAIN,v66-ad.ndcjl.com
 DOMAIN-SUFFIX,yximgs.com
 DOMAIN-SUFFIX,adkwai.com
+#tt语音监测
+IP-CIDR,49.233.154.22/32
+IP-CIDR,124.70.20.26/32
+DOMAIN-KEYWORD,coolzcloud
+DOMAIN,loc.map.baidu.com
