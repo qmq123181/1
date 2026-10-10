@@ -1,95 +1,78 @@
-[Argument]
-12306_script = switch, true, false, tag = 铁路12306
-555dy_script = switch, true, false, tag = 555电影
-alibaba_enable = switch, true, false, tag = 阿里巴巴
-baidutieba_enable = switch, true, false, tag = 百度贴吧
-cainiao_enable = switch, true, false, tag = 菜鸟裹裹
-didi_enable = switch, true, false, tag = 滴滴出行
-jingdong_enable = switch, true, false, tag = 京东
-keep_enable = switch, true, false, tag = Keep
-kuaishou_enable = switch, true, false, tag = 快手
-quark_enable = switch, true, false, tag = 夸克
-kuwomusic_enable = switch, true, false, tag = 酷我音乐
-adnetwork_enable = switch, true, false, tag = 广告联盟
-kuan_enable = switch, true, false, tag = 酷安
-taobao_enable = switch, true, false, tag = 淘宝
-xianyu_enable = switch, true, false, tag = 闲鱼
-
 [Script]
 # >>>>>>>>>>>>>>> ✅ 1 ✅ <<<<<<<<<<<<<<< #
 # 铁路12306 - ad.12306.cn
-http-request ^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList script-path = https://raw.githubusercontent.com/kokoryh/Script/master/js/12306.js, requires-body = true, enable={12306_script}, tag = 铁路12306
+http-request ^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList script-path = https://raw.githubusercontent.com/kokoryh/Script/master/js/12306.js, requires-body = true
 
 # >>>>>>>>>>>>>>> ✅ 5 ✅ <<<<<<<<<<<<<<< #
 # 555电影 - vip7.fzwdyy.cn, *.qyfxgd.cn, *.weilai555.com, *.ecoliving168.com
-http-response ^https?:\/\/[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+){1,3}(:\d+)?\/api\/v\d\/movie\/index_recommend script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/555Ad.js, requires-body = true, enable={555dy_script}, tag = 555电影
-http-response ^https:\/\/app-v1\.ecoliving168\.com\/api\/v1\/movie\/index_recommend\? script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/dianyinglieshou.js, requires-body = true, enable={555dy_script}, timeout = 60, tag = 555电影
+http-response ^https?:\/\/[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+){1,3}(:\d+)?\/api\/v\d\/movie\/index_recommend script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/555Ad.js, requires-body = true
+http-response ^https:\/\/app-v1\.ecoliving168\.com\/api\/v1\/movie\/index_recommend\? script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/dianyinglieshou.js, requires-body = true
 
 # >>>>>>>>>>>>>>> ✅ A ✅ <<<<<<<<<<<<<<< #
 # 阿里巴巴 - acs.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
-http-response ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.mshow script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cainiao/cainiao.js, requires-body = true, enable={alibaba_enable}, tag = 阿里巴巴
-http-response ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvideo\.video\.query|wireless\.home\.splash\.awesome\.get) script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/myBlockAds.js, requires-body = true, enable={alibaba_enable}, tag = 阿里巴巴
-http-response ^https:\/\/poplayer\.template\.alibaba\.com\/\w+\.json script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/myBlockAds.js, requires-body = true, enable={alibaba_enable}, tag = 阿里巴巴
+http-response ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.mshow script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cainiao/cainiao.js, requires-body = true
+http-response ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvideo\.video\.query|wireless\.home\.splash\.awesome\.get) script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/myBlockAds.js, requires-body = true
+http-response ^https:\/\/poplayer\.template\.alibaba\.com\/\w+\.json script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/myBlockAds.js, requires-body = true
 
 # >>>>>>>>>>>>>>> ✅ C ✅ <<<<<<<<<<<<<<< #
 # 菜鸟裹裹 - cn-acs.m.cainiao.com, amdc.m.taobao.com
-http-response ^https?:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch$ script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/header.js, requires-body = true, enable={cainiao_enable}, tag = 菜鸟裹裹
-http-response ^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.m?show\.cn script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cainiao/cainiao.js, requires-body = true, enable={cainiao_enable}, tag = 菜鸟裹裹
-http-response ^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.(pickup\.empty\.page|protocol\.homepage)\.get\.cn script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cainiao/cainiao.js, requires-body = true, enable={cainiao_enable}, tag = 菜鸟裹裹
-http-response ^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.nbfriend\.message\.conversation\.list\.cn script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cainiao/cainiao.js, requires-body = true, enable={cainiao_enable}, tag = 菜鸟裹裹
+http-response ^https?:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch$ script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/header.js, requires-body = true
+http-response ^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.m?show\.cn script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cainiao/cainiao.js, requires-body = true
+http-response ^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.(pickup\.empty\.page|protocol\.homepage)\.get\.cn script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cainiao/cainiao.js, requires-body = true
+http-response ^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.nbfriend\.message\.conversation\.list\.cn script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cainiao/cainiao.js, requires-body = true
 
 # >>>>>>>>>>>>>>> ✅ D ✅ <<<<<<<<<<<<<<< #
 # 滴滴出行 - res.xiaojukeji.com, common.diditaxi.com.cn, hd.xiaojukeji.com, freight.xiaojukeji.com, daijia.kuaidadi.com, ct.xiaojukeji.com, conf.diditaxi.com.cn
-http-response ^https?:\/\/ct\.xiaojukeji\.com\/agent\/v3\/feeds script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js, requires-body = true, enable={didi_enable}, tag = 滴滴出行
-http-response ^https?:\/\/freight\.xiaojukeji\.com\/gateway script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js, requires-body = true, enable={didi_enable}, tag = 滴滴出行
-http-response ^https?:\/\/res\.xiaojukeji\.com\/resapi\/activity\/xpget script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js, requires-body = true, enable={didi_enable}, tag = 滴滴出行
-http-response ^https?:\/\/res\.xiaojukeji\.com\/resapi\/activity\/mget script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js, requires-body = true, enable={didi_enable}, tag = 滴滴出行
-http-response ^https?:\/\/conf\.diditaxi\.com\.cn\/homepage\/v\d\/other\/fast script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js, requires-body = true, enable={didi_enable}, tag = 滴滴出行
-http-response ^https?:\/\/conf\.diditaxi\.com\.cn\/homepage\/v\d\/core script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js, requires-body = true, enable={didi_enable}, tag = 滴滴出行
-http-response ^https?:\/\/conf\.diditaxi\.com\.cn\/dynamic\/conf script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js, requires-body = true, enable={didi_enable}, tag = 滴滴出行
-http-response ^https?:\/\/common\.diditaxi\.com\.cn\/common\/v\d\/usercenter\/me script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js, requires-body = true, enable={didi_enable}, tag = 滴滴出行
-http-response ^https?:\/\/daijia\.kuaidadi\.com\/gateway script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js, requires-body = true, enable={didi_enable}, tag = 滴滴出行
-http-response ^https?:\/\/daijia\.kuaidadi\.com:443\/gateway script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js, requires-body = true, enable={didi_enable}, tag = 滴滴出行
-http-response ^https?:\/\/common\.diditaxi\.com\.cn\/common\/v5 script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js, requires-body = true, enable={didi_enable}, tag = 滴滴出行
+http-response ^https?:\/\/ct\.xiaojukeji\.com\/agent\/v3\/feeds script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js, requires-body = true
+http-response ^https?:\/\/freight\.xiaojukeji\.com\/gateway script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js, requires-body = true
+http-response ^https?:\/\/res\.xiaojukeji\.com\/resapi\/activity\/xpget script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js, requires-body = true
+http-response ^https?:\/\/res\.xiaojukeji\.com\/resapi\/activity\/mget script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js, requires-body = true
+http-response ^https?:\/\/conf\.diditaxi\.com\.cn\/homepage\/v\d\/other\/fast script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js, requires-body = true
+http-response ^https?:\/\/conf\.diditaxi\.com\.cn\/homepage\/v\d\/core script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js, requires-body = true
+http-response ^https?:\/\/conf\.diditaxi\.com\.cn\/dynamic\/conf script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js, requires-body = true
+http-response ^https?:\/\/common\.diditaxi\.com\.cn\/common\/v\d\/usercenter\/me script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js, requires-body = true
+http-response ^https?:\/\/daijia\.kuaidadi\.com\/gateway script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js, requires-body = true
+http-response ^https?:\/\/daijia\.kuaidadi\.com:443\/gateway script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js, requires-body = true
+http-response ^https?:\/\/common\.diditaxi\.com\.cn\/common\/v5 script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js, requires-body = true
 
 # >>>>>>>>>>>>>>> ✅ J ✅ <<<<<<<<<<<<<<< #
 # 京东 - api.m.jd.com, dns.jd.com
-http-response ^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(deliverLayer|getTabHomeInfo|myOrderInfo|orderTrackBusiness|personinfoBusiness|start|welcomeHome) script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/jingdong/jingdong.js, requires-body = true, enable={jingdong_enable}, tag = 京东
+http-response ^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(deliverLayer|getTabHomeInfo|myOrderInfo|orderTrackBusiness|personinfoBusiness|start|welcomeHome) script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/jingdong/jingdong.js, requires-body = true
 
 # >>>>>>>>>>>>>>> ✅ K ✅ <<<<<<<<<<<<<<< #
 # Keep - api.gotokeep.com, kad.gotokeep.com, static1.keepcdn.com
-http-response ^https?:\/\/api\.gotokeep\.com\/athena\/v\d\/people\/my$ script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/keep.js, requires-body = true, enable={keep_enable}, tag = Keep
-http-response ^https?:\/\/api\.gotokeep\.com\/config\/v\d\/basic script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/keep.js, requires-body = true, enable={keep_enable}, tag = Keep
-http-response ^https?:\/\/api\.gotokeep\.com\/homepage\/v\d\/tab script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/keep.js, requires-body = true, enable={keep_enable}, tag = Keep
-http-response ^https?:\/\/api\.gotokeep\.com\/nuocha\/course\/v\d\/\w+\/preview script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/keep.js, requires-body = true, enable={keep_enable}, tag = Keep
-http-response ^https?:\/\/api\.gotokeep\.com\/sportpage\/sport\/v\d\/mysport script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/keep.js, requires-body = true, enable={keep_enable}, tag = Keep
+http-response ^https?:\/\/api\.gotokeep\.com\/athena\/v\d\/people\/my$ script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/keep.js, requires-body = true
+http-response ^https?:\/\/api\.gotokeep\.com\/config\/v\d\/basic script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/keep.js, requires-body = true
+http-response ^https?:\/\/api\.gotokeep\.com\/homepage\/v\d\/tab script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/keep.js, requires-body = true
+http-response ^https?:\/\/api\.gotokeep\.com\/nuocha\/course\/v\d\/\w+\/preview script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/keep.js, requires-body = true
+http-response ^https?:\/\/api\.gotokeep\.com\/sportpage\/sport\/v\d\/mysport script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/keep.js, requires-body = true
 
 # 快手 - open.e.kuaishou.com
-http-response ^https?:\/\/open\.e\.kuaishou\.com\/rest\/e\/v\d\/open\/univ$ script-path = https://raw.githubusercontent.com/app2smile/rules/master/js/adsense.js, requires-body = true, enable={kuaishou_enable}, tag = 快手
+http-response ^https?:\/\/open\.e\.kuaishou\.com\/rest\/e\/v\d\/open\/univ$ script-path = https://raw.githubusercontent.com/app2smile/rules/master/js/adsense.js, requires-body = true
 
 # 夸克 - open-cms-api.uc.cn, open-cms-api.quark.cn
-http-response ^https?:\/\/open-cms-api\.(uc|quark)\.cn\/open-cms script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/quark.js, requires-body = true, enable={quark_enable}, tag = 夸克
+http-response ^https?:\/\/open-cms-api\.(uc|quark)\.cn\/open-cms script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/quark.js, requires-body = true
 
 # 快手联盟,优量汇,穿山甲「广告联盟」 - api-access.pangolin-sdk-toutiao.com, mi.gdt.qq.com, open.e.kuaishou.com
-http-response ^https:\/\/(api-access\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk\/get_ads|open\.e\.kuaishou\.com\/rest\/e\/v3\/open\/univ$|mi\.gdt\.qq\.com\/gdt_mview\.fcg\?) script-path = https://raw.githubusercontent.com/app2smile/rules/master/js/adsense.js, requires-body = true, enable={adnetwork_enable}, tag = 广告联盟
+http-response ^https:\/\/(api-access\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk\/get_ads|open\.e\.kuaishou\.com\/rest\/e\/v3\/open\/univ$|mi\.gdt\.qq\.com\/gdt_mview\.fcg\?) script-path = https://raw.githubusercontent.com/app2smile/rules/master/js/adsense.js, requires-body = true
 
 # 酷安 - api.coolapk.com
-http-response ^https?:\/\/api\.coolapk\.com\/v6\/feed\/(detail|replyList)\? script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/coolapk.js, requires-body = true, enable={kuan_enable}, tag = 酷安
-http-response ^https?:\/\/api\.coolapk\.com\/v6\/main\/(dataList|indexV8|init) script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/coolapk.js, requires-body = true, enable={kuan_enable}, tag = 酷安
-http-response ^https?:\/\/api\.coolapk\.com\/v6\/page\/dataList\? script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/coolapk.js, requires-body = true, enable={kuan_enable}, tag = 酷安
+http-response ^https?:\/\/api\.coolapk\.com\/v6\/feed\/(detail|replyList)\? script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/coolapk.js, requires-body = true
+http-response ^https?:\/\/api\.coolapk\.com\/v6\/main\/(dataList|indexV8|init) script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/coolapk.js, requires-body = true
+http-response ^https?:\/\/api\.coolapk\.com\/v6\/page\/dataList\? script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/coolapk.js, requires-body = true
 
 # >>>>>>>>>>>>>>> ✅ T ✅ <<<<<<<<<<<<<<< #
 # 淘宝 - acs.m.taobao.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
-http-response ^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvideo\.video\.query|wireless\.home\.splash\.awesome\.get) script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/myBlockAds.js, requires-body = true, enable={taobao_enable}, tag = 淘宝
-http-response ^https?:\/\/poplayer\.template\.alibaba\.com\/\w+\.json script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/myBlockAds.js, requires-body = true, enable={taobao_enable}, tag = 淘宝
+http-response ^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvideo\.video\.query|wireless\.home\.splash\.awesome\.get) script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/myBlockAds.js, requires-body = true
+http-response ^https?:\/\/poplayer\.template\.alibaba\.com\/\w+\.json script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/myBlockAds.js, requires-body = true
 
 # >>>>>>>>>>>>>>> ✅ X ✅ <<<<<<<<<<<<<<< #
 # 闲鱼 - acs.m.goofish.com, g-acs.m.goofish.com, dinamicx.alibabausercontent.com
-http-response ^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.home\.whale\.modulet\/ script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/xianyu/xianyu_ads.js, requires-body = true, enable={xianyu_enable}, tag = 首页顶部标签
-http-response ^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.shade\/ script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/xianyu/xianyu_ads.js, requires-body = true, enable={xianyu_enable}, tag = 搜索栏填充词
-http-response ^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.user\.strategy\.list\/ script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/xianyu/xianyu_ads.js, requires-body = true, enable={xianyu_enable}, tag = 首页闲鱼币入口、底部发布球
-http-response ^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.nextfresh\/ script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/xianyu/xianyu_ads.js, requires-body = true, enable={xianyu_enable}, tag = 商品信息流广告
-http-response ^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.home\/ script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/xianyu/xianyu_ads.js, requires-body = true, enable={xianyu_enable}, tag = 定位地区页面的信息流广告
+http-response ^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.home\.whale\.modulet\/ script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/xianyu/xianyu_ads.js, requires-body = true
+http-response ^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.shade\/ script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/xianyu/xianyu_ads.js, requires-body = true
+http-response ^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.user\.strategy\.list\/ script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/xianyu/xianyu_ads.js, requires-body = true
+http-response ^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.nextfresh\/ script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/xianyu/xianyu_ads.js, requires-body = true
+http-response ^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.home\/ script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/xianyu/xianyu_ads.js, requires-body = true
 
 [MitM]
 hostname = ad.12306.cn, vip7.fzwdyy.cn, *.qyfxgd.cn, *.weilai555.com, *.ecoliving168.com, acs.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, cn-acs.m.cainiao.com, amdc.m.taobao.com, res.xiaojukeji.com, common.diditaxi.com.cn, hd.xiaojukeji.com, freight.xiaojukeji.com, daijia.kuaidadi.com, ct.xiaojukeji.com, conf.diditaxi.com.cn,  api.m.jd.com, dns.jd.com,  api.gotokeep.com, kad.gotokeep.com, static1.keepcdn.com, open.e.kuaishou.com, open-cms-api.uc.cn, open-cms-api.quark.cn, api-access.pangolin-sdk-toutiao.com, mi.gdt.qq.com, api.coolapk.com, acs.m.taobao.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, acs.m.goofish.com, g-acs.m.goofish.com, dinamicx.alibabausercontent.com
