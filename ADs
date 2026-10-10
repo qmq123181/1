@@ -1,3 +1,7 @@
+#!name=ADs-规则
+#!desc=规则
+#!author=Machine
+
 # > 广告联盟
 # 若有问题自行设置白名单, REJECT
 DOMAIN-SUFFIX,miaozhen.com,REJECT
