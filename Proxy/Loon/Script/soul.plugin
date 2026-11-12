@@ -1,0 +1,17 @@
+#!icon = https://raw.githubusercontent.com/mist-whisper/Icon/master/App_icon/120px/Soul.png
+
+[Argument]
+Soul_Cookie = switch,"false","true",tag=Soul账号捕获,desc=获取Cookie
+SoulSing_DailyBonus = switch,"false","true",tag=Soul金币签到,desc=每天自动完成Soul签到任务
+Soul_CRONEXP = input,"0 11 * * *",tag=Soul定时参数,desc=这里需要输入符合CRON表达式的参数
+chatPri = switch,"true",tag=私聊免礼,desc=开启/关闭功能
+picRead = switch,"true",tag=阅后即焚,desc=开启/关闭功能
+
+[Script]
+http-request ^https:\/\/increase-openapi\.soulapp\.cn\/increase\/sign\/userSign script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/refs/heads/main/SoulSing.js,timeout=60, tag=SoulCookie,enable={Soul_Cookie}
+cron {Soul_CRONEXP} script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/refs/heads/main/SoulSing.js, timeout=120,tag=Soul金币签到,enable={SoulSing_DailyBonus}
+http-response ^https:\/\/api-chat\.soulapp\.cn\/chat\/limitInfo script-path = https://klraw.pages.dev/kelv1n1n/script/refs/heads/main/js/soul.js?token=209863, requires-body=true, tag=去除私聊限制, enable={chatPri}
+http-response ^https:\/\/api-chat\.soulapp\.cn\/snapchat\/url script-path = https://klraw.pages.dev/kelv1n1n/script/refs/heads/main/js/soul.js?token=209863, requires-body=true, tag=私聊阅后即焚, enable={picRead}
+
+[MITM]
+hostname = increase-openapi.soulapp.cn, api-chat.soulapp.cn
