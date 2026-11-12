@@ -1,0 +1,21 @@
+#!name=Manager Tools
+#!desc=重写及规则集转换 高级订阅管理工具和Boxjs管理工具合集。 使用前请在详情页面为［PROXY］项分配代理策略。
+
+[General]
+force-http-engine-hosts = %APPEND% script.hub, *.script.hub
+
+[Script]
+Script Hub: 前端 = type=http-request, pattern=^https?:\/\/script\.hub\/($|edit\/|reload), script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/script-hub-org_script-hub_script-hub.js, timeout=300
+Script Hub: 重写转换 = type=http-request, pattern=^https?:\/\/script\.hub\/file\/_start_\/.+type=(?:qx-rewrite|surge-module|loon-plugin|all-module), script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/script-hub-org_script-hub_rewrite-parser.js, timeout=300
+Script Hub: 规则集转换 = type=http-request, pattern=^https?:\/\/script\.hub\/file\/_start_\/.+type=rule-set, script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/script-hub-org_script-hub_rule-parser.js, timeout=300
+Script Hub: 脚本转换 = type=http-request, pattern=^https?:\/\/script\.hub\/convert\/, script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/script-hub-org_script-hub_script-converter.js, timeout=300
+Sub-Store Core = type=http-request, pattern=^https?:\/\/sub\.store\/((download)|api\/(preview|sync|(utils\/node-info))), script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/sub-store-org_sub-store_sub-store-1.min.js, requires-body=true, timeout=120
+Sub-Store Simple = type=http-request, pattern=^https?:\/\/sub\.store, script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/sub-store-org_sub-store_sub-store-0.min.js, requires-body=true, timeout=120
+Sub-Store Sync = type=cron, cronexp=55 23 * * *, script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/sub-store-org_sub-store_cron-sync-artifacts.min.js, timeout=120
+BoxJs = type=http-request, pattern=^https?:\/\/(.+\.)?boxjs\.(com|net), script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/chavyleung_scripts_chavy.boxjs.js, requires-body=true, timeout=120
+
+[MITM]
+hostname = %APPEND% script.hub, *.script.hub, sub.store
+
+[Rule]
+
