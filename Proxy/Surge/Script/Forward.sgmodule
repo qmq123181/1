@@ -1,0 +1,11 @@
+#!name=Forward
+#!desc=解锁Forward Pro，适用于1.3.13及以下版本。
+
+[URL Rewrite]
+(?i)^https:\/\/fluxapi\.vvebo\.vip\/v1\/(purchase\/iap\/subscription) https://mock.forward1.workers.dev/forward/v1/$1 header
+
+[MITM]
+hostname = %APPEND% fluxapi.vvebo.vip
+
+[Rule]
+
