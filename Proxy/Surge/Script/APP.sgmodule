@@ -1,0 +1,13 @@
+#!name=APP
+#!desc=常用 App 会员与功能解锁合集（B 站画质已独立成 Bilibili_1080p 模块）
+
+[Script]
+西窗烛 = type=http-response, pattern=^https?:\/\/lchttpapi\.xczim\.com\/1.1\/users, script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/guding88_script_xichuangzhu.js, requires-body=true
+网易蜗牛阅读 = type=http-response, pattern=^https?:\/\/p\.du\.163\.com\/gain\/readtime\/info\.json, script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/deezertidal_private_wnds.js, requires-body=true
+Keep = type=http-response, pattern=^https?:\/\/(api|kit).gotokeep\.com\/(nuocha|gerudo|athena|nuocha\/plans|suit\/v5\/smart|kprime\/v4\/suit\/sales)\/, script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/weigiegie_666_keep.js, requires-body=true
+7动 = type=http-response, pattern=^https?:\/\/pc7dong.com\/seveng.+api\/, script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/weigiegie_666_7dong.js, requires-body=true
+Duet = type=http-response, pattern=https://rdp.duetdisplay.com/v1/users/validateReceipt, script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/yu9191_rewrite_duetdisplay.js, requires-body=true
+简讯 = type=http-response, pattern=^https://api\.tipsoon\.com/api/v1/user/info, script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/sheepfj_sheep_vip.js, requires-body=true
+
+[MITM]
+hostname = %APPEND% lchttpapi.xczim.com, p.du.163.com, *keep*, 162.14.5.*, 101.42.124.*, pc7dong.com, rdp.duetdisplay.com, api.tipsoon.com
