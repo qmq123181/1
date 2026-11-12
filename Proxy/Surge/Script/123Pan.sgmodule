@@ -1,0 +1,13 @@
+#!name=123云盘
+#!desc=过滤123云盘应用端及网页端广告，解除网页端流量1G下载限制（请单文件下载，不要文件夹或多文件下载）。
+
+[Map Local]
+(?i)^https:\/\/www\.123pan\.com\/api\/config\/get data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
+[Script]
+[123云盘]移除广告 = type=http-response, pattern=(?i)^https?:\/\/www\.123pan\.com\/s\/[0-9a-zA-Z=_\/-]+\.html, script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/ddgksf2013_scripts_123pan.js, requires-body=true, timeout=60
+[123云盘]解除下载限制 = type=http-request, pattern=(?i)^https?:\/\/www\.123pan\.com\/b\/api\/share\/download\/info, script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/ddgksf2013_scripts_123pan.js, timeout=60
+
+[MITM]
+hostname = %APPEND% www.123pan.com
+
