@@ -1,0 +1,36 @@
+#!name=网易云音乐
+#!desc=网易云音乐去广告与界面净化（评论区、主页、底部 Tab、发现页、我的页面）
+
+[Rule]
+DOMAIN,iadmat.nosdn.127.net,REJECT
+DOMAIN,iadmatapk.nosdn.127.net,REJECT
+DOMAIN,iadmusicmat.music.126.net,REJECT
+DOMAIN,iadmusicmatvideo.music.126.net,REJECT
+DOMAIN,ipv4.music.163.com,REJECT
+DOMAIN,ipv6.music.163.com,REJECT
+DOMAIN,iad.g.163.com,REJECT
+DOMAIN,iad.service.163.org,REJECT
+DOMAIN,bdlog.tanx.com,REJECT
+
+[Map Local]
+(?i)https?:\/\/interface\d?\.music\.163\.com\/x?e?api\/ad data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)https?:\/\/interface\d?\.music\.163\.com\/x?e?api\/sp\/flow\/popup data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)https?:\/\/interface\d?\.music\.163\.com\/x?e?api\/delivery\/(batch-deliver|deliver) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https?:\/\/interface\d?\.music\.163\.com\/e?api\/(ocpc\/)?ad\/ data-type=text data="{}" status-code=200 header="Content-Type:text/plain"
+(?i)^https?:\/\/interface\d?\.music\.163\.com\/eapi\/(?:delivery\/(batch-)?deliver|moment\/tab\/info\/|side-bar\/mini-program\/music-service\/account|yunbei\/account\/entrance\/) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https?:\/\/interface\d?\.music\.163\.com\/eapi\/(?:community\/friends\/fans-group\/artist\/group\/|mine\/applet\/redpoint|music\/songshare\/text\/recommend\/|resniche\/position\/play\/new\/|resniche\/tspopup\/show|resource\/comments?\/musiciansaid\/|user\/sub\/artist) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https?:\/\/interface\d?\.music\.163\.com\/eapi\/(?:ios\/version|mlivestream\/entrance\/playpage\/|link\/position\/show\/strategy|link\/scene\/show\/resource|v1\/content\/exposure\/comment\/banner\/) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https?:\/\/interface\d?\.music\.163\.com\/w?eapi\/(?:activity\/bonus\/playpage\/time\/query|resource-exposure\/|search\/(?:chart\/|rcmd\/keyword\/|specialkeyword\/)) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https?:\/\/interface\d?\.music\.163.com\/w?e?api\/search\/default data-type=text data="{}" status-code=200 header="Content-Type:text/plain"
+(?i)^https:\/\/interface\d\.music\.163\.com\/eapi\/my\/podcast\/tab\/recommend data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
+[Script]
+[网易云音乐]评论区 = type=http-response, pattern=(?i)^https?:\/\/(ipv4|interface\d?)\.music\.163\.com\/eapi\/(?:batch|v2\/resource\/comment\/floor\/get), script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/loon_103516_xyz_neteasemusic.ads.js, requires-body=true, binary-body-mode=true
+[网易云音乐]主页 = type=http-response, pattern=(?i)^https?:\/\/(ipv4|interface\d?)\.music\.163\.com\/eapi\/(?:homepage\/block\/page|link\/page\/rcmd\/(?:block\/resource\/multi\/refresh|resource\/show)), script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/loon_103516_xyz_neteasemusic.ads.js, requires-body=true, binary-body-mode=true, argument=PRGG="false"&PRRK="false"&PRDRD="false"&PRSCVPT="false"&PRST="false"&PRRR="false"&HMPR="false"&PRMST="false"&PRCN="false"
+[网易云音乐]底部Tab = type=http-response, pattern=(?i)^https?:\/\/(ipv4|interface\d?)\.music\.163\.com\/eapi\/link\/home\/framework\/tab, script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/loon_103516_xyz_neteasemusic.ads.js, requires-body=true, binary-body-mode=true, argument=MY="false"&DT="false"&FX="false"&GZ="false"
+[网易云音乐]发现页 = type=http-response, pattern=(?i)^https?:\/\/(ipv4|interface\d?)\.music\.163\.com\/eapi\/link\/page\/discovery\/resource\/show, script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/loon_103516_xyz_neteasemusic.ads.js, requires-body=true, binary-body-mode=true
+[网易云音乐]我的页面 = type=http-response, pattern=(?i)^https?:\/\/(ipv4|interface\d?)\.music\.163\.com\/eapi\/link\/position\/show\/resource, script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/loon_103516_xyz_neteasemusic.ads.js, requires-body=true, binary-body-mode=true
+[网易云音乐]显示未关注你的人 = type=http-response, pattern=(?i)^https?:\/\/(ipv4|interface\d?)\.music\.163\.com\/eapi\/user\/follow\/users\/mixed\/get, script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/loon_103516_xyz_neteasemusic.ads.js, requires-body=true, binary-body-mode=true
+
+[MITM]
+hostname = %APPEND% interface*.music.163.com, ipv4.music.163.com
