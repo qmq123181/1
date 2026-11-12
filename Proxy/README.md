@@ -14,15 +14,15 @@
 
 ## 目录结构
 
-| 路径 | 用途 | 文件数 |
-|---|---|---|
-| `Proxy/Surge/Script/` | Surge 模块（`.sgmodule`） | 53 |
-| `Proxy/Surge/Rule/` | Surge 规则集 | 3 |
-| `Proxy/Surge/LINKS.md` | 模块安装链接直链汇总 | 1 |
-| `Proxy/Loon/Script/` | Loon 插件原文（`.plugin`） | 5 |
-| `Proxy/Egern/Rule/` | Egern 规则（`.list`） | 5 |
-| `Proxy/QX/`、`Proxy/Shadowrocket/` | 预留目录 | 0 |
-| `copy/js/` | 上游脚本镜像，模块直接引用 | 80 |
+| 路径 | 用途 |
+|---|---|
+| `Proxy/Surge/Script/` | Surge 模块（`.sgmodule`） |
+| `Proxy/Surge/Rule/` | Surge 规则集 |
+| `Proxy/Surge/LINKS.md` | 模块安装链接直链汇总 |
+| `Proxy/Loon/Script/` | Loon 插件原文（`.plugin`） |
+| `Proxy/Egern/Rule/` | Egern 规则（`.list`） |
+| `Proxy/QX/`、`Proxy/Shadowrocket/` | 预留目录 |
+| `copy/js/` | 上游脚本镜像，模块直接引用 |
 
 ## Surge 模块（53 个）
 
@@ -88,11 +88,11 @@
 
 ## 规则集
 
-| 文件 | 用途 | 大小 |
-|---|---|---|
-| `Proxy/Surge/Rule/Direct.list` | 直连域名清单 | 28.3 KB |
-| `Proxy/Surge/Rule/10007re.list` | 空占位 | 0 B |
-| `Proxy/Surge/Rule/Reject.list` | 空占位（拦截改用 `DOMAIN-SET` 外部规则集） | 0 B |
+| 文件 | 用途 |
+|---|---|
+| `Proxy/Surge/Rule/Direct.list` | 直连域名清单 |
+| `Proxy/Surge/Rule/10007re.list` | 空占位 |
+| `Proxy/Surge/Rule/Reject.list` | 空占位（拦截改用 `DOMAIN-SET` 外部规则集） |
 
 Egern 规则：`Emby.list`、`Proxy.list`、`Reject.list`、`Tiktok1.list`、`Youtube1.list`。
 
