@@ -1,0 +1,5 @@
+#!name=本机开发服务回环
+#!desc=旧版本地回环模块，功能已由 Surge 官方 Local Device Loopback 承担，仅保留旧链接兼容。
+
+[Host]
+
