@@ -10,7 +10,6 @@
 | Surge 规则集 | 3 个（`Direct.list` 有效，另 2 个为空占位） |
 | Egern 规则 | 5 个（`Proxy/Egern/Rule/`） |
 
-> **提交约定**：每个模块/脚本的 commit message 直接写它的用途（模块用 `#!desc`，脚本用下表用途），不写“改了什么”。这样 GitHub 文件列表的 Last commit message 就是一份用途索引，按列排序即可反查归属。
 
 ## 目录结构
 
@@ -25,8 +24,6 @@
 | `copy/js/` | 上游脚本镜像，模块直接引用 |
 
 ## Surge 模块（53 个）
-
-**安装顺序**：`BlockAdvertisers` 是所有去广告模块的依赖，必须排最前；`Block_HTTPDNS` 紧随其后；其余模块顺序无所谓（脚本按模块顺序注册，同类功能重叠时后装的覆盖先装的）。
 
 | 模块 | 用途（= `#!desc` / commit message） |
 |---|---|
@@ -98,7 +95,7 @@ Egern 规则：`Emby.list`、`Proxy.list`、`Reject.list`、`Tiktok1.list`、`Yo
 
 ## 脚本镜像 `copy/js/`（80 个）
 
-命名规则 `<上游owner>_<仓库名>_<原文件名>.js`。**只保留仍被模块引用的脚本**；未出现在下表的文件已在清理中删除（主要是原先 blockAds 按 App 拆分的那批）。
+命名规则 `<上游owner>_<仓库名>_<原文件名>.js`。
 
 | # | 脚本 | 用途 | 引用模块 |
 |---|---|---|---|
@@ -182,25 +179,6 @@ Egern 规则：`Emby.list`、`Proxy.list`、`Reject.list`、`Tiktok1.list`、`Yo
 | 78 | `zirawell_r-store_cotti.js` | 微信｜去广告、公众号 / 朋友圈 / 小程序净化 | 微信 |
 | 79 | `zirawell_r-store_foliday.js` | 微信｜脚本 | 微信 |
 | 80 | `zirawell_r-store_wechatapplet.js` | 微信｜去广告、公众号 / 朋友圈 / 小程序净化 | 微信 |
-
-## 模块维护约定
-
-1. **元数据只留两行**：`#!name`、`#!desc`。不带 `#!author`、`#!homepage`、`#!arguments`、`#!system`。
-2. **不写注释**。注释在 Surge 里会变成 `SGComment` 对象常驻内存（历史日志里 7 万条注释约占 4.4 MB），模块加载时这些对象纯属开销。
-3. **不用 `#!arguments` 与 `{{{}}}` 门控**。全部功能默认开启，要关就整行删掉或整个模块不勾选；需要调参的（如 `iTunes` 的 Expires、`wloc` 的坐标）直接把值写死在 `argument=` 里。
-4. **commit message = 该文件用途**（模块用 desc，脚本用上表用途），方便 Last commit message 当索引用。
-5. **新增脚本必须落到 `copy/js/`**，模块里只能引用本仓库 raw 地址，禁止指向上游。
-
-## 已移除与合并
-
-| 对象 | 处理 | 原因 |
-|---|---|---|
-| `blockAds.sgmodule` | 删除 | 241 KB 大合集，是内存爆掉的主要来源；域名拦截已由 `DOMAIN-SET` 外部规则集承担 |
-| `iTunes.sgmodule` / `reven.sgmodule` / `wloc.sgmodule` | 删除 | 开发者都有官方 Surge 模块，直接装官方版更可靠 |
-| `NeteaseMusic` 的会员功能 | 拆出 `NeteaseMusic_VIP` | 净化与解锁解耦，可按需只装一个 |
-| `APP` 的 B 站画质 | 拆出 `Bilibili_1080p` | 画质解锁可单独启停，不影响其他解锁 |
-| `reflec` | 保留 | 功能已由官方 `Local Device Loopback` 承担，仅为兼容旧链接 |
-| 95 个无引用脚本 | 删除 | 原属 blockAds / 已删模块，无任何模块引用 |
 
 ## 变更记录
 
