@@ -1,0 +1,29 @@
+#!name=京东
+#!desc=过滤京东广告；详情页嵌入历史比价表格图（首次需打开【慢慢买App-我的】提示 CK 获取成功）。
+
+[Rule]
+URL-REGEX,"^http:\/\/\w{32}\.jddebug\.com\/diagnose\?",REJECT
+
+[Body Rewrite]
+http-response (?i)^https?:\/\/api\.m\.jd\.com\/client\.action\?(?:[^#?&]+&)*functionId=lite_advertising "jdLiteAdvertisingVO" "sooyaaabo"
+http-response-jq (?i)^https:\/\/api\.m\.jd\.com\/client\.action\?(?:[^#?&]+&)*functionId=basicConfig 'if ((getpath(["data","JDMessage","socketmonitor"]) // {}) | has("isSocketEstablishedAhead")) then (setpath(["data","JDMessage","socketmonitor","isSocketEstablishedAhead"]; 0)) else . end'
+http-response-jq (?i)^https:\/\/api\.m\.jd\.com\/client\.action\?(?:[^#?&]+&)*functionId=basicConfig 'if ((getpath(["data","JDMessage","socketmonitor"]) // {}) | has("isSocketReport")) then (setpath(["data","JDMessage","socketmonitor","isSocketReport"]; 0)) else . end'
+http-response-jq (?i)^https:\/\/api\.m\.jd\.com\/client\.action\?(?:[^#?&]+&)*functionId=basicConfig 'if ((getpath(["data","JDHttpToolKit","httpdns"]) // {}) | has("httpdns")) then (setpath(["data","JDHttpToolKit","httpdns","httpdns"]; 0)) else . end'
+http-response-jq (?i)^https:\/\/api\.m\.jd\.com\/client\.action\?(?:[^#?&]+&)*functionId=cart 'delpaths([["cartLocationMap","loc_emptyCartFloor2"]])'
+http-response-jq (?i)^https:\/\/api\.m\.jd\.com\/client\.action\?(?:[^#?&]+&)*functionId=cart 'delpaths([["emptyCartRecommendFloor"]])'
+
+[Map Local]
+(?i)^https?:\/\/m\.360buyimg\.com\/mobilecms\/s1125x2436_jfs data-type=text data="" status-code=200
+(?i)^https?:\/\/api\.m\.jd\.com\/\?(?:[^#?&]+&)*loginType=11 data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https?:\/\/api\.m\.jd\.com\/client\.action\?(?:[^#?&]+&)*functionId=getWidgetV1052 data-type=text data="" status-code=404
+(?i)^https:\/\/api\.m\.jd\.com\/client\.action\?(?:[^#?&]+&)*functionId=(?:cartCouponRecommendGoods|intelligentRecommendSku|obtainGrowingInfo|recommendShop|searchBoxWord|stationPullService|uniformRecommend) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
+[Script]
+[京东]移除广告 = type=http-response, pattern=(?i)^https:\/\/api\.m\.jd\.com\/client\.action\?(?:[^#?&]+&)*functionId=(?:deliverLayer|getTabHomeInfo|myOrderInfo|orderTrackBusiness|personinfoBusiness|start|welcomeHome), script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/rucu6_pages_dev_jingdong.js, requires-body=true
+[京东]移除京东极速版广告 = type=http-response, pattern=(?i)^https:\/\/api\.m\.jd\.com\/client\.action\?(?:[^#?&]+&)*functionId=lite_advertising, script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/loon_103516_xyz_replace-body.js, requires-body=true, argument="jdLiteAdvertisingVO -> sooyaaabo"
+[京东比价]获取慢慢买Cookie = type=http-request, pattern=(?i)^https?:\/\/apapia-sqk-weblogic\.manmanbuy\.com\/baoliao\/center\/menu$, script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/mw418_loon_jd_price.js, requires-body=true, timeout=60
+[京东比价]详情嵌入版（表格图） = type=http-response, pattern=(?i)^https?:\/\/in\.m\.jd\.com\/product\/graphext\/\d+\.html, script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/wf021325_qx_jd_price.js, requires-body=true, timeout=60
+
+[MITM]
+hostname = %APPEND% api.m.jd.com, in.m.jd.com, apapia-sqk-weblogic.manmanbuy.com, m.360buyimg.com
+
