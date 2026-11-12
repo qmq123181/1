@@ -1,0 +1,9 @@
+#!name=local
+#!desc=小熊拦截｜本地自建规则合集
+
+[Map Local]
+^https://spamblocker-api.zeekstudio.com/profile data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https://spamblocker-api.zeekstudio.com/checkVersion data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
+[MITM]
+hostname = %APPEND% spamblocker-api.zeekstudio.com
