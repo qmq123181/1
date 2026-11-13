@@ -1,7 +1,7 @@
 #!name = App净化补充
 #!desc = 收录各 App 独有广告拦截与净化重写，按 App 开关
 
-[Argument]
+[ARGUMENT]
 soul_enable2 = switch,true,false,tag=Soul 净化
 zhihu_enable2 = switch,true,false,tag=知乎 净化
 goofish_enable = switch,true,false,tag=闲鱼 净化
@@ -18,417 +18,270 @@ bdwp_enable = switch,true,false,tag=百度网盘 净化
 p123_enable = switch,true,false,tag=123云盘 净化
 unicom_enable = switch,true,false,tag=中国联通 净化
 
-[Rule]
-DOMAIN-SUFFIX,soulapp.cn,DIRECT
-IP-CIDR,8.210.3.170/32,DIRECT,no-resolve
-IP-CIDR,47.75.72.47/32,DIRECT,no-resolve
-IP-CIDR,13.127.149.196/32,DIRECT,no-resolve
-IP-CIDR,52.194.158.59/32,DIRECT,no-resolve
-IP-CIDR,47.56.131.76/32,DIRECT,no-resolve
-IP-CIDR,3.0.163.78/32,DIRECT,no-resolve
-DOMAIN,ad-h5-cdn.soulapp.cn,REJECT
-DOMAIN,ad-h5-station-cdn.soulapp.cn,REJECT
-DOMAIN,ssp.soulapp.cn,REJECT
-DOMAIN,ssp.1rtb.com,REJECT
-DOMAIN,impdsp.meituan.com,REJECT
-IP-CIDR,47.97.215.55/32,REJECT,no-resolve
-IP-CIDR,47.99.42.29/32,REJECT,no-resolve
-IP-CIDR,47.110.187.87/32,REJECT,no-resolve
-IP-CIDR,47.243.147.125/32,REJECT,no-resolve
-IP-CIDR,120.27.235.201/32,REJECT,no-resolve
-IP-CIDR,121.196.197.147/32,REJECT,no-resolve
-DOMAIN,lens.zhihu.com,REJECT
-IP-CIDR,103.41.167.237/32,REJECT,no-resolve
-IP-CIDR,118.89.204.198/32,REJECT,no-resolve
-IP-CIDR,182.61.194.7/32,REJECT,no-resolve
-IP-CIDR6,2402:4e00:1200:ed00:0:9089:6dac:96b6/128,REJECT,no-resolve
-DOMAIN-SUFFIX,iyes.youku.com,REJECT
-AND, ((URL-REGEX, "^http:\/\/.+\/amdc\/mobileDispatch"), (USER-AGENT, "%E9%97%B2%E9%B1%BC*")), REJECT
-DOMAIN,as.xiaojukeji.com,REJECT
-DOMAIN,gwp.xiaojukeji.com,REJECT
-DOMAIN,gwpgz.diditaxi.com.cn,REJECT
-DOMAIN,adtrack.xiaojukeji.com,REJECT
-AND, ((IP-ASN, 45090, no-resolve), (DEST-PORT, 25641), (PROTOCOL, TCP)), REJECT
-AND, ((IP-ASN, 55990, no-resolve), (DEST-PORT, 25641), (PROTOCOL, TCP)), REJECT
-AND, ((IP-ASN, 63646, no-resolve), (DEST-PORT, 25641), (PROTOCOL, TCP)), REJECT
-IP-CIDR,113.46.225.8/32,REJECT,no-resolve
-IP-CIDR,113.46.225.9/32,REJECT,no-resolve
-IP-CIDR,116.85.1.17/32,REJECT,no-resolve
-IP-CIDR,116.85.1.22/32,REJECT,no-resolve
-IP-CIDR,116.85.2.15/32,REJECT,no-resolve
-IP-CIDR,116.85.3.25/32,REJECT,no-resolve
-IP-CIDR,116.85.3.37/32,REJECT,no-resolve
-IP-CIDR,120.234.72.27/32,REJECT,no-resolve
-IP-CIDR,120.241.142.11/32,REJECT,no-resolve
-IP-CIDR,120.241.142.12/32,REJECT,no-resolve
-IP-CIDR,120.241.142.13/32,REJECT,no-resolve
-IP-CIDR,120.241.142.16/32,REJECT,no-resolve
-IP-CIDR,120.241.142.17/32,REJECT,no-resolve
-IP-CIDR,120.241.142.18/32,REJECT,no-resolve
-IP-CIDR,120.241.142.19/32,REJECT,no-resolve
-IP-CIDR,120.241.143.6/32,REJECT,no-resolve
-IP-CIDR,120.241.143.9/32,REJECT,no-resolve
-IP-CIDR,120.241.143.11/32,REJECT,no-resolve
-IP-CIDR,120.241.143.12/32,REJECT,no-resolve
-IP-CIDR,120.241.143.18/32,REJECT,no-resolve
-IP-CIDR,120.241.143.19/32,REJECT,no-resolve
-IP-CIDR,120.241.143.129/32,REJECT,no-resolve
-IP-CIDR,120.241.143.131/32,REJECT,no-resolve
-IP-CIDR,120.241.143.132/32,REJECT,no-resolve
-IP-CIDR,120.241.143.133/32,REJECT,no-resolve
-IP-CIDR,123.207.209.39/32,REJECT,no-resolve
-IP-CIDR,123.207.209.60/32,REJECT,no-resolve
-IP-CIDR,139.199.240.12/32,REJECT,no-resolve
-IP-CIDR,139.199.240.15/32,REJECT,no-resolve
-IP-CIDR,139.199.244.6/32,REJECT,no-resolve
-IP-CIDR,139.199.244.7/32,REJECT,no-resolve
-IP-CIDR,157.122.213.3/32,REJECT,no-resolve
-IP-CIDR,157.255.76.17/32,REJECT,no-resolve
-IP-CIDR,157.255.76.19/32,REJECT,no-resolve
-IP-CIDR,162.14.157.2/32,REJECT,no-resolve
-IP-CIDR,162.14.157.24/32,REJECT,no-resolve
-AND, ((URL-REGEX, "^http:\/\/((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(http:\/\/[\d\.]+)?\/d4?\?"), (USER-AGENT, "*com.xunmeng.pinduoduo*")), REJECT
-AND, ((URL-REGEX, "^http:\/\/\[((([0-9A-Fa-f]{1, 4}:){7}([0-9A-Fa-f]{1, 4}|:))|(([0-9A-Fa-f]{1, 4}:){6}(:[0-9A-Fa-f]{1, 4}|((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1, 4}:){5}(((:[0-9A-Fa-f]{1, 4}){1, 2})|:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1, 4}:){4}(((:[0-9A-Fa-f]{1, 4}){1, 3})|((:[0-9A-Fa-f]{1, 4})?:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1, 4}:){3}(((:[0-9A-Fa-f]{1, 4}){1, 4})|((:[0-9A-Fa-f]{1, 4}){0, 2}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1, 4}:){2}(((:[0-9A-Fa-f]{1, 4}){1, 5})|((:[0-9A-Fa-f]{1, 4}){0, 3}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1, 4}:){1}(((:[0-9A-Fa-f]{1, 4}){1, 6})|((:[0-9A-Fa-f]{1, 4}){0, 4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1, 4}){1, 7})|((:[0-9A-Fa-f]{1, 4}){0, 5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))\](\/v\d+)?\/d\d?\??"), (USER-AGENT, "*com.xunmeng.pinduoduo*")), REJECT
-AND, ((DOMAIN, api.pinduoduo.com), (PROTOCOL, QUIC)), REJECT
-DOMAIN,sdk.1rtb.net,REJECT
-DOMAIN,ta-a.pinduoduo.com,REJECT
-DOMAIN,ta.pinduoduo.com,REJECT
-DOMAIN,th-a.pinduoduo.com,REJECT
-DOMAIN,th-b.pinduoduo.com,REJECT
-DOMAIN,th.pinduoduo.com,REJECT
-DOMAIN,titan.pinduoduo.com,REJECT
-IP-CIDR,121.5.84.85/32,REJECT
-IP-CIDR,183.194.214.21/32,REJECT
-IP-CIDR,49.235.102.190/32,REJECT
-IP-CIDR,81.69.116.33/32,REJECT
-IP-CIDR,183.194.214.20/32,REJECT
-IP-CIDR,117.185.244.145/32,REJECT
-IP-CIDR,183.194.214.14/32,REJECT
-AND, ((URL-REGEX, "^http:\/\/.+\/amdc\/mobileDispatch"), (USER-AGENT, "%E6%B7%98%E5%AE%9D*")), REJECT
-DOMAIN,h-adashx.ut.taobao.com,REJECT
-DOMAIN,ut.taobao.com,REJECT
-URL-REGEX,"^http:\/\/\w{32}\.jddebug\.com\/diagnose\?",REJECT
-DOMAIN,shark-mt.meituan.com,REJECT
-DOMAIN,shark-default.meituan.com,REJECT
-DOMAIN,shark-dp.meituan.com,REJECT
-DOMAIN,shark-ps.meituan.com,REJECT
-DOMAIN,shark-wm.sankuai.com,REJECT
-DOMAIN,shark.dianping.com,REJECT
-DOMAIN-WILDCARD,mquic-*.meituan.com,REJECT
-DOMAIN,httpdnsmultiapi.meituan.com,REJECT
-DOMAIN,httpdnsmultiapivip.meituan.com,REJECT
-DOMAIN,httpdns.meituan.com,REJECT
-DOMAIN,httpdnsvip.meituan.com,REJECT
-DOMAIN,dnspod.meituan.httpdns.qcloud.com,REJECT
-DOMAIN,dnspod.meituan.httpdns.start.qcloud.com,REJECT
-IP-CIDR,202.90.108.13/32,REJECT,no-resolve
-IP-CIDR,202.90.110.46/32,REJECT,no-resolve
-IP-CIDR,202.90.108.69/32,REJECT,no-resolve
-IP-CIDR,202.90.110.45/32,REJECT,no-resolve
-IP-CIDR,202.90.108.68/32,REJECT,no-resolve
-IP-CIDR,202.90.110.48/32,REJECT,no-resolve
-IP-CIDR,202.90.108.67/32,REJECT,no-resolve
-IP-CIDR,202.90.110.36/32,REJECT,no-resolve
-IP-CIDR,202.90.108.54/32,REJECT,no-resolve
-IP-CIDR,202.90.108.55/32,REJECT,no-resolve
-IP-CIDR,203.76.217.51/32,REJECT,no-resolve
-IP-CIDR,203.76.217.53/32,REJECT,no-resolve
-IP-CIDR,203.76.217.241/32,REJECT,no-resolve
-IP-CIDR,203.76.217.243/32,REJECT,no-resolve
-IP-CIDR,103.202.146.30/32,REJECT,no-resolve
-IP-CIDR,103.202.146.49/32,REJECT,no-resolve
-IP-CIDR,101.50.8.64/32,REJECT,no-resolve
-IP-CIDR,103.63.160.64/32,REJECT,no-resolve
-IP-CIDR,103.63.160.69/32,REJECT,no-resolve
-IP-CIDR,103.37.155.77/32,REJECT,no-resolve
-IP-CIDR,103.37.155.60/32,REJECT,no-resolve
-IP-CIDR,111.230.0.200/32,REJECT,no-resolve
-IP-CIDR,139.9.47.231/32,REJECT,no-resolve
-IP-CIDR,121.37.4.167/32,REJECT,no-resolve
-IP-CIDR,119.29.126.219/32,REJECT,no-resolve
-IP-CIDR,106.55.217.56/32,REJECT,no-resolve
-IP-CIDR,103.37.152.224/32,REJECT,no-resolve
-IP-CIDR,119.29.48.215/32,REJECT,no-resolve
-IP-CIDR,42.193.128.160/32,REJECT,no-resolve
-IP-CIDR6,2405:1480:3000:303b::303b/128,REJECT,no-resolve
-IP-CIDR6,2405:1480:1000:3::1e/128,REJECT,no-resolve
-IP-CIDR6,2405:1480:1000:4::15/128,REJECT,no-resolve
-IP-CIDR6,2402:4e00:40:40::2:373/128,REJECT,no-resolve
-URL-REGEX,"^http:\/\/103\.37\.155\.60\/fetch",REJECT
-DOMAIN,ad.12306.cn,DIRECT
-AND, ((URL-REGEX, "^http:\/\/.+\/amdc\/mobileDispatch"), (USER-AGENT, "AMapiPhone*")), REJECT
-DOMAIN,amap-aos-info-nogw.amap.com,REJECT
-DOMAIN,free-aos-cdn-image.amap.com,REJECT
-DOMAIN-SUFFIX,v.smtcdns.com,REJECT
-IP-CIDR,180.76.76.200/32,REJECT,no-resolve
-DOMAIN,ads-img-al.xhscdn.com,REJECT
-AND, ((PROTOCOL, QUIC), (OR, ((DOMAIN-SUFFIX, xiaohongshu.com), (DOMAIN-SUFFIX, rnote.com)))), REJECT
-DOMAIN,m1.ad.10010.com,REJECT
-
-[Rewrite]
-request if ${soul_enable2} == true && ${url} ~= /^https:\/\/chat-live\.soulapp\.cn\/live\/planet\/recListV2/i then reject(200)
-response if ${soul_enable2} == true && ${url} ~= /^https:\/\/(?:api-\w+|gateway-mobile-gray|post)\.soulapp\.cn\/(?:furion\/position\/content|hot\/soul\/rank|mobile\/app\/version\/queryIos|official\/scene\/module|teenager\/config|v2\/post\/gift\/list|v\d\/post\/homepage\/guide\/card)/i then response.json.delete("data")
-request if ${soul_enable2} == true && ${url} ~= /^https:\/\/ssp\.soulapp\.cn\/api\/q/i then reject_dict(200)
+[REWRITE]
+request if ${soul_enable2} == true && ${url} ~= /^https:\/\/chat-live\.soulapp\.cn\/live\/planet\/recListV2/i then reject(200), enable={soul_enable2}
+response if ${soul_enable2} == true && ${url} ~= /^https:\/\/(?:api-\w+|gateway-mobile-gray|post)\.soulapp\.cn\/(?:furion\/position\/content|hot\/soul\/rank|mobile\/app\/version\/queryIos|official\/scene\/module|teenager\/config|v2\/post\/gift\/list|v\d\/post\/homepage\/guide\/card)/i then response.json.delete("data"), enable={soul_enable2}
+request if ${soul_enable2} == true && ${url} ~= /^https:\/\/ssp\.soulapp\.cn\/api\/q/i then reject_dict(200), enable={soul_enable2}
 request if ${soul_enable2} == true && ${url} ~= /^https:\/\/47\.110\.187\.87\/winterfell\/(?:v2\/)?getIpByDomain/i then reject_dict(200)
-request if ${soul_enable2} == true && ${url} ~= /^https:\/\/post\.soulapp\.cn\/v\d\/post\/homepage\/guide\/card/i then reject_dict(200)
-request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-account\.soulapp\.cn\/teenager\/config/i then reject_dict(200)
-request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-a\.soulapp\.cn\/official\/scene\/module/i then reject_dict(200)
-request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-user\.soulapp\.cn\/furion\/position\/content/i then reject_dict(200)
-request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-chat\.soulapp\.cn\/addressBook\/showBubblingEnter/i then reject(404)
-request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-chat\.soulapp\.cn\/chat\/interact\/getEmojiList/i then reject(404)
-request if ${soul_enable2} == true && ${url} ~= /^https:\/\/increase-openapi\.soulapp\.cn\/increase\/fission\/getHomePageRedIcon/i then reject(404)
-request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-chat\.soulapp\.cn\/similar\/post\/intersect\/trigger/i then reject(404)
-request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-chat\.soulapp\.cn\/chat\/guide\/defaultWord/i then reject(404)
-request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-chat\.soulapp\.cn\/chat\/emoji\/recommend/i then reject(404)
-request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-a\.soulapp\.cn\/shara\/app\/url/i then reject(404)
-request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-chat\.soulapp\.cn\/chat\/quick\/menu/i then reject(404)
-request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-chat\.soulapp\.cn\/chat\/session\/quickButtonCheck/i then reject_dict(200)
-request if ${soul_enable2} == true && ${url} ~= /^https:\/\/chat-live\.soulapp\.cn\/live\/config\/rec-feedback/i then reject_dict(200)
-request if ${soul_enable2} == true && ${url} ~= /^https:\/\/post\.soulapp\.cn\/post\/relationUser\/chatRooms/i then reject_dict(200)
-request if ${soul_enable2} == true && ${url} ~= /^https:\/\/increase-openapi\.soulapp\.cn\/increase\/dusting\/getAddressBookDustings/i then reject_dict(200)
-request if ${soul_enable2} == true && ${url} ~= /^https:\/\/chat-live\.soulapp\.cn\/live\/queryRelevantList/i then reject_dict(200)
-request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-user\.soulapp\.cn\/user\/desc\/getUserPersonalDesc/i then reject_dict(200)
-request if ${soul_enable2} == true && ${url} ~= /^https:\/\/post\.soulapp\.cn\/v1\/post\/homepage\/ai\/assistant\/guide/i then reject_dict(200)
-request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-chat\.soulapp\.cn\/chatList\/limitAvatar\/entrance/i then reject_dict(200)
-request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-chat\.soulapp\.cn\/chatList\/top\/recommendList/i then reject_dict(200)
-request if ${soul_enable2} == true && ${url} ~= /^https:\/\/activity\.soulapp\.cn\/commercial\/room\/resources/i then reject_dict(200)
-request if ${soul_enable2} == true && ${url} ~= /^https:\/\/chat-live\.soulapp\.cn\/official\/scene\/module/i then reject_dict(200)
-response if ${soul_enable2} == true && ${url} ~= /^https:\/\/chat-live\.soulapp\.cn\/live\/queryFollowRoomList/i then response.json.jq(".data.recUserFeedList = []")
-response if ${soul_enable2} == true && ${url} ~= /^https:\/\/chat-live\.soulapp\.cn\/square\/relation\/guideUserList/i then response.json.jq(".data.userDTOList = []")
-response if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-user\.soulapp\.cn\/v6\/planet\/config/i then response.json.jq(".data.showRedMind = false | .data.showLuckyBag = false | .data.coreCards |= map(select(.type != 27))")
-response if ${soul_enable2} == true && ${url} ~= /^https:\/\/chat-live\.soulapp\.cn\/chatroom\/chatClassifyRoomList/i then response.json.jq(".data.positionContentRespList = []")
-response if ${soul_enable2} == true && ${url} ~= /^https:\/\/post\.soulapp\.cn\/homepage\/tabs\/v2/i then response.json.jq(".data.selectedTagPool = {} | .data.headTabDTOList |= map(select(.tabCode != \"STAR_TRAILS\"))")
-response if ${soul_enable2} == true && ${url} ~= /^https:\/\/chat-live\.soulapp\.cn\/chatroom\/getRoomTagInfo/i then response.json.jq(".data.res |= map(.iconConfig = null)")
-response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/m-cloud\.zhihu\.com\/api\/cloud\/zhihu\/config\/all\?/i then response.json.jq("def drop_keys: {\"km_httpdns_new_config_tars\":true,\"preFetchHttpDns\":true,\"httpdns_detector_use_concurrent\":true,\"httpdns_use_memory_cache\":true,\"httpdns_new_config_tars\":true,\"coreNetworkConf_useTars\":true,\"km_coreNetworkConf_useTars\":true,\"sugarQuicConfig\":true,\"quic_dns_detect_enable\":true,\"quicMixAB\":true,\"quic_downgrade_enable\":true,\"quic_priority_strategy\":true,\"quic_check_health_enable\":true,\"tquic_configuration\":true,\"networkExprimentList\":true,\"tars_ab_list\":true,\"zaSetExtraRequestHeader\":true}; .data.configs |= map(select((drop_keys[.configKey] // false) | not) | if (.configValue | type) == \"object\" then del(.configValue.delayHttpdns, .configValue.dnsParser, .configValue.HTTPDNS) else . end)")
-request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/ad-style-service\/request$/i then reject_dict(200)
-response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/root\/tab\/v\d(?:\?.+)?$/i then response.json.jq(".tab_list |= map(select(.tab_type == \"follow\" or .tab_type == \"recommend\" or .tab_type == \"hot\" or .tab_type == \"ring_tab\"))")
-response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/topstory\/recommend\?/i then response.json.jq(".data |= map(select(.type == \"ComponentCard\"))")
-request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/commercial_api\/banners_v\d\/app_float_corner\?/i then reject_dict(200)
-response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/questions\/\d+\/feeds\?/i then response.json.delete("ad_info")
-request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/next-render\?id=\d+&type=answer/i then reject_dict(200)
-response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/(api|page-info)(?:\.zhihu)?\.com\/answers\/v\d\/\d+(?:\?.*)?$/i then response.json.delete(["third_business", "float_search_word"])
-response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/(api|page-info)(?:\.zhihu)?\.com\/answers\/v\d\/\d+(?:\?.*)?$/i then response.json.jq(".structured_content.segments |= map(select(.type != \"card\"))")
-response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/topstory\/recommend\?/i then response.json.jq(".data[]?.children |= (if type == \"array\" then map(select(.id != \"ring\")) else . end)")
-response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/(articles|answers|pins)\/v\d\/\d+\?/i then response.json.delete(["third_business", "ring_info", "interaction_bar_plugins"])
-request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/commercial_api\/answer\/\d+\/bottom-v\d$/i then reject_dict(200)
-response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/podcasts\/hub\/v\d$/i then response.json.delete("banners")
-request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/search\/related_queries\/question\/\d+$/i then reject_dict(200)
-response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/search_v\d\?/i then response.json.delete("pendant")
-response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/search\/tabs\?/i then response.json.jq(".data |= map(select(.t | IN(\"general\", \"ai_zhida\", \"recent\", \"people\", \"zvideo\", \"ring\", \"topic\", \"podcast\", \"column\", \"pin\", \"favlist\")))")
-request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/zhida\.zhihu\.com\/ai_ingress\/knowledge\/square\/categories\/feeds\?categoryId=1%7D$/i then reject_dict(200)
-request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/zhida\.zhihu\.com\/ai_ingress\/ai_chat\/guidance$/i then reject_dict(200)
-request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/content-distribution-core\/bubble\/common\/show$/i then reject_dict(200)
-request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/www\.zhihu\.com\/api\/v\d\/members\/homepage_card$/i then reject_dict(200)
-request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/people\/homepage_entry_v\d$/i then reject_dict(200)
-request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/kvip\/right\/my_card\?/i then reject_dict(200)
-response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/people\/self$/i then response.json.delete(["vip_info.entrance_new.right_button", "vip_info.entrance_v2"])
-request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/unlimited\/go\/my_card\/v\d\?/i then reject_dict(200)
-request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/commercial_api\//i then reject_dict(200)
-response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/bazaar\/vip_tab\/header\?/i then response.json.delete(["activity_banner", "activity_window", "vip_tip"])
-request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/people\/homepage_entry_v2/i then reject_dict(200)
-request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/www\.zhihu\.com\/appview\/v3\/zhmore/i then reject(404)
-response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/search\/recommend_query\/v2\?/i then response.body.replace(/recommend_queries:\{.+\}/, "recommend_queries:{}")
-request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/www\.zhihu\.com\/api\/v4\/search\/clicked_recommendation\?/i then reject_dict(200)
-response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/comment_v5\/(answers|pins)\/\d+\/root_comment\?/i then response.json.delete("atmosphere_voting_config")
-request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/related_recommend\/feed\/waterfall\?/i then reject_dict(200)
-response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/questions\/\d+(?:\/answers|\/feeds|\?include=)/i then response.json.jq("del(.ad_info, .data.ad_info?, .query_info) | if (.data | type) == \"array\" then .data |= map(select(.target?.answer_type? // \"\" | tostring | contains(\"paid\") | not)) else . end")
-request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/link\.zhihu\.com\/\?target=(?:https?)?(?:%3A|:)?(?:\/\/|%2F%2F)?(.*)/i as urlMatch then redirect(302, "http://${urlMatch.1}")
-request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/www\.zhihu\.com\/api\/v4\/(?:answers|questions)\/\d+\/related-readings/i then reject_dict(200)
-request if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlecommerce\.splash\.ads\//i then reject_dict(200)
-response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.widget\.refresh\.get\//i then response.json.jq(".data.homeTopList = []")
-response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.home\.whale\.modulet\//i then response.json.jq(".data.container.sections |= map(select(.template.name == \"fish_home_miniapp\"))")
-response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.user\.strategy\.list\//i then response.json.jq("del(.data)")
-response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.fun\.follow\.feed\.list\//i then response.json.jq(".data.sections|=map(select(.cardType==2001))")
-response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.community\//i then response.json.jq(".data.feedsList |= map(select(.template.name == \"idlefish_home_new_commodity_card\" or .template.name == \"idlefish_home_new_content_card\"))")
-request if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.item\.recommend\.list\//i then reject_dict(200)
-response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.newitem\.page\//i then response.json.jq(".data.sections |= map(select(.data.clickParam.args.cardType as $ct | $ct != \"banner\" and $ct != \"mamaAD\"))")
-request if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.near\.by\.corner\.info\//i then reject_dict(200)
-request if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.home\.top\//i then reject_dict(200)
-request if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.item\.buy\.feeds\//i then reject_dict(200)
-response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.shade\//i then response.json.jq("del(.data)")
-response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.magic\.home\.page\.list\//i then response.json.delete("data.topList")
-request if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.item\.search\.activate\//i then reject_dict(200)
-response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.trade\.full\.info\//i then response.json.jq(".data.components |= map(select(.render != \"recommendTabVO\"))")
-request if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.idle\.trade\.item\.recommend\.render\//i then reject_dict(200)
-request if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.detailpage\.search\.shade\//i then reject_dict(200)
-request if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemessage\.user\.query\.top\.resource/i then reject_dict(200)
-request if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.item\.recommend\.tab/i then reject_dict(200)
-response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.group\.myself\.banner\//i then response.json.jq(".data.bannerList = []")
-response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.playboy\.recommend\/2\.0/i then response.json.jq(".data.recommends = [] | .data.items = [] | .data.next = false")
-response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.fun\.follow\.often\.visit\//i then response.json.jq(".data.sections = []")
-response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.circle\.myself\.banner\/1\.0/i then response.json.jq(".data.bannerList = []")
-response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.circle\.visited\/1\.0/i then response.json.jq(".data.visitedCircleList = []")
-response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.activate\.tablist\//i then response.json.jq(".data.tabList = []")
-response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.trade\.order\.render\//i then response.json.jq("del(.data.bottomBarVO.benefitPointAtmosphere) | .data.components |= map(select(.render != \"meanTimeBuyVO\"))")
-request if ${didi_enable} == true && ${url} ~= /^https:\/\/res\.xiaojukeji\.com\/resapi\/activity\/getMulti\?/i then reject_dict(200)
-request if ${didi_enable} == true && ${url} ~= /^https:\/\/res\.xiaojukeji\.com\/resapi\/activity\/xpget/i then reject_dict(200)
-request if ${didi_enable} == true && ${url} ~= /^https:\/\/freight\.xiaojukeji\.com\/gateway/i then reject_dict(200)
+request if ${soul_enable2} == true && ${url} ~= /^https:\/\/post\.soulapp\.cn\/v\d\/post\/homepage\/guide\/card/i then reject_dict(200), enable={soul_enable2}
+request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-account\.soulapp\.cn\/teenager\/config/i then reject_dict(200), enable={soul_enable2}
+request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-a\.soulapp\.cn\/official\/scene\/module/i then reject_dict(200), enable={soul_enable2}
+request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-user\.soulapp\.cn\/furion\/position\/content/i then reject_dict(200), enable={soul_enable2}
+request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-chat\.soulapp\.cn\/addressBook\/showBubblingEnter/i then reject(404), enable={soul_enable2}
+request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-chat\.soulapp\.cn\/chat\/interact\/getEmojiList/i then reject(404), enable={soul_enable2}
+request if ${soul_enable2} == true && ${url} ~= /^https:\/\/increase-openapi\.soulapp\.cn\/increase\/fission\/getHomePageRedIcon/i then reject(404), enable={soul_enable2}
+request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-chat\.soulapp\.cn\/similar\/post\/intersect\/trigger/i then reject(404), enable={soul_enable2}
+request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-chat\.soulapp\.cn\/chat\/guide\/defaultWord/i then reject(404), enable={soul_enable2}
+request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-chat\.soulapp\.cn\/chat\/emoji\/recommend/i then reject(404), enable={soul_enable2}
+request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-a\.soulapp\.cn\/shara\/app\/url/i then reject(404), enable={soul_enable2}
+request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-chat\.soulapp\.cn\/chat\/quick\/menu/i then reject(404), enable={soul_enable2}
+request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-chat\.soulapp\.cn\/chat\/session\/quickButtonCheck/i then reject_dict(200), enable={soul_enable2}
+request if ${soul_enable2} == true && ${url} ~= /^https:\/\/chat-live\.soulapp\.cn\/live\/config\/rec-feedback/i then reject_dict(200), enable={soul_enable2}
+request if ${soul_enable2} == true && ${url} ~= /^https:\/\/post\.soulapp\.cn\/post\/relationUser\/chatRooms/i then reject_dict(200), enable={soul_enable2}
+request if ${soul_enable2} == true && ${url} ~= /^https:\/\/increase-openapi\.soulapp\.cn\/increase\/dusting\/getAddressBookDustings/i then reject_dict(200), enable={soul_enable2}
+request if ${soul_enable2} == true && ${url} ~= /^https:\/\/chat-live\.soulapp\.cn\/live\/queryRelevantList/i then reject_dict(200), enable={soul_enable2}
+request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-user\.soulapp\.cn\/user\/desc\/getUserPersonalDesc/i then reject_dict(200), enable={soul_enable2}
+request if ${soul_enable2} == true && ${url} ~= /^https:\/\/post\.soulapp\.cn\/v1\/post\/homepage\/ai\/assistant\/guide/i then reject_dict(200), enable={soul_enable2}
+request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-chat\.soulapp\.cn\/chatList\/limitAvatar\/entrance/i then reject_dict(200), enable={soul_enable2}
+request if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-chat\.soulapp\.cn\/chatList\/top\/recommendList/i then reject_dict(200), enable={soul_enable2}
+request if ${soul_enable2} == true && ${url} ~= /^https:\/\/activity\.soulapp\.cn\/commercial\/room\/resources/i then reject_dict(200), enable={soul_enable2}
+request if ${soul_enable2} == true && ${url} ~= /^https:\/\/chat-live\.soulapp\.cn\/official\/scene\/module/i then reject_dict(200), enable={soul_enable2}
+response if ${soul_enable2} == true && ${url} ~= /^https:\/\/chat-live\.soulapp\.cn\/live\/queryFollowRoomList/i then response.json.jq(".data.recUserFeedList = []"), enable={soul_enable2}
+response if ${soul_enable2} == true && ${url} ~= /^https:\/\/chat-live\.soulapp\.cn\/square\/relation\/guideUserList/i then response.json.jq(".data.userDTOList = []"), enable={soul_enable2}
+response if ${soul_enable2} == true && ${url} ~= /^https:\/\/api-user\.soulapp\.cn\/v6\/planet\/config/i then response.json.jq(".data.showRedMind = false | .data.showLuckyBag = false | .data.coreCards |= map(select(.type != 27))"), enable={soul_enable2}
+response if ${soul_enable2} == true && ${url} ~= /^https:\/\/chat-live\.soulapp\.cn\/chatroom\/chatClassifyRoomList/i then response.json.jq(".data.positionContentRespList = []"), enable={soul_enable2}
+response if ${soul_enable2} == true && ${url} ~= /^https:\/\/post\.soulapp\.cn\/homepage\/tabs\/v2/i then response.json.jq(".data.selectedTagPool = {} | .data.headTabDTOList |= map(select(.tabCode != \"STAR_TRAILS\"))"), enable={soul_enable2}
+response if ${soul_enable2} == true && ${url} ~= /^https:\/\/chat-live\.soulapp\.cn\/chatroom\/getRoomTagInfo/i then response.json.jq(".data.res |= map(.iconConfig = null)"), enable={soul_enable2}
+response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/m-cloud\.zhihu\.com\/api\/cloud\/zhihu\/config\/all\?/i then response.json.jq("def drop_keys: {\"km_httpdns_new_config_tars\":true,\"preFetchHttpDns\":true,\"httpdns_detector_use_concurrent\":true,\"httpdns_use_memory_cache\":true,\"httpdns_new_config_tars\":true,\"coreNetworkConf_useTars\":true,\"km_coreNetworkConf_useTars\":true,\"sugarQuicConfig\":true,\"quic_dns_detect_enable\":true,\"quicMixAB\":true,\"quic_downgrade_enable\":true,\"quic_priority_strategy\":true,\"quic_check_health_enable\":true,\"tquic_configuration\":true,\"networkExprimentList\":true,\"tars_ab_list\":true,\"zaSetExtraRequestHeader\":true}; .data.configs |= map(select((drop_keys[.configKey] // false) | not) | if (.configValue | type) == \"object\" then del(.configValue.delayHttpdns, .configValue.dnsParser, .configValue.HTTPDNS) else . end)"), enable={zhihu_enable2}
+request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/ad-style-service\/request$/i then reject_dict(200), enable={zhihu_enable2}
+response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/root\/tab\/v\d(?:\?.+)?$/i then response.json.jq(".tab_list |= map(select(.tab_type == \"follow\" or .tab_type == \"recommend\" or .tab_type == \"hot\" or .tab_type == \"ring_tab\"))"), enable={zhihu_enable2}
+response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/topstory\/recommend\?/i then response.json.jq(".data |= map(select(.type == \"ComponentCard\"))"), enable={zhihu_enable2}
+request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/commercial_api\/banners_v\d\/app_float_corner\?/i then reject_dict(200), enable={zhihu_enable2}
+response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/questions\/\d+\/feeds\?/i then response.json.delete("ad_info"), enable={zhihu_enable2}
+request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/next-render\?id=\d+&type=answer/i then reject_dict(200), enable={zhihu_enable2}
+response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/(api|page-info)(?:\.zhihu)?\.com\/answers\/v\d\/\d+(?:\?.*)?$/i then response.json.delete(["third_business", "float_search_word"]), enable={zhihu_enable2}
+response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/(api|page-info)(?:\.zhihu)?\.com\/answers\/v\d\/\d+(?:\?.*)?$/i then response.json.jq(".structured_content.segments |= map(select(.type != \"card\"))"), enable={zhihu_enable2}
+response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/topstory\/recommend\?/i then response.json.jq(".data[]?.children |= (if type == \"array\" then map(select(.id != \"ring\")) else . end)"), enable={zhihu_enable2}
+response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/(articles|answers|pins)\/v\d\/\d+\?/i then response.json.delete(["third_business", "ring_info", "interaction_bar_plugins"]), enable={zhihu_enable2}
+request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/commercial_api\/answer\/\d+\/bottom-v\d$/i then reject_dict(200), enable={zhihu_enable2}
+response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/podcasts\/hub\/v\d$/i then response.json.delete("banners"), enable={zhihu_enable2}
+request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/search\/related_queries\/question\/\d+$/i then reject_dict(200), enable={zhihu_enable2}
+response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/search_v\d\?/i then response.json.delete("pendant"), enable={zhihu_enable2}
+response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/search\/tabs\?/i then response.json.jq(".data |= map(select(.t | IN(\"general\", \"ai_zhida\", \"recent\", \"people\", \"zvideo\", \"ring\", \"topic\", \"podcast\", \"column\", \"pin\", \"favlist\")))"), enable={zhihu_enable2}
+request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/zhida\.zhihu\.com\/ai_ingress\/knowledge\/square\/categories\/feeds\?categoryId=1%7D$/i then reject_dict(200), enable={zhihu_enable2}
+request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/zhida\.zhihu\.com\/ai_ingress\/ai_chat\/guidance$/i then reject_dict(200), enable={zhihu_enable2}
+request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/content-distribution-core\/bubble\/common\/show$/i then reject_dict(200), enable={zhihu_enable2}
+request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/www\.zhihu\.com\/api\/v\d\/members\/homepage_card$/i then reject_dict(200), enable={zhihu_enable2}
+request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/people\/homepage_entry_v\d$/i then reject_dict(200), enable={zhihu_enable2}
+request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/kvip\/right\/my_card\?/i then reject_dict(200), enable={zhihu_enable2}
+response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/people\/self$/i then response.json.delete(["vip_info.entrance_new.right_button", "vip_info.entrance_v2"]), enable={zhihu_enable2}
+request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/unlimited\/go\/my_card\/v\d\?/i then reject_dict(200), enable={zhihu_enable2}
+request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/commercial_api\//i then reject_dict(200), enable={zhihu_enable2}
+response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/bazaar\/vip_tab\/header\?/i then response.json.delete(["activity_banner", "activity_window", "vip_tip"]), enable={zhihu_enable2}
+request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/people\/homepage_entry_v2/i then reject_dict(200), enable={zhihu_enable2}
+request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/www\.zhihu\.com\/appview\/v3\/zhmore/i then reject(404), enable={zhihu_enable2}
+response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/search\/recommend_query\/v2\?/i then response.body.replace(/recommend_queries:\{.+\}/, "recommend_queries:{}"), enable={zhihu_enable2}
+request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/www\.zhihu\.com\/api\/v4\/search\/clicked_recommendation\?/i then reject_dict(200), enable={zhihu_enable2}
+response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/comment_v5\/(answers|pins)\/\d+\/root_comment\?/i then response.json.delete("atmosphere_voting_config"), enable={zhihu_enable2}
+request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/related_recommend\/feed\/waterfall\?/i then reject_dict(200), enable={zhihu_enable2}
+response if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/api\.zhihu\.com\/questions\/\d+(?:\/answers|\/feeds|\?include=)/i then response.json.jq("del(.ad_info, .data.ad_info?, .query_info) | if (.data | type) == \"array\" then .data |= map(select(.target?.answer_type? // \"\" | tostring | contains(\"paid\") | not)) else . end"), enable={zhihu_enable2}
+request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/link\.zhihu\.com\/\?target=(?:https?)?(?:%3A|:)?(?:\/\/|%2F%2F)?(.*)/i as urlMatch then redirect(302, "http://${urlMatch.1}"), enable={zhihu_enable2}
+request if ${zhihu_enable2} == true && ${url} ~= /^https:\/\/www\.zhihu\.com\/api\/v4\/(?:answers|questions)\/\d+\/related-readings/i then reject_dict(200), enable={zhihu_enable2}
+request if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlecommerce\.splash\.ads\//i then reject_dict(200), enable={goofish_enable}
+response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.widget\.refresh\.get\//i then response.json.jq(".data.homeTopList = []"), enable={goofish_enable}
+response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.home\.whale\.modulet\//i then response.json.jq(".data.container.sections |= map(select(.template.name == \"fish_home_miniapp\"))"), enable={goofish_enable}
+response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.user\.strategy\.list\//i then response.json.jq("del(.data)"), enable={goofish_enable}
+response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.fun\.follow\.feed\.list\//i then response.json.jq(".data.sections|=map(select(.cardType==2001))"), enable={goofish_enable}
+response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.community\//i then response.json.jq(".data.feedsList |= map(select(.template.name == \"idlefish_home_new_commodity_card\" or .template.name == \"idlefish_home_new_content_card\"))"), enable={goofish_enable}
+request if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.item\.recommend\.list\//i then reject_dict(200), enable={goofish_enable}
+response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.newitem\.page\//i then response.json.jq(".data.sections |= map(select(.data.clickParam.args.cardType as $ct | $ct != \"banner\" and $ct != \"mamaAD\"))"), enable={goofish_enable}
+request if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.near\.by\.corner\.info\//i then reject_dict(200), enable={goofish_enable}
+request if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.home\.top\//i then reject_dict(200), enable={goofish_enable}
+request if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.item\.buy\.feeds\//i then reject_dict(200), enable={goofish_enable}
+response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.shade\//i then response.json.jq("del(.data)"), enable={goofish_enable}
+response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.magic\.home\.page\.list\//i then response.json.delete("data.topList"), enable={goofish_enable}
+request if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.item\.search\.activate\//i then reject_dict(200), enable={goofish_enable}
+response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.trade\.full\.info\//i then response.json.jq(".data.components |= map(select(.render != \"recommendTabVO\"))"), enable={goofish_enable}
+request if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.idle\.trade\.item\.recommend\.render\//i then reject_dict(200), enable={goofish_enable}
+request if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.detailpage\.search\.shade\//i then reject_dict(200), enable={goofish_enable}
+request if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemessage\.user\.query\.top\.resource/i then reject_dict(200), enable={goofish_enable}
+request if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.item\.recommend\.tab/i then reject_dict(200), enable={goofish_enable}
+response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.group\.myself\.banner\//i then response.json.jq(".data.bannerList = []"), enable={goofish_enable}
+response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.playboy\.recommend\/2\.0/i then response.json.jq(".data.recommends = [] | .data.items = [] | .data.next = false"), enable={goofish_enable}
+response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.fun\.follow\.often\.visit\//i then response.json.jq(".data.sections = []"), enable={goofish_enable}
+response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.circle\.myself\.banner\/1\.0/i then response.json.jq(".data.bannerList = []"), enable={goofish_enable}
+response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.circle\.visited\/1\.0/i then response.json.jq(".data.visitedCircleList = []"), enable={goofish_enable}
+response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.activate\.tablist\//i then response.json.jq(".data.tabList = []"), enable={goofish_enable}
+response if ${goofish_enable} == true && ${url} ~= /^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.trade\.order\.render\//i then response.json.jq("del(.data.bottomBarVO.benefitPointAtmosphere) | .data.components |= map(select(.render != \"meanTimeBuyVO\"))"), enable={goofish_enable}
+request if ${didi_enable} == true && ${url} ~= /^https:\/\/res\.xiaojukeji\.com\/resapi\/activity\/getMulti\?/i then reject_dict(200), enable={didi_enable}
+request if ${didi_enable} == true && ${url} ~= /^https:\/\/res\.xiaojukeji\.com\/resapi\/activity\/xpget/i then reject_dict(200), enable={didi_enable}
+request if ${didi_enable} == true && ${url} ~= /^https:\/\/freight\.xiaojukeji\.com\/gateway/i then reject_dict(200), enable={didi_enable}
 request if ${didi_enable} == true && ${url} ~= /^https:\/\/lion\.didialift\.com\/broker\/\?/i then reject_dict(200)
-request if ${didi_enable} == true && ${url} ~= /^https:\/\/conf\.diditaxi\.com\.cn\/homepage\/v1\/other\/slow\?/i then reject_dict(200)
-response if ${didi_enable} == true && ${url} ~= /^https:\/\/conf\.diditaxi\.com\.cn\/homepage\/v1\/core\?/i then response.json.jq(".data.disorder_cards.bottom_nav_list.data |= map(select(.id == \"home_page\" or .id == \"user_center\" or .id == \"message_center\" or .id == \"itinerary\")) | .data.order_cards.nav_list_card.data |= map(select(.nav_id == \"dache_anycar\" or .nav_id == \"carmate\" or .nav_id == \"driverservice\" or .nav_id == \"bike\" or .nav_id == \"nav_more_v3\"))")
-response if ${didi_enable} == true && ${url} ~= /^https:\/\/conf\.diditaxi\.com\.cn\/homepage\/v1\/other\/fast\?/i then response.json.delete(["data.disorder_cards.communicate_card", "data.disorder_cards.not_login_bottom_bar", "data.disorder_cards.riding_code_card", "data.disorder_cards.guess_card", "data.disorder_cards.scene_list_card", "data.order_cards", "data.disorder_cards.car_icon.data.icon_info_new_agreement"])
-response if ${didi_enable} == true && ${url} ~= /^https:\/\/res\.xiaojukeji\.com\/resapi\/activity\/mget\?/i then response.json.delete("data.mult_home_banner")
-response if ${didi_enable} == true && ${url} ~= /^https:\/\/common\.diditaxi\.com\.cn\/common\/v5\/usercenter\/layout$/i then response.json.jq(".data.instances |= with_entries(select(.key==\"center_base_info_card\" or .key==\"center_wallet_finance_card\" or .key==\"center_order_related_card\" or .key==\"center_tool_card\")) | (.data.instances.center_tool_card?.data?[0]?.data |= map(select(.content_data.nav_id | IN(\"chengweisiji\",\"chuxingchengjiu\",\"chongzhizhongxin\",\"shoucangjia\",\"ditufankui\")))) | (.data.instances.center_wallet_finance_card?.data.view_info |= map(select(.title==\"优惠卡券\")))")
-request if ${didi_enable} == true && ${url} ~= /^https:\/\/ct\.xiaojukeji\.com\/agent\/v3\/feeds\?/i then reject_dict(200)
-request if ${didi_enable} == true && ${url} ~= /^https:\/\/travel-alioth\.xiaojukeji\.com\/didi_travel_home\/infoList\?/i then reject_dict(200)
-request if ${didi_enable} == true && ${url} ~= /^https:\/\/conf\.diditaxi\.com\.cn\/dynamic\/conf/i then reject_dict(200)
+request if ${didi_enable} == true && ${url} ~= /^https:\/\/conf\.diditaxi\.com\.cn\/homepage\/v1\/other\/slow\?/i then reject_dict(200), enable={didi_enable}
+response if ${didi_enable} == true && ${url} ~= /^https:\/\/conf\.diditaxi\.com\.cn\/homepage\/v1\/core\?/i then response.json.jq(".data.disorder_cards.bottom_nav_list.data |= map(select(.id == \"home_page\" or .id == \"user_center\" or .id == \"message_center\" or .id == \"itinerary\")) | .data.order_cards.nav_list_card.data |= map(select(.nav_id == \"dache_anycar\" or .nav_id == \"carmate\" or .nav_id == \"driverservice\" or .nav_id == \"bike\" or .nav_id == \"nav_more_v3\"))"), enable={didi_enable}
+response if ${didi_enable} == true && ${url} ~= /^https:\/\/conf\.diditaxi\.com\.cn\/homepage\/v1\/other\/fast\?/i then response.json.delete(["data.disorder_cards.communicate_card", "data.disorder_cards.not_login_bottom_bar", "data.disorder_cards.riding_code_card", "data.disorder_cards.guess_card", "data.disorder_cards.scene_list_card", "data.order_cards", "data.disorder_cards.car_icon.data.icon_info_new_agreement"]), enable={didi_enable}
+response if ${didi_enable} == true && ${url} ~= /^https:\/\/res\.xiaojukeji\.com\/resapi\/activity\/mget\?/i then response.json.delete("data.mult_home_banner"), enable={didi_enable}
+response if ${didi_enable} == true && ${url} ~= /^https:\/\/common\.diditaxi\.com\.cn\/common\/v5\/usercenter\/layout$/i then response.json.jq(".data.instances |= with_entries(select(.key==\"center_base_info_card\" or .key==\"center_wallet_finance_card\" or .key==\"center_order_related_card\" or .key==\"center_tool_card\")) | (.data.instances.center_tool_card?.data?[0]?.data |= map(select(.content_data.nav_id | IN(\"chengweisiji\",\"chuxingchengjiu\",\"chongzhizhongxin\",\"shoucangjia\",\"ditufankui\")))) | (.data.instances.center_wallet_finance_card?.data.view_info |= map(select(.title==\"优惠卡券\")))"), enable={didi_enable}
+request if ${didi_enable} == true && ${url} ~= /^https:\/\/ct\.xiaojukeji\.com\/agent\/v3\/feeds\?/i then reject_dict(200), enable={didi_enable}
+request if ${didi_enable} == true && ${url} ~= /^https:\/\/travel-alioth\.xiaojukeji\.com\/didi_travel_home\/infoList\?/i then reject_dict(200), enable={didi_enable}
+request if ${didi_enable} == true && ${url} ~= /^https:\/\/conf\.diditaxi\.com\.cn\/dynamic\/conf/i then reject_dict(200), enable={didi_enable}
 response if ${didi_enable} == true && ${url} ~= /^https:\/\/api\.udache\.com\/gulfstream\/porsche\/v1\/dache_homepage_layout\?/i then response.json.jq(".data |= (.instances |= (to_entries | map(select(.key | test(\"feed_back_|dache_main_member|order_container_|dache_main_core_icon|dache_main_card_\"))) | from_entries))")
 response if ${didi_enable} == true && ${url} ~= /^https:\/\/api\.udache\.com\/gulfstream\/porsche\/v1\/pSFCHomePage\?/i then response.json.jq(".data |= (if . == null then null else {hot_route_info, legal_info} end) | . as $root | .data.tab_list = ($root.data.tab_list | map(select(.tab_id == \"passenger\")))")
 response if ${didi_enable} == true && ${url} ~= /^https:\/\/api\.udache\.com\/gulfstream\/passenger-center\/v2\/other\/pInTripLayout/i then response.json.jq(".data.order_components |= map(select((.name != \"passenger_common_casper\") and (.name != \"xp-card\")))")
 response if ${didi_enable} == true && ${url} ~= /^https:\/\/api\.udache\.com\/gulfstream\/passenger-center\/v2\/bronze\/pEndTripPaidLayout/i then response.json.jq(".data.layout.order |= [\"finish-order-01\"] | del(.\"data\".\"layout\".\"disorder\".\"member-growth\")")
 response if ${didi_enable} == true && ${url} ~= /^https:\/\/api\.udache\.com\/gulfstream\/passenger-center\/v2\/bronze\/pInTripLayout/i then response.json.jq(".data.layout.order |= [\"header-card-1\", \"driver-card-1\"]")
-response if ${didi_enable} == true && ${url} ~= /^https:\/\/daijia\.kuaidadi\.com:443\/gateway\?/i then response.json.delete("data.variantInfo")
-response if ${didi_enable} == true && ${url} ~= /^https:\/\/daijia\.kuaidadi\.com:443\/gateway\?/i then response.json.jq(".data |= with_entries(select(.value.isAd != 1))")
-request if ${didi_enable} == true && ${url} ~= /^https:\/\/res\.xiaojukeji\.com\/resapi\/activity\/getInsActivityV2/i then reject_dict(200)
+response if ${didi_enable} == true && ${url} ~= /^https:\/\/daijia\.kuaidadi\.com:443\/gateway\?/i then response.json.delete("data.variantInfo"), enable={didi_enable}
+response if ${didi_enable} == true && ${url} ~= /^https:\/\/daijia\.kuaidadi\.com:443\/gateway\?/i then response.json.jq(".data |= with_entries(select(.value.isAd != 1))"), enable={didi_enable}
+request if ${didi_enable} == true && ${url} ~= /^https:\/\/res\.xiaojukeji\.com\/resapi\/activity\/getInsActivityV2/i then reject_dict(200), enable={didi_enable}
 request if ${didi_enable} == true && ${url} ~= /^https:\/\/api\.udache\.com\/gulfstream\/pandora\/v1\/invitation\/shareAddress\/pGetShareAddressPage/i then reject_dict(200)
-response if ${didi_enable} == true && ${url} ~= /^https:\/\/common\.diditaxi\.com\.cn\/common\/v\d\/usercenter\/me/i then response.json.jq(".data.cards |= (map(select(.title != \"天天领福利\" and .title != \"金融服务\" and .title != \"更多服务\" and .title != \"企业服务\" and .title != \"安全中心\")) | map(if .tag == \"wallet\" then (.items |= map(select(.title == \"优惠券\"))) | (if .card_type == 4 then .bottom_items |= map(select(.title == \"省钱套餐\" or .title == \"出行里程\")) else . end) else . end))")
+response if ${didi_enable} == true && ${url} ~= /^https:\/\/common\.diditaxi\.com\.cn\/common\/v\d\/usercenter\/me/i then response.json.jq(".data.cards |= (map(select(.title != \"天天领福利\" and .title != \"金融服务\" and .title != \"更多服务\" and .title != \"企业服务\" and .title != \"安全中心\")) | map(if .tag == \"wallet\" then (.items |= map(select(.title == \"优惠券\"))) | (if .card_type == 4 then .bottom_items |= map(select(.title == \"省钱套餐\" or .title == \"出行里程\")) else . end) else . end))"), enable={didi_enable}
 response if ${didi_enable} == true && ${url} ~= /^https:\/\/api\.udache\.com\/gulfstream\/pre-sale\/v1\/other\/pGetSceneList/i then response.json.jq(".data.scene_list |= map(select(.text != \"优惠商城\")) | .data.show_data |= map(.scene_ids |= map(select(. != \"scene_coupon_mall\")))")
-request if ${didi_enable} == true && ${url} ~= /^https:\/\/conf\.diditaxi\.com\.cn\/ota\/na\/yuantu\/infoList/i then reject_dict(200)
-response if ${didi_enable} == true && ${url} ~= /^https:\/\/conf\.diditaxi\.com\.cn\/homepage\/v1\/oversea\/layout/i then response.json.jq("del(.data.instances.oversea_main_banner)")
-response if ${didi_enable} == true && ${url} ~= /^https:\/\/mapi\.xiaojukeji\.com\/passenger-wallet\/api\/v[\d.]+\/wallet\/homepage/i then response.json.jq(".data.cardList |= (map(if .mcode == \"index_assets_v6\" then .detailData |= (del(.myCreditLimit) | .discountList |= .[:3] | del(.noticeList)) else . end) | map(select(.mcode == \"index_assets_v6\")))")
-response if ${didi_enable} == true && ${url} ~= /^https:\/\/manhattan\.webapp\.xiaojukeji\.com\/zootopia\/api\/my-assets\/get-assets-data/i then response.json.jq("del(.data.myQuotaModularRes, .data.assetsData.myQuotaModularRes, .data.banner, .data.assetsData.banner, .data.myGuaranteeModularRes, .data.assetsData.myGuaranteeModularRes)")
-response if ${didi_enable} == true && ${url} ~= /^https:\/\/manhattan\.webapp\.xiaojukeji\.com\/zootopia\/api\/my-assets\/module-is-show/i then response.json.jq(".data = []")
-response if ${didi_enable} == true && ${url} ~= /^https:\/\/ddpay\.xiaojukeji\.com\/ddpay\/api\/manhattan-small-change\/get-all-config/i then response.json.jq(".data.result = []")
-response if ${didi_enable} == true && ${url} ~= /^https:\/\/ddpay\.xiaojukeji\.com\/ddpay\/api\/manhattan-small-change\/get-apollo-config/i then response.json.jq(".data.result.hideList = []")
-response if ${didi_enable} == true && ${url} ~= /^https:\/\/common\.diditaxi\.com\.cn\/passenger\/historyV2/i then response.json.jq(".data.orders |= map(del(.guide_bar))")
-request if ${didi_enable} == true && ${url} ~= /^https:\/\/poi\.map\.xiaojukeji\.com\/mapapi\/recommend\?/i then reject_dict(200)
+request if ${didi_enable} == true && ${url} ~= /^https:\/\/conf\.diditaxi\.com\.cn\/ota\/na\/yuantu\/infoList/i then reject_dict(200), enable={didi_enable}
+response if ${didi_enable} == true && ${url} ~= /^https:\/\/conf\.diditaxi\.com\.cn\/homepage\/v1\/oversea\/layout/i then response.json.jq("del(.data.instances.oversea_main_banner)"), enable={didi_enable}
+response if ${didi_enable} == true && ${url} ~= /^https:\/\/mapi\.xiaojukeji\.com\/passenger-wallet\/api\/v[\d.]+\/wallet\/homepage/i then response.json.jq(".data.cardList |= (map(if .mcode == \"index_assets_v6\" then .detailData |= (del(.myCreditLimit) | .discountList |= .[:3] | del(.noticeList)) else . end) | map(select(.mcode == \"index_assets_v6\")))"), enable={didi_enable}
+response if ${didi_enable} == true && ${url} ~= /^https:\/\/manhattan\.webapp\.xiaojukeji\.com\/zootopia\/api\/my-assets\/get-assets-data/i then response.json.jq("del(.data.myQuotaModularRes, .data.assetsData.myQuotaModularRes, .data.banner, .data.assetsData.banner, .data.myGuaranteeModularRes, .data.assetsData.myGuaranteeModularRes)"), enable={didi_enable}
+response if ${didi_enable} == true && ${url} ~= /^https:\/\/manhattan\.webapp\.xiaojukeji\.com\/zootopia\/api\/my-assets\/module-is-show/i then response.json.jq(".data = []"), enable={didi_enable}
+response if ${didi_enable} == true && ${url} ~= /^https:\/\/ddpay\.xiaojukeji\.com\/ddpay\/api\/manhattan-small-change\/get-all-config/i then response.json.jq(".data.result = []"), enable={didi_enable}
+response if ${didi_enable} == true && ${url} ~= /^https:\/\/ddpay\.xiaojukeji\.com\/ddpay\/api\/manhattan-small-change\/get-apollo-config/i then response.json.jq(".data.result.hideList = []"), enable={didi_enable}
+response if ${didi_enable} == true && ${url} ~= /^https:\/\/common\.diditaxi\.com\.cn\/passenger\/historyV2/i then response.json.jq(".data.orders |= map(del(.guide_bar))"), enable={didi_enable}
+request if ${didi_enable} == true && ${url} ~= /^https:\/\/poi\.map\.xiaojukeji\.com\/mapapi\/recommend\?/i then reject_dict(200), enable={didi_enable}
 response if ${didi_enable} == true && ${url} ~= /^https:\/\/api\.udache\.com\/intercity\/ticket\/api\/v1\/core\/getFullPageInfoLayout\?/i then response.json.jq(".data.disorder_components |= (map(select(.name == \"history_order_card\" or .name == \"inprogress_order_card\" or .name == \"station_calendar\" or .name == \"main_card_v2\" or .name == \"user_history_order\")))")
-response if ${didi_enable} == true && ${url} ~= /^https:\/\/htwkop\.xiaojukeji\.com:443\/gateway\?/i then response.json.delete(["data.didi-bike-homepage-popup", "data.variantInfo"])
-response if ${didi_enable} == true && ${url} ~= /^https:\/\/as\.xiaojukeji\.com\/ep\/as\/toggles\?/i then response.json.jq(".data |= map(if .name|IN(\"daijia_journey_new_tcp_switch\",\"daijia_tcp_init\",\"daijia_tcp_msg_encrypt\",\"daijia_tcp_site_info\",\"daijia_tcp_site_report\")then.allow=false else. end)")
-request if ${didi_enable} == true && ${url} ~= /^https:\/\/res\.xiaojukeji\.com\/resapi\/activity\/mget$/i then reject_dict(200)
-request if ${didi_enable} == true && ${url} ~= /^https:\/\/daijia\.kuaidadi\.com(:443)?\/gateway\?api=prado\.cms\.delivery\.batch/i then reject_dict(200)
-request if ${didi_enable} == true && ${url} ~= /^https:\/\/daijia\.kuaidadi\.com(:443)?\/gateway\?api=prado\.cms\.AggregateDeliveryRemoteService\.aggregateDelivery/i then reject_dict(200)
-response if ${didi_enable} == true && ${url} ~= /^https:\/\/daijia\.kuaidadi\.com(:443)?\/gateway\?api=lj\.cos\.apolloConfig/i then response.json.jq(".data |= map(select(.name != \"daijia-memberInfo-config\" and .name != \"daijia-transfer-share-config\"))")
-request if ${didi_enable} == true && ${url} ~= /^https:\/\/daijia\.kuaidadi\.com(:443)?\/gateway\?api=lj\.c\.p\.queryLevelAndRightsStatus/i then reject_dict(200)
-request if ${didi_enable} == true && ${url} ~= /^https:\/\/daijia\.kuaidadi\.com(:443)?\/gateway\?api=lj\.cos\.p\.popup/i then reject_dict(200)
-response if ${didi_enable} == true && ${url} ~= /^https:\/\/daijia\.kuaidadi\.com(:443)?\/gateway\?api=lj\.cos\.apolloToggle/i then response.json.jq(".data |= map(select(.name as $n | {daijia_app_estimate_pre_req_switch:true,daijia_agent_car_picture_check:true,daijia_bluetooth_wifi_degrade_switch:true,daijia_weixin_publish_login:true,daijia_estimate_recommend_degrade_switch:true,daijia_yugu_policy_switch:true,daijia_home_location_guide_switch:true,daijia_estimate_switch:true} | has($n)))")
+response if ${didi_enable} == true && ${url} ~= /^https:\/\/htwkop\.xiaojukeji\.com:443\/gateway\?/i then response.json.delete(["data.didi-bike-homepage-popup", "data.variantInfo"]), enable={didi_enable}
+response if ${didi_enable} == true && ${url} ~= /^https:\/\/as\.xiaojukeji\.com\/ep\/as\/toggles\?/i then response.json.jq(".data |= map(if .name|IN(\"daijia_journey_new_tcp_switch\",\"daijia_tcp_init\",\"daijia_tcp_msg_encrypt\",\"daijia_tcp_site_info\",\"daijia_tcp_site_report\")then.allow=false else. end)"), enable={didi_enable}
+request if ${didi_enable} == true && ${url} ~= /^https:\/\/res\.xiaojukeji\.com\/resapi\/activity\/mget$/i then reject_dict(200), enable={didi_enable}
+request if ${didi_enable} == true && ${url} ~= /^https:\/\/daijia\.kuaidadi\.com(:443)?\/gateway\?api=prado\.cms\.delivery\.batch/i then reject_dict(200), enable={didi_enable}
+request if ${didi_enable} == true && ${url} ~= /^https:\/\/daijia\.kuaidadi\.com(:443)?\/gateway\?api=prado\.cms\.AggregateDeliveryRemoteService\.aggregateDelivery/i then reject_dict(200), enable={didi_enable}
+response if ${didi_enable} == true && ${url} ~= /^https:\/\/daijia\.kuaidadi\.com(:443)?\/gateway\?api=lj\.cos\.apolloConfig/i then response.json.jq(".data |= map(select(.name != \"daijia-memberInfo-config\" and .name != \"daijia-transfer-share-config\"))"), enable={didi_enable}
+request if ${didi_enable} == true && ${url} ~= /^https:\/\/daijia\.kuaidadi\.com(:443)?\/gateway\?api=lj\.c\.p\.queryLevelAndRightsStatus/i then reject_dict(200), enable={didi_enable}
+request if ${didi_enable} == true && ${url} ~= /^https:\/\/daijia\.kuaidadi\.com(:443)?\/gateway\?api=lj\.cos\.p\.popup/i then reject_dict(200), enable={didi_enable}
+response if ${didi_enable} == true && ${url} ~= /^https:\/\/daijia\.kuaidadi\.com(:443)?\/gateway\?api=lj\.cos\.apolloToggle/i then response.json.jq(".data |= map(select(.name as $n | {daijia_app_estimate_pre_req_switch:true,daijia_agent_car_picture_check:true,daijia_bluetooth_wifi_degrade_switch:true,daijia_weixin_publish_login:true,daijia_estimate_recommend_degrade_switch:true,daijia_yugu_policy_switch:true,daijia_home_location_guide_switch:true,daijia_estimate_switch:true} | has($n)))"), enable={didi_enable}
 response if ${didi_enable} == true && ${url} ~= /^https:\/\/api\.udache\.com\/gulfstream\/porsche\/v\d\/bronze\/pinchengle_homepage_layout$/i then response.json.jq(".data.instances |= with_entries(select(.key | IN(\"dacheanycar-certificates-1\", \"main-card-1\", \"map-1\", \"nav-1\", \"tool-container-1\")))")
 response if ${didi_enable} == true && ${url} ~= /^https:\/\/api\.udache\.com\/gulfstream\/porsche\/v\d\/SFCHomeTab\?/i then response.json.jq(".data.tab_list |= map(select(.tab_id == \"passenger\" or .tab_id == \"driver\"))")
-request if ${didi_enable} == true && ${url} ~= /^https:\/\/htwkop-st\.xiaojukeji\.com\/gateway\?api=cms\.htw\.delivery\.batch/i then reject_dict(200)
-response if ${didi_enable} == true && ${url} ~= /^https:\/\/poi\.map\.xiaojukeji\.com\/mapapi\/startinfo\?api_version/i then response.json.delete("rec_destination")
-response if ${didi_enable} == true && ${url} ~= /^https:\/\/poi\.map\.xiaojukeji\.com\/mapapi\/poiinfo\?product_id/i then response.json.delete("rec_destination")
-response if ${didi_enable} == true && ${url} ~= /^https:\/\/common\.diditaxi\.com\.cn\/user_common\/itineraryList\?/i then response.json.jq("del(.data.tab_nav[]?.tab_param)")
-request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/aristotle\/unrated_order_for_unreceived_tab\?/i then reject_dict(200)
-request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/aristotle\/query_order_list_tabs_element\?/i then reject_dict(200)
-request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/aquarius\/hungary\/global\/homepage\?/i then reject_dict(200)
-request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/search_hotquery\?/i then reject_dict(200)
-request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/zaire_biz\/chat\/resource\/get_list_data\?/i then reject_dict(200)
-request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/alexa\/goods\/back_up\?/i then reject_dict(200)
-request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/brand-olay\/goods_detail\/bybt_guide\?/i then reject_dict(200)
-request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/engels\/reviews\/require\/append\?/i then reject_dict(200)
-request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/phantom\/gbdbpdv\/extra\?/i then reject_dict(200)
-request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/manufacturer\/cross\/shortcut\/list\?/i then reject_dict(200)
-request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/dunkirk\/liveactivity\/push\/create\/url\/report\?/i then reject_dict(200)
-request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/growth\/nagato\/app\/index\/gather\?/i then reject_dict(200)
-request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/engels\/wait\/receive\/review\?/i then reject_dict(200)
-request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/buffon\/nasus\/recommend\?/i then reject_dict(200)
-request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\//i then reject_dict(200)
-request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/xrec\/goods_rec\/pay_after_use_v2\?/i then reject_dict(200)
-request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.(?:pinduoduo|yangkeduo)\.com\/api\/cappuccino\/splash\?/i then reject_dict(200)
-request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/social\/mall\/follow\/hot\/recommend\?/i then reject_dict(200)
-request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/leporis\/notification\/clear_tab_red_dot\?/i then reject_dict(200)
-request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v2\/query\/goods_detail_with_tags\?/i then reject_dict(200)
-response if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/alexa\/homepage\/hub\?/i then response.json.delete(["result.icon_set", "result.search_bar_hot_query", "result.dy_module.irregular_banner_dy"])
-response if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/alexa\/homepage\/hub\?/i then response.json.jq(".result.bottom_tabs? |= map(select(.link | IN(\"index.html\",\"chat_list.html\",\"personal.html\"))) | .result.buffer_bottom_tabs? |= map(select(.link | IN(\"index.html\",\"chat_list.html\",\"personal.html\"))) | .result.all_top_opts = [] | .result.module_order? |= map(select(.module_name | IN(\"irregular_banner\",\"ad_module\",\"timeline\") | not))")
-response if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/search\?/i then response.json.delete("expansion")
-response if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/philo\/personal\/hub\?/i then response.json.delete(["monthly_card_entrance", "personal_center_style_v2_vo", "icon_set.icons", "icon_set.top_personal_icons", "title_bar_items", "personal_banner"])
-response if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/oak\/integration\/render\?/i then response.json.delete(["bottom_section_list", "ui.bottom_section", "ui.live_section.float_info"])
-response if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/order\//i then response.json.delete(["marketing_banner_vo", "shipping.banner_above_recommend"])
-response if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/aristotle\/order_list_v4\?/i then response.json.jq(".orders |= map(.order_buttons |= map(del(.order_growth_tip)))")
-request if ${taobao_enable} == true && ${url} ~= /^https:\/\/heic\.alicdn\.com\/imgextra\/i\d\/[A-Za-z0-9_!]+-\d+-tps-\d+-\d+\.png_\d+x\d*q\d+\.jpg_\.heic$/i then reject_dict(200)
-request if ${taobao_enable} == true && ${url} ~= /^https:\/\/heic\.alicdn\.com\/imgextra\/i\d\/[A-Za-z0-9_!]+-\d+-tps-\d+-\d+\.jpg_\d+x\d*q\d+\.jpg_\.heic$/i then reject_dict(200)
-request if ${taobao_enable} == true && ${url} ~= /^https:\/\/heic\.alicdn\.com\/imgextra\/i\d\/\d*\/?[\w!]+-\d-(?:octopus|tps)-(?:1080|1125)-\d{4}\.(?:jpg|png)_(?:1\d{3}|9\d{2})x(?:\d|1\d{3}|9\d{2})q[59]0/i then reject_dict(200)
-request if ${taobao_enable} == true && ${url} ~= /^https?:\/\/gw\.alicdn\.com\/imgextra\/i\d+\/[^\/]+_!!\d+-\d+-tps-(720-1280|1080-1920|1125-1602|1242-2208)\.(jpg|png|jpeg)_[^\/]+\.webp/i then reject_dict(200)
-request if ${jd_enable} == true && ${url} ~= /^https?:\/\/m\.360buyimg\.com\/mobilecms\/s1125x2436_jfs/i then reject(200)
-request if ${jd_enable} == true && ${url} ~= /^https?:\/\/api\.m\.jd\.com\/\?loginType=11/i then reject_dict(200)
-response if ${jd_enable} == true && ${url} ~= /^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=lite_advertising/i then response.body.replace(/jdLiteAdvertisingVO/, "sooyaaabo")
-response if ${jd_enable} == true && ${url} ~= /^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=basicConfig/i then response.json.replace(["data.JDMessage.socketmonitor.isSocketEstablishedAhead", "data.JDMessage.socketmonitor.isSocketReport", "data.JDHttpToolKit.httpdns.httpdns"], [0, 0, 0])
-response if ${jd_enable} == true && ${url} ~= /^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=cart/i then response.json.delete(["cartLocationMap.loc_emptyCartFloor2", "emptyCartRecommendFloor"])
-request if ${jd_enable} == true && ${url} ~= /^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(?:cartCouponRecommendGoods|intelligentRecommendSku|obtainGrowingInfo|recommendShop|searchBoxWord|stationPullService|uniformRecommend)/i then reject_dict(200)
-request if ${meituan_enable} == true && ${url} ~= /^https?:\/\/(httpdns|httpdnsvip|httpdnsmultiapi|httpdnsmultiapivip)\.meituan\.com\//i then reject(200)
-request if ${coolapk_enable} == true && ${url} ~= /^https:\/\/api\.coolapk\.com\/v6\/search\?.*type=hotSearch/i then reject_dict(200)
-response if ${coolapk_enable} == true && ${url} ~= /^https:\/\/api\.coolapk\.com\/v6\/feed\/detail\?/i then response.json.jq(".data.hotReplyRows |= if . then map(select(.id?)) else . end | .data.topReplyRows |= if . then map(select(.id?)) else . end | reduce (\"detailSponsorCard\", \"include_goods\", \"include_goods_ids\") as $key (.; .data[$key] = [])")
-response if ${coolapk_enable} == true && ${url} ~= /^https:\/\/api\.coolapk\.com\/v6\/feed\/replyList/i then response.json.jq("if .data? and ((.data | type) == \"array\") and (.data | length > 0) then .data |= map(select(.id?)) else . end")
-response if ${coolapk_enable} == true && ${url} ~= /^https:\/\/api\.coolapk\.com\/v6\/main\/dataList/i then response.json.jq(".data |= (if (type==\"array\" and length>0) then map(select((.entityTemplate!=\"sponsorCard\") and (.title!=\"精选配件\"))) else . end)")
-response if ${coolapk_enable} == true && ${url} ~= /^https:\/\/api\.coolapk\.com\/v6\/page\/dataList/i then response.json.jq(".data |= map(select(.title != \"话题热议\" and (.entityId != 36104 and .entityId != 24309 and .entityId != 12889 and .entityId != 21063 and .entityId != 35730 and .entityId != 35846 and .entityId != 28374 and .entityId != 28375 and .entityId != 27332 and .entityId != 20090 and .entityId != 28773 and .entityId != 29343 and .entityId != 21106)) | if .entities then (.entities |= map(select(.title != \"睡个好觉需要什么？\"))) else . end)")
-response if ${coolapk_enable} == true && ${url} ~= /^https:\/\/api\.coolapk\.com\/v6\/main\/indexV8/i then response.json.jq(".data |= map(select((.entityId != 32557 and .entityId != 29349 and .entityId != 28621) and (.title | test(\"值得买|红包\") | not)))")
-response if ${coolapk_enable} == true && ${url} ~= /^https:\/\/api\.coolapk\.com\/v6\/main\/init/i then response.json.jq("del(.data[]? | select(.entityId == 944 or .entityId == 945 or .entityId == 24455 or .entityId == 36839 or .entityId == 1635 or .title == \"关注\")) | .data |= map(if .entities then .entities |= map(select(.entityId != 1635 and .entityId != 2261 and .entityId != 1633 and .entityId != 413 and .entityId != 417 and .entityId != 1754 and .entityId != 1966 and .entityId != 2274 and .entityId != 1170 and .entityId != 1175 and .entityId != 1190 and .entityId != 2258 and .title != \"关注\")) else . end)")
-response if ${coolapk_enable} == true && ${url} ~= /^https:\/\/api\.coolapk\.com\/v6\/account\/loadConfig\?key=my_page_card_config/i then response.json.jq(".data |= map(select(.entityType != \"textLink\" and (.entityId != 1001 and .entityId != 1003 and .entityId != 1004 and .entityId != 1005)) | if .entities then .entities |= map(select(.entityType != \"textLink\")) else . end)")
-request if ${amap_enable} == true && ${url} ~= /^https:\/\/amap-aos-info-nogw\.amap\.com\/ws\/aos\/alimama\/splash_screen_rt/i then reject_dict(200)
-request if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/shield\/search\/new_hotword\?/i then reject_dict(200)
-request if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/card-service-(?:car-end|route-plan)/i then reject_dict(200)
-response if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/shield\/search_business\/process\/marketingOperationStructured\?/i then response.json.delete(["data.tipsOperationLocation", "obj.data.resourcePlacement"])
-response if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/homepage\?/i then response.json.delete("history_tags")
-request if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/tips_adv\?/i then reject_dict(200)
-request if ${amap_enable} == true && ${url} ~= /^https:\/\/oss\.amap\.com\/ws\/banner\/lists\/\?/i then reject_dict(200)
-request if ${amap_enable} == true && ${url} ~= /^https:\/\/ai\.amap\.com\/v1\/ai_rec\/home_qs\?/i then reject_dict(200)
-request if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/aos\/main\/page\/product\/list\?/i then reject_dict(200)
-request if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/(?:main-page-assets|main-page-aiqs|main-page-location|ridewalk-end-fc|usr-profile-fc\/homeV2)/i then reject_dict(200)
-request if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/(?:mapapi\/hint_text\/offline_data|message\/notice\/list|shield\/search\/new_hotword)/i then reject_dict(200)
-request if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/valueadded\/weather\/v2\?/i then reject_dict(200)
-request if ${amap_enable} == true && ${url} ~= /^https:\/\/sns\.amap\.com\/ws\/msgbox\/pull_mp\?/i then reject_dict(200)
-request if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/c3frontend\/af-comment\/contentNearbyCard\?/i then reject_dict(200)
-request if ${amap_enable} == true && ${url} ~= /^https:\/\/m5-zb\.amap\.com\/ws\/boss\/(?:order\/car\/(?:feedback\/get_card_questions|feedback\/viptips|king_toolbox_car_bubble|remark\/satisfactionConf|rights_information)|tips\/onscene_visual_optimization)/i then reject_dict(200)
-request if ${amap_enable} == true && ${url} ~= /^https:\/\/m5-zb\.amap\.com\/ws\/boss\/(?:pay\/web\/paySuccess\/info\/request|transportation\/diversion\/resource\/driving)/i then reject_dict(200)
-response if ${amap_enable} == true && ${url} ~= /^https:\/\/m5-zb\.amap\.com\/ws\/sharedtrip\/taxi\/order_detail_car_tips\?/i then response.json.delete("data.carTips.data.popupInfo")
-response if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaasv3\?/i then response.json.jq("del(.data.tipData, .data.wallet) | .data.cardList |= map(select(.dataKey == \"MineNewFootprintCard\" or .dataKey == \"MineNewBEntranceCardV4\")) | (.data.cardList[] | select(.dataKey == \"MineNewBEntranceCardV4\") | .content.entranceList_1) |= map(select(.id == 7 or .id == 8 or .id == 10 or .id == 17)) | (.data.cardList[] | select(.dataKey == \"MineNewBEntranceCardV4\") | .content.entranceList_2) |= map(select(.id == 1 or .id == 32 or .id == 9 or .id == 14))")
-response if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/shield\/scene\/recommend\?/i then response.json.jq_file("https://loon.103516.xyz/JQLang/Amap/Amap.recommend.jq")
-response if ${amap_enable} == true && ${url} ~= /^https:\/\/sns\.amap\.com\/ws\/opc\/tools\/list\?/i then response.json.jq("(if (type == \"object\") and ((.data | type) == \"object\") and ((.data.category | type) == \"array\") then (.data.category[] | select(type == \"object\") | .tools | select(type == \"array\") | .[] | select(type == \"object\")) |= del(.tips) else . end) | (if (type == \"object\") and ((.data | type) == \"object\") and ((.data.category | type) == \"array\") then (.data.category[] | select(type == \"object\") | .tools | select(type == \"array\")) |= map(select(if type == \"object\" then (((.id | type) == \"string\" and .id == \"547\") or ((.id | type) == \"number\" and .id == 547)) | not else true end)) else . end)")
-response if ${amap_enable} == true && ${url} ~= /^https:\/\/info\.amap\.com\/ws\/c3frontend\/af-search\/search\?/i then response.json.jq("if (try (.data.modules.quickLink.data.list | type) catch null) == \"array\" then .data.modules.quickLink.data.list |= map(if type == \"object\" and (.badge | type) == \"object\" and (.badge | has(\"text\")) then .badge.text = \"\" else . end) else . end")
-response if ${amap_enable} == true && ${url} ~= /^https:\/\/m5-zb\.amap\.com\/ws\/amap\/hitch\/passenger\/content_info\?/i then response.json.delete("data.lubanData.banner")
-request if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/info_bff\/rankingCard\?/i then reject_dict(200)
-response if ${amap_enable} == true && ${url} ~= /^https:\/\/center\.amap\.com\/ws\/amc\/server\/conv\/raise_list\?/i then response.json.jq("def on_path($p; $t; f): if (try (getpath($p) | type == $t) catch false) then getpath($p) |= f else . end; on_path([\"data\",\"dataList\"]; \"array\"; map(select(if type == \"object\" then (has(\"categoryId\") or ((.data | type) == \"object\" and .data.id == \"M_100007\")) else false end)))")
-response if ${amap_enable} == true && ${url} ~= /^https:\/\/info\.amap\.com\/ws\/shield\/search_business\/process\/middleLayer\/sug\?/i then response.json.jq(".tip_list |= map(select(.tip.task_tag == \"common_content_general\" or .tip.task_tag == \"sp\"))")
-response if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/smartui\/near_recommend\?/i then response.json.delete("data.operation_activity")
-response if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$/i then response.json.delete(["activity_switch", "video_report_config", "advertisement_config", "next_start", "push_strategy_new", "live_activity_guide", "h5_pop_ups", "duxiaoman_url", "is_need_remind_live_rooms", "floating_icon", "ad_stlog_switch", "first_time_motivate", "windowStrategyList", "ad_adsense", "ad_config", "videoup_guide_pop", "ad_origin_config_switch", "needNewUserLead", "h5_pop_ups_config", "alaTabColor", "search_guide", "ad_sdk_priority", "low_version_pop_config", "ad_num_competition_frs", "live_new_user_guide_day", "screen_fill_data_result", "yy_live_tab", "ad_num_competition_personalize", "complete_apk_url", "user_activity", "homepage_guide", "bottom_bubble_config", "home_screen_ad", "afSearch_tab", "recent_client_info", "video_activity", "namoaixud_url", "yy_live_config", "user_growth_task_list", "cloud_control_data_info", "wl_config.pb_banner_funad_cache_strategy", "wl_config.pb_comment_asyncafd_cache_strategy", "wl_config.download_edge_float", "wl_config.download_pause_retain_dialog_conf", "wl_config.download_mobile_dialog_conf", "wl_config.download_fake_progress_config_a", "wl_config.download_fake_progress_config_b", "scheme_whitelist"])
-response if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$/i then response.json.replace(["wl_config.home_ad_num", "wl_config.frs_ad_num", "wl_config.pb_comment_ad_num", "wl_config.index_bear_density", "wl_config.frs_bear_density", "wl_config.index_bear_first_floor_max", "wl_config.index_bear_first_floor_min"], [0, 0, 0, 0, 0, 999999999, 999999999])
-response if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$/i then response.json.jq(".index_tab_info |= map(select(.tab_name == \"推荐\")) | .top_level_navi |= {\"推荐\": .[\"推荐\"], \"侧边栏\": .[\"侧边栏\"], \"关注\": .[\"关注\"]}")
-request if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tiebac\.baidu\.com\/c\/f\/forum\/getInterestClassList$/i then reject_dict(200)
-request if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tiebac\.baidu\.com\/c\/f\/search\/discover$/i then reject_dict(200)
-response if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tieba\.baidu\.com\/mo\/q\/search\/startPage\?/i then response.body.mock("json", "{\"no\":0,\"error\":\"success\"}", 200)
-response if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$/i then response.json.delete(["url_map", "user_agent_info", "bubble_info", "duxiaoman_entry", "uc_card", "finance_tab", "vip_banner", "ala_live_info", "recom_naws_list", "duxiaoman", "user.consume_info", "namoaixud_entry"])
-response if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$/i then response.json.replace("user.shake_ad_switch.is_show", 0)
-response if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$/i then response.json.jq(".custom_grid |= map(select(.title != \"游戏大厅\" and .title != \"预约管理\" and .title != \"领话费\" and .title != \"短故事\")) | .zone_info |= map(.common_func |= (if .common_func_noraml then .common_func_noraml |= map(select(.name != \"创建智能体\")) else . end)) | .zone_info |= map(select(.type != \"commerce\" and .type != \"banner\" and .type != \"game\"))")
-response if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tieba\.baidu\.com\/c\/f\/forum\/forumGuide$/i then response.json.delete("hot_search")
-request if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tieba\.baidu\.com\/c\/f\/search\/discover$/i then reject_dict(200)
-request if ${tieba_enable} == true && ${url} ~= /^https:\/\/tieba\.baidu\.com\/c\/f\/forum\/getForumAlbum$/i then reject_dict(200)
-response if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tieba\.baidu\.com\/c\/f\/frs\/frsBottom\?/i then response.json.delete("card_activity")
-response if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tiebac\.baidu\.com\/c\/f\/frs\/frsBottom$/i then response.json.delete("card_activity")
-request if ${tieba_enable} == true && ${url} ~= /^http:\/\/c\.tieba\.baidu\.com\/c\/f\/forum\/hotforum$/i then reject_dict(200)
-response if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tiebac\.baidu\.com\/c\/f\/sidebar\/home$/i then response.json.delete(["game_center", "tools", "task_list", "vip_banner"])
-request if ${rednote_enable} == true && ${url} ~= /^https?:\/\/ci\.(?:xiaohongshu|rnote)\.com\/system_config\/watermark/i then reject_img(200)
-request if ${rednote_enable} == true && ${url} ~= /^https:\/\/edith\.(?:xiaohongshu|rnote)\.com\/api\/sns\/v1\/surprisebox\/(?:get_style|open|submit_action)/i then reject_dict(200)
-request if ${rednote_enable} == true && ${url} ~= /^https:\/\/www\.(?:xiaohongshu|rnote)\.com\/api\/marketing\/box\/trigger\?/i then reject_dict(200)
-request if ${rednote_enable} == true && ${url} ~= /^https:\/\/edith\.(?:xiaohongshu|rnote)\.com\/api\/sns\/v\d+\/(?:guide\/user_banner|note\/guide)/i then reject_dict(200)
-request if ${rednote_enable} == true && ${url} ~= /^https:\/\/www\.(?:xiaohongshu|rnote)\.com\/api\/sns\/v\d+\/(?:ads\/resource|hey\/\w+\/hey_gallery)/i then reject_dict(200)
-response if ${rednote_enable} == true && ${url} ~= /^https:\/\/edith\.(?:xiaohongshu|rnote)\.com\/api\/sns\/v1\/search\/banner_list$/i then response.json.replace("data", `{}`)
-response if ${rednote_enable} == true && ${url} ~= /^https:\/\/edith\.(?:xiaohongshu|rnote)\.com\/api\/sns\/v1\/search\/hot_list$/i then response.json.replace("data.items", `[]`)
-response if ${rednote_enable} == true && ${url} ~= /^https:\/\/edith\.(?:xiaohongshu|rnote)\.com\/api\/sns\/v4\/search\/hint/i then response.json.replace("data.hint_words", `[]`)
-response if ${rednote_enable} == true && ${url} ~= /^https:\/\/edith\.(?:xiaohongshu|rnote)\.com\/api\/sns\/v4\/search\/trending\?/i then response.json.replace(["data.queries", "data.hint_word"], [`[]`, `{}`])
-request if ${bdwp_enable} == true && ${url} ~= /^https:\/\/pan\.baidu\.com\/api\/getconfig\?/i then reject_dict(200)
-request if ${bdwp_enable} == true && ${url} ~= /^https:\/\/pan\.baidu\.com\/api\/getsyscfg\?/i then reject_dict(200)
-request if ${bdwp_enable} == true && ${url} ~= /^https:\/\/pan\.baidu\.com\/api\/taskscore\/tasklist\?/i then reject_dict(200)
-request if ${bdwp_enable} == true && ${url} ~= /^https:\/\/pan\.baidu\.com\/act\/api\/activityentry\?/i then reject_dict(200)
-request if ${bdwp_enable} == true && ${url} ~= /^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/pcs\/adv\?/i then reject_dict(200)
-request if ${bdwp_enable} == true && ${url} ~= /^https:\/\/pan\.baidu\.com\/api\/plugin\/get\?/i then reject_dict(200)
-request if ${bdwp_enable} == true && ${url} ~= /^https:\/\/pan\.baidu\.com\/recommend\/query\/list\?/i then reject_dict(200)
-response if ${bdwp_enable} == true && ${url} ~= /^https:\/\/pan\.baidu\.com\/feed\/kingkongdistrict\?/i then response.json.jq(".data.data |= map(select(.type != \"novel\" and .type != \"shortplay\" and .type != \"print\" and .type != \"job_hunt\"))")
+request if ${didi_enable} == true && ${url} ~= /^https:\/\/htwkop-st\.xiaojukeji\.com\/gateway\?api=cms\.htw\.delivery\.batch/i then reject_dict(200), enable={didi_enable}
+response if ${didi_enable} == true && ${url} ~= /^https:\/\/poi\.map\.xiaojukeji\.com\/mapapi\/startinfo\?api_version/i then response.json.delete("rec_destination"), enable={didi_enable}
+response if ${didi_enable} == true && ${url} ~= /^https:\/\/poi\.map\.xiaojukeji\.com\/mapapi\/poiinfo\?product_id/i then response.json.delete("rec_destination"), enable={didi_enable}
+response if ${didi_enable} == true && ${url} ~= /^https:\/\/common\.diditaxi\.com\.cn\/user_common\/itineraryList\?/i then response.json.jq("del(.data.tab_nav[]?.tab_param)"), enable={didi_enable}
+request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/aristotle\/unrated_order_for_unreceived_tab\?/i then reject_dict(200), enable={pdd_enable}
+request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/aristotle\/query_order_list_tabs_element\?/i then reject_dict(200), enable={pdd_enable}
+request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/aquarius\/hungary\/global\/homepage\?/i then reject_dict(200), enable={pdd_enable}
+request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/search_hotquery\?/i then reject_dict(200), enable={pdd_enable}
+request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/zaire_biz\/chat\/resource\/get_list_data\?/i then reject_dict(200), enable={pdd_enable}
+request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/alexa\/goods\/back_up\?/i then reject_dict(200), enable={pdd_enable}
+request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/brand-olay\/goods_detail\/bybt_guide\?/i then reject_dict(200), enable={pdd_enable}
+request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/engels\/reviews\/require\/append\?/i then reject_dict(200), enable={pdd_enable}
+request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/phantom\/gbdbpdv\/extra\?/i then reject_dict(200), enable={pdd_enable}
+request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/manufacturer\/cross\/shortcut\/list\?/i then reject_dict(200), enable={pdd_enable}
+request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/dunkirk\/liveactivity\/push\/create\/url\/report\?/i then reject_dict(200), enable={pdd_enable}
+request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/growth\/nagato\/app\/index\/gather\?/i then reject_dict(200), enable={pdd_enable}
+request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/engels\/wait\/receive\/review\?/i then reject_dict(200), enable={pdd_enable}
+request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/buffon\/nasus\/recommend\?/i then reject_dict(200), enable={pdd_enable}
+request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\//i then reject_dict(200), enable={pdd_enable}
+request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/xrec\/goods_rec\/pay_after_use_v2\?/i then reject_dict(200), enable={pdd_enable}
+request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.(?:pinduoduo|yangkeduo)\.com\/api\/cappuccino\/splash\?/i then reject_dict(200), enable={pdd_enable}
+request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/social\/mall\/follow\/hot\/recommend\?/i then reject_dict(200), enable={pdd_enable}
+request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/leporis\/notification\/clear_tab_red_dot\?/i then reject_dict(200), enable={pdd_enable}
+request if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v2\/query\/goods_detail_with_tags\?/i then reject_dict(200), enable={pdd_enable}
+response if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/alexa\/homepage\/hub\?/i then response.json.delete(["result.icon_set", "result.search_bar_hot_query", "result.dy_module.irregular_banner_dy"]), enable={pdd_enable}
+response if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/alexa\/homepage\/hub\?/i then response.json.jq(".result.bottom_tabs? |= map(select(.link | IN(\"index.html\",\"chat_list.html\",\"personal.html\"))) | .result.buffer_bottom_tabs? |= map(select(.link | IN(\"index.html\",\"chat_list.html\",\"personal.html\"))) | .result.all_top_opts = [] | .result.module_order? |= map(select(.module_name | IN(\"irregular_banner\",\"ad_module\",\"timeline\") | not))"), enable={pdd_enable}
+response if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/search\?/i then response.json.delete("expansion"), enable={pdd_enable}
+response if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/philo\/personal\/hub\?/i then response.json.delete(["monthly_card_entrance", "personal_center_style_v2_vo", "icon_set.icons", "icon_set.top_personal_icons", "title_bar_items", "personal_banner"]), enable={pdd_enable}
+response if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/oak\/integration\/render\?/i then response.json.delete(["bottom_section_list", "ui.bottom_section", "ui.live_section.float_info"]), enable={pdd_enable}
+response if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/order\//i then response.json.delete(["marketing_banner_vo", "shipping.banner_above_recommend"]), enable={pdd_enable}
+response if ${pdd_enable} == true && ${url} ~= /^https:\/\/api\.pinduoduo\.com\/api\/aristotle\/order_list_v4\?/i then response.json.jq(".orders |= map(.order_buttons |= map(del(.order_growth_tip)))"), enable={pdd_enable}
+request if ${taobao_enable} == true && ${url} ~= /^https:\/\/heic\.alicdn\.com\/imgextra\/i\d\/[A-Za-z0-9_!]+-\d+-tps-\d+-\d+\.png_\d+x\d*q\d+\.jpg_\.heic$/i then reject_dict(200), enable={taobao_enable}
+request if ${taobao_enable} == true && ${url} ~= /^https:\/\/heic\.alicdn\.com\/imgextra\/i\d\/[A-Za-z0-9_!]+-\d+-tps-\d+-\d+\.jpg_\d+x\d*q\d+\.jpg_\.heic$/i then reject_dict(200), enable={taobao_enable}
+request if ${taobao_enable} == true && ${url} ~= /^https:\/\/heic\.alicdn\.com\/imgextra\/i\d\/\d*\/?[\w!]+-\d-(?:octopus|tps)-(?:1080|1125)-\d{4}\.(?:jpg|png)_(?:1\d{3}|9\d{2})x(?:\d|1\d{3}|9\d{2})q[59]0/i then reject_dict(200), enable={taobao_enable}
+request if ${taobao_enable} == true && ${url} ~= /^https?:\/\/gw\.alicdn\.com\/imgextra\/i\d+\/[^\/]+_!!\d+-\d+-tps-(720-1280|1080-1920|1125-1602|1242-2208)\.(jpg|png|jpeg)_[^\/]+\.webp/i then reject_dict(200), enable={taobao_enable}
+request if ${jd_enable} == true && ${url} ~= /^https?:\/\/m\.360buyimg\.com\/mobilecms\/s1125x2436_jfs/i then reject(200), enable={jd_enable}
+request if ${jd_enable} == true && ${url} ~= /^https?:\/\/api\.m\.jd\.com\/\?loginType=11/i then reject_dict(200), enable={jd_enable}
+response if ${jd_enable} == true && ${url} ~= /^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=lite_advertising/i then response.body.replace(/jdLiteAdvertisingVO/, "sooyaaabo"), enable={jd_enable}
+response if ${jd_enable} == true && ${url} ~= /^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=basicConfig/i then response.json.replace(["data.JDMessage.socketmonitor.isSocketEstablishedAhead", "data.JDMessage.socketmonitor.isSocketReport", "data.JDHttpToolKit.httpdns.httpdns"], [0, 0, 0]), enable={jd_enable}
+response if ${jd_enable} == true && ${url} ~= /^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=cart/i then response.json.delete(["cartLocationMap.loc_emptyCartFloor2", "emptyCartRecommendFloor"]), enable={jd_enable}
+request if ${jd_enable} == true && ${url} ~= /^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(?:cartCouponRecommendGoods|intelligentRecommendSku|obtainGrowingInfo|recommendShop|searchBoxWord|stationPullService|uniformRecommend)/i then reject_dict(200), enable={jd_enable}
+request if ${meituan_enable} == true && ${url} ~= /^https?:\/\/(httpdns|httpdnsvip|httpdnsmultiapi|httpdnsmultiapivip)\.meituan\.com\//i then reject(200), enable={meituan_enable}
+request if ${coolapk_enable} == true && ${url} ~= /^https:\/\/api\.coolapk\.com\/v6\/search\?.*type=hotSearch/i then reject_dict(200), enable={coolapk_enable}
+response if ${coolapk_enable} == true && ${url} ~= /^https:\/\/api\.coolapk\.com\/v6\/feed\/detail\?/i then response.json.jq(".data.hotReplyRows |= if . then map(select(.id?)) else . end | .data.topReplyRows |= if . then map(select(.id?)) else . end | reduce (\"detailSponsorCard\", \"include_goods\", \"include_goods_ids\") as $key (.; .data[$key] = [])"), enable={coolapk_enable}
+response if ${coolapk_enable} == true && ${url} ~= /^https:\/\/api\.coolapk\.com\/v6\/feed\/replyList/i then response.json.jq("if .data? and ((.data | type) == \"array\") and (.data | length > 0) then .data |= map(select(.id?)) else . end"), enable={coolapk_enable}
+response if ${coolapk_enable} == true && ${url} ~= /^https:\/\/api\.coolapk\.com\/v6\/main\/dataList/i then response.json.jq(".data |= (if (type==\"array\" and length>0) then map(select((.entityTemplate!=\"sponsorCard\") and (.title!=\"精选配件\"))) else . end)"), enable={coolapk_enable}
+response if ${coolapk_enable} == true && ${url} ~= /^https:\/\/api\.coolapk\.com\/v6\/page\/dataList/i then response.json.jq(".data |= map(select(.title != \"话题热议\" and (.entityId != 36104 and .entityId != 24309 and .entityId != 12889 and .entityId != 21063 and .entityId != 35730 and .entityId != 35846 and .entityId != 28374 and .entityId != 28375 and .entityId != 27332 and .entityId != 20090 and .entityId != 28773 and .entityId != 29343 and .entityId != 21106)) | if .entities then (.entities |= map(select(.title != \"睡个好觉需要什么？\"))) else . end)"), enable={coolapk_enable}
+response if ${coolapk_enable} == true && ${url} ~= /^https:\/\/api\.coolapk\.com\/v6\/main\/indexV8/i then response.json.jq(".data |= map(select((.entityId != 32557 and .entityId != 29349 and .entityId != 28621) and (.title | test(\"值得买|红包\") | not)))"), enable={coolapk_enable}
+response if ${coolapk_enable} == true && ${url} ~= /^https:\/\/api\.coolapk\.com\/v6\/main\/init/i then response.json.jq("del(.data[]? | select(.entityId == 944 or .entityId == 945 or .entityId == 24455 or .entityId == 36839 or .entityId == 1635 or .title == \"关注\")) | .data |= map(if .entities then .entities |= map(select(.entityId != 1635 and .entityId != 2261 and .entityId != 1633 and .entityId != 413 and .entityId != 417 and .entityId != 1754 and .entityId != 1966 and .entityId != 2274 and .entityId != 1170 and .entityId != 1175 and .entityId != 1190 and .entityId != 2258 and .title != \"关注\")) else . end)"), enable={coolapk_enable}
+response if ${coolapk_enable} == true && ${url} ~= /^https:\/\/api\.coolapk\.com\/v6\/account\/loadConfig\?key=my_page_card_config/i then response.json.jq(".data |= map(select(.entityType != \"textLink\" and (.entityId != 1001 and .entityId != 1003 and .entityId != 1004 and .entityId != 1005)) | if .entities then .entities |= map(select(.entityType != \"textLink\")) else . end)"), enable={coolapk_enable}
+request if ${amap_enable} == true && ${url} ~= /^https:\/\/amap-aos-info-nogw\.amap\.com\/ws\/aos\/alimama\/splash_screen_rt/i then reject_dict(200), enable={amap_enable}
+request if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/shield\/search\/new_hotword\?/i then reject_dict(200), enable={amap_enable}
+request if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/card-service-(?:car-end|route-plan)/i then reject_dict(200), enable={amap_enable}
+response if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/shield\/search_business\/process\/marketingOperationStructured\?/i then response.json.delete(["data.tipsOperationLocation", "obj.data.resourcePlacement"]), enable={amap_enable}
+response if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/homepage\?/i then response.json.delete("history_tags"), enable={amap_enable}
+request if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/tips_adv\?/i then reject_dict(200), enable={amap_enable}
+request if ${amap_enable} == true && ${url} ~= /^https:\/\/oss\.amap\.com\/ws\/banner\/lists\/\?/i then reject_dict(200), enable={amap_enable}
+request if ${amap_enable} == true && ${url} ~= /^https:\/\/ai\.amap\.com\/v1\/ai_rec\/home_qs\?/i then reject_dict(200), enable={amap_enable}
+request if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/aos\/main\/page\/product\/list\?/i then reject_dict(200), enable={amap_enable}
+request if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/(?:main-page-assets|main-page-aiqs|main-page-location|ridewalk-end-fc|usr-profile-fc\/homeV2)/i then reject_dict(200), enable={amap_enable}
+request if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/(?:mapapi\/hint_text\/offline_data|message\/notice\/list|shield\/search\/new_hotword)/i then reject_dict(200), enable={amap_enable}
+request if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/valueadded\/weather\/v2\?/i then reject_dict(200), enable={amap_enable}
+request if ${amap_enable} == true && ${url} ~= /^https:\/\/sns\.amap\.com\/ws\/msgbox\/pull_mp\?/i then reject_dict(200), enable={amap_enable}
+request if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/c3frontend\/af-comment\/contentNearbyCard\?/i then reject_dict(200), enable={amap_enable}
+request if ${amap_enable} == true && ${url} ~= /^https:\/\/m5-zb\.amap\.com\/ws\/boss\/(?:order\/car\/(?:feedback\/get_card_questions|feedback\/viptips|king_toolbox_car_bubble|remark\/satisfactionConf|rights_information)|tips\/onscene_visual_optimization)/i then reject_dict(200), enable={amap_enable}
+request if ${amap_enable} == true && ${url} ~= /^https:\/\/m5-zb\.amap\.com\/ws\/boss\/(?:pay\/web\/paySuccess\/info\/request|transportation\/diversion\/resource\/driving)/i then reject_dict(200), enable={amap_enable}
+response if ${amap_enable} == true && ${url} ~= /^https:\/\/m5-zb\.amap\.com\/ws\/sharedtrip\/taxi\/order_detail_car_tips\?/i then response.json.delete("data.carTips.data.popupInfo"), enable={amap_enable}
+response if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaasv3\?/i then response.json.jq("del(.data.tipData, .data.wallet) | .data.cardList |= map(select(.dataKey == \"MineNewFootprintCard\" or .dataKey == \"MineNewBEntranceCardV4\")) | (.data.cardList[] | select(.dataKey == \"MineNewBEntranceCardV4\") | .content.entranceList_1) |= map(select(.id == 7 or .id == 8 or .id == 10 or .id == 17)) | (.data.cardList[] | select(.dataKey == \"MineNewBEntranceCardV4\") | .content.entranceList_2) |= map(select(.id == 1 or .id == 32 or .id == 9 or .id == 14))"), enable={amap_enable}
+response if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/shield\/scene\/recommend\?/i then response.json.jq_file("https://loon.103516.xyz/JQLang/Amap/Amap.recommend.jq"), enable={amap_enable}
+response if ${amap_enable} == true && ${url} ~= /^https:\/\/sns\.amap\.com\/ws\/opc\/tools\/list\?/i then response.json.jq("(if (type == \"object\") and ((.data | type) == \"object\") and ((.data.category | type) == \"array\") then (.data.category[] | select(type == \"object\") | .tools | select(type == \"array\") | .[] | select(type == \"object\")) |= del(.tips) else . end) | (if (type == \"object\") and ((.data | type) == \"object\") and ((.data.category | type) == \"array\") then (.data.category[] | select(type == \"object\") | .tools | select(type == \"array\")) |= map(select(if type == \"object\" then (((.id | type) == \"string\" and .id == \"547\") or ((.id | type) == \"number\" and .id == 547)) | not else true end)) else . end)"), enable={amap_enable}
+response if ${amap_enable} == true && ${url} ~= /^https:\/\/info\.amap\.com\/ws\/c3frontend\/af-search\/search\?/i then response.json.jq("if (try (.data.modules.quickLink.data.list | type) catch null) == \"array\" then .data.modules.quickLink.data.list |= map(if type == \"object\" and (.badge | type) == \"object\" and (.badge | has(\"text\")) then .badge.text = \"\" else . end) else . end"), enable={amap_enable}
+response if ${amap_enable} == true && ${url} ~= /^https:\/\/m5-zb\.amap\.com\/ws\/amap\/hitch\/passenger\/content_info\?/i then response.json.delete("data.lubanData.banner"), enable={amap_enable}
+request if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/info_bff\/rankingCard\?/i then reject_dict(200), enable={amap_enable}
+response if ${amap_enable} == true && ${url} ~= /^https:\/\/center\.amap\.com\/ws\/amc\/server\/conv\/raise_list\?/i then response.json.jq("def on_path($p; $t; f): if (try (getpath($p) | type == $t) catch false) then getpath($p) |= f else . end; on_path([\"data\",\"dataList\"]; \"array\"; map(select(if type == \"object\" then (has(\"categoryId\") or ((.data | type) == \"object\" and .data.id == \"M_100007\")) else false end)))"), enable={amap_enable}
+response if ${amap_enable} == true && ${url} ~= /^https:\/\/info\.amap\.com\/ws\/shield\/search_business\/process\/middleLayer\/sug\?/i then response.json.jq(".tip_list |= map(select(.tip.task_tag == \"common_content_general\" or .tip.task_tag == \"sp\"))"), enable={amap_enable}
+response if ${amap_enable} == true && ${url} ~= /^https:\/\/m5\.amap\.com\/ws\/smartui\/near_recommend\?/i then response.json.delete("data.operation_activity"), enable={amap_enable}
+response if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$/i then response.json.delete(["activity_switch", "video_report_config", "advertisement_config", "next_start", "push_strategy_new", "live_activity_guide", "h5_pop_ups", "duxiaoman_url", "is_need_remind_live_rooms", "floating_icon", "ad_stlog_switch", "first_time_motivate", "windowStrategyList", "ad_adsense", "ad_config", "videoup_guide_pop", "ad_origin_config_switch", "needNewUserLead", "h5_pop_ups_config", "alaTabColor", "search_guide", "ad_sdk_priority", "low_version_pop_config", "ad_num_competition_frs", "live_new_user_guide_day", "screen_fill_data_result", "yy_live_tab", "ad_num_competition_personalize", "complete_apk_url", "user_activity", "homepage_guide", "bottom_bubble_config", "home_screen_ad", "afSearch_tab", "recent_client_info", "video_activity", "namoaixud_url", "yy_live_config", "user_growth_task_list", "cloud_control_data_info", "wl_config.pb_banner_funad_cache_strategy", "wl_config.pb_comment_asyncafd_cache_strategy", "wl_config.download_edge_float", "wl_config.download_pause_retain_dialog_conf", "wl_config.download_mobile_dialog_conf", "wl_config.download_fake_progress_config_a", "wl_config.download_fake_progress_config_b", "scheme_whitelist"]), enable={tieba_enable}
+response if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$/i then response.json.replace(["wl_config.home_ad_num", "wl_config.frs_ad_num", "wl_config.pb_comment_ad_num", "wl_config.index_bear_density", "wl_config.frs_bear_density", "wl_config.index_bear_first_floor_max", "wl_config.index_bear_first_floor_min"], [0, 0, 0, 0, 0, 999999999, 999999999]), enable={tieba_enable}
+response if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tiebac\.baidu\.com\/c\/s\/sync$/i then response.json.jq(".index_tab_info |= map(select(.tab_name == \"推荐\")) | .top_level_navi |= {\"推荐\": .[\"推荐\"], \"侧边栏\": .[\"侧边栏\"], \"关注\": .[\"关注\"]}"), enable={tieba_enable}
+request if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tiebac\.baidu\.com\/c\/f\/forum\/getInterestClassList$/i then reject_dict(200), enable={tieba_enable}
+request if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tiebac\.baidu\.com\/c\/f\/search\/discover$/i then reject_dict(200), enable={tieba_enable}
+response if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tieba\.baidu\.com\/mo\/q\/search\/startPage\?/i then response.body.mock("json", "{\"no\":0,\"error\":\"success\"}", 200), enable={tieba_enable}
+response if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$/i then response.json.delete(["url_map", "user_agent_info", "bubble_info", "duxiaoman_entry", "uc_card", "finance_tab", "vip_banner", "ala_live_info", "recom_naws_list", "duxiaoman", "user.consume_info", "namoaixud_entry"]), enable={tieba_enable}
+response if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$/i then response.json.replace("user.shake_ad_switch.is_show", 0), enable={tieba_enable}
+response if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$/i then response.json.jq(".custom_grid |= map(select(.title != \"游戏大厅\" and .title != \"预约管理\" and .title != \"领话费\" and .title != \"短故事\")) | .zone_info |= map(.common_func |= (if .common_func_noraml then .common_func_noraml |= map(select(.name != \"创建智能体\")) else . end)) | .zone_info |= map(select(.type != \"commerce\" and .type != \"banner\" and .type != \"game\"))"), enable={tieba_enable}
+response if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tieba\.baidu\.com\/c\/f\/forum\/forumGuide$/i then response.json.delete("hot_search"), enable={tieba_enable}
+request if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tieba\.baidu\.com\/c\/f\/search\/discover$/i then reject_dict(200), enable={tieba_enable}
+request if ${tieba_enable} == true && ${url} ~= /^https:\/\/tieba\.baidu\.com\/c\/f\/forum\/getForumAlbum$/i then reject_dict(200), enable={tieba_enable}
+response if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tieba\.baidu\.com\/c\/f\/frs\/frsBottom\?/i then response.json.delete("card_activity"), enable={tieba_enable}
+response if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tiebac\.baidu\.com\/c\/f\/frs\/frsBottom$/i then response.json.delete("card_activity"), enable={tieba_enable}
+request if ${tieba_enable} == true && ${url} ~= /^http:\/\/c\.tieba\.baidu\.com\/c\/f\/forum\/hotforum$/i then reject_dict(200), enable={tieba_enable}
+response if ${tieba_enable} == true && ${url} ~= /^https?:\/\/tiebac\.baidu\.com\/c\/f\/sidebar\/home$/i then response.json.delete(["game_center", "tools", "task_list", "vip_banner"]), enable={tieba_enable}
+request if ${rednote_enable} == true && ${url} ~= /^https?:\/\/ci\.(?:xiaohongshu|rnote)\.com\/system_config\/watermark/i then reject_img(200), enable={rednote_enable}
+request if ${rednote_enable} == true && ${url} ~= /^https:\/\/edith\.(?:xiaohongshu|rnote)\.com\/api\/sns\/v1\/surprisebox\/(?:get_style|open|submit_action)/i then reject_dict(200), enable={rednote_enable}
+request if ${rednote_enable} == true && ${url} ~= /^https:\/\/www\.(?:xiaohongshu|rnote)\.com\/api\/marketing\/box\/trigger\?/i then reject_dict(200), enable={rednote_enable}
+request if ${rednote_enable} == true && ${url} ~= /^https:\/\/edith\.(?:xiaohongshu|rnote)\.com\/api\/sns\/v\d+\/(?:guide\/user_banner|note\/guide)/i then reject_dict(200), enable={rednote_enable}
+request if ${rednote_enable} == true && ${url} ~= /^https:\/\/www\.(?:xiaohongshu|rnote)\.com\/api\/sns\/v\d+\/(?:ads\/resource|hey\/\w+\/hey_gallery)/i then reject_dict(200), enable={rednote_enable}
+response if ${rednote_enable} == true && ${url} ~= /^https:\/\/edith\.(?:xiaohongshu|rnote)\.com\/api\/sns\/v1\/search\/banner_list$/i then response.json.replace("data", `{}`), enable={rednote_enable}
+response if ${rednote_enable} == true && ${url} ~= /^https:\/\/edith\.(?:xiaohongshu|rnote)\.com\/api\/sns\/v1\/search\/hot_list$/i then response.json.replace("data.items", `[]`), enable={rednote_enable}
+response if ${rednote_enable} == true && ${url} ~= /^https:\/\/edith\.(?:xiaohongshu|rnote)\.com\/api\/sns\/v4\/search\/hint/i then response.json.replace("data.hint_words", `[]`), enable={rednote_enable}
+response if ${rednote_enable} == true && ${url} ~= /^https:\/\/edith\.(?:xiaohongshu|rnote)\.com\/api\/sns\/v4\/search\/trending\?/i then response.json.replace(["data.queries", "data.hint_word"], [`[]`, `{}`]), enable={rednote_enable}
+request if ${bdwp_enable} == true && ${url} ~= /^https:\/\/pan\.baidu\.com\/api\/getconfig\?/i then reject_dict(200), enable={bdwp_enable}
+request if ${bdwp_enable} == true && ${url} ~= /^https:\/\/pan\.baidu\.com\/api\/getsyscfg\?/i then reject_dict(200), enable={bdwp_enable}
+request if ${bdwp_enable} == true && ${url} ~= /^https:\/\/pan\.baidu\.com\/api\/taskscore\/tasklist\?/i then reject_dict(200), enable={bdwp_enable}
+request if ${bdwp_enable} == true && ${url} ~= /^https:\/\/pan\.baidu\.com\/act\/api\/activityentry\?/i then reject_dict(200), enable={bdwp_enable}
+request if ${bdwp_enable} == true && ${url} ~= /^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/pcs\/adv\?/i then reject_dict(200), enable={bdwp_enable}
+request if ${bdwp_enable} == true && ${url} ~= /^https:\/\/pan\.baidu\.com\/api\/plugin\/get\?/i then reject_dict(200), enable={bdwp_enable}
+request if ${bdwp_enable} == true && ${url} ~= /^https:\/\/pan\.baidu\.com\/recommend\/query\/list\?/i then reject_dict(200), enable={bdwp_enable}
+response if ${bdwp_enable} == true && ${url} ~= /^https:\/\/pan\.baidu\.com\/feed\/kingkongdistrict\?/i then response.json.jq(".data.data |= map(select(.type != \"novel\" and .type != \"shortplay\" and .type != \"print\" and .type != \"job_hunt\"))"), enable={bdwp_enable}
 request if ${bdwp_enable} == true && ${url} ~= /^https?:\/\/.*baidu\.com\/rest\/.*\/membership\/proxy\/guide/i then reject(200)
-request if ${bdwp_enable} == true && ${url} ~= /^https:\/\/pan\.baidu\.com\/feed\/hotlist/i then reject(200)
+request if ${bdwp_enable} == true && ${url} ~= /^https:\/\/pan\.baidu\.com\/feed\/hotlist/i then reject(200), enable={bdwp_enable}
 request if ${bdwp_enable} == true && ${url} ~= /^https?:\/\/.*zhangyuyidong\.cn\/api\/zysdk/i then reject(200)
-request if ${bdwp_enable} == true && ${url} ~= /^https:\/\/pan\.baidu\.com\/queryintent\/queryhint/i then reject(200)
-request if ${bdwp_enable} == true && ${url} ~= /^https:\/\/pan\.baidu\.com\/coins\/center\/notice/i then reject(200)
-request if ${bdwp_enable} == true && ${url} ~= /^https:\/\/pan\.baidu\.com\/recommend\/shortseries\/list/i then reject_dict(200)
-request if ${p123_enable} == true && ${url} ~= /^https:\/\/www\.123pan\.com\/api\/config\/get/i then reject_dict(200)
-response if ${unicom_enable} == true && ${url} ~= /^https:\/\/m\.client\.10010\.com\/search_service\/tyfbSearch\/searchDiscoverListExpress/i then response.json.jq(".data = []")
-response if ${unicom_enable} == true && ${url} ~= /^https:\/\/m\.client\.10010\.com\/search_service\/search\/searchScrollWord/i then response.json.jq(".[\"113000004\"] = []")
-response if ${unicom_enable} == true && ${url} ~= /^https:\/\/m\.client\.10010\.com\/clientIndex\/v1\/api\/navHome/i then response.json.jq(".datas.homeTopMenuItems |= map(select(.menuName != \"通通\" and .menuName != \"vowifi\" and .menuName != \"签到\" and .menuName != \"\"))")
-response if ${unicom_enable} == true && ${url} ~= /^https:\/\/m\.client\.10010\.com\/clientIndex\/homefusion\/fuInter/i then response.json.jq("del(.[\"HomeFusion.backGroundQuery\"], .[\"HomeFusion.fuchuangAdv_A8\"], .[\"HomeFusion.bottomLabel\"])")
-response if ${unicom_enable} == true && ${url} ~= /^https:\/\/m\.client\.10010\.com\/clientMyPage\/v1\/api\/myWallet/i then response.json.jq(".data.payShowFlag = false")
-request if ${unicom_enable} == true && ${url} ~= /^https?:\/\/m\.client\.10010\.com\/mobileserviceimportant\/customer\/querySmartServicekhd.htm/i then reject(404)
-request if ${unicom_enable} == true && ${url} ~= /^https?:\/\/m\.client\.10010\.com\/clientIndex\/api\/v1\/index\/queryIndexExclusiveOffers/i then reject(404)
-response if ${unicom_enable} == true && ${url} ~= /^https?:\/\/m\.client\.10010\.com\/clientMyPage\/v\d\/api\/(myWallet|myPoints|myColorfulRingtone|newUserInfo|getDeviceInfo)/i then response.json.jq(".data={}")
-request if ${unicom_enable} == true && ${url} ~= /^https?:\/\/img\.client\.10010\.com\/homejingxuan12\/js\/(pubuliu|1homeView)/i then reject(404)
+request if ${bdwp_enable} == true && ${url} ~= /^https:\/\/pan\.baidu\.com\/queryintent\/queryhint/i then reject(200), enable={bdwp_enable}
+request if ${bdwp_enable} == true && ${url} ~= /^https:\/\/pan\.baidu\.com\/coins\/center\/notice/i then reject(200), enable={bdwp_enable}
+request if ${bdwp_enable} == true && ${url} ~= /^https:\/\/pan\.baidu\.com\/recommend\/shortseries\/list/i then reject_dict(200), enable={bdwp_enable}
+request if ${p123_enable} == true && ${url} ~= /^https:\/\/www\.123pan\.com\/api\/config\/get/i then reject_dict(200), enable={p123_enable}
+response if ${unicom_enable} == true && ${url} ~= /^https:\/\/m\.client\.10010\.com\/search_service\/tyfbSearch\/searchDiscoverListExpress/i then response.json.jq(".data = []"), enable={unicom_enable}
+response if ${unicom_enable} == true && ${url} ~= /^https:\/\/m\.client\.10010\.com\/search_service\/search\/searchScrollWord/i then response.json.jq(".[\"113000004\"] = []"), enable={unicom_enable}
+response if ${unicom_enable} == true && ${url} ~= /^https:\/\/m\.client\.10010\.com\/clientIndex\/v1\/api\/navHome/i then response.json.jq(".datas.homeTopMenuItems |= map(select(.menuName != \"通通\" and .menuName != \"vowifi\" and .menuName != \"签到\" and .menuName != \"\"))"), enable={unicom_enable}
+response if ${unicom_enable} == true && ${url} ~= /^https:\/\/m\.client\.10010\.com\/clientIndex\/homefusion\/fuInter/i then response.json.jq("del(.[\"HomeFusion.backGroundQuery\"], .[\"HomeFusion.fuchuangAdv_A8\"], .[\"HomeFusion.bottomLabel\"])"), enable={unicom_enable}
+response if ${unicom_enable} == true && ${url} ~= /^https:\/\/m\.client\.10010\.com\/clientMyPage\/v1\/api\/myWallet/i then response.json.jq(".data.payShowFlag = false"), enable={unicom_enable}
+request if ${unicom_enable} == true && ${url} ~= /^https?:\/\/m\.client\.10010\.com\/mobileserviceimportant\/customer\/querySmartServicekhd.htm/i then reject(404), enable={unicom_enable}
+request if ${unicom_enable} == true && ${url} ~= /^https?:\/\/m\.client\.10010\.com\/clientIndex\/api\/v1\/index\/queryIndexExclusiveOffers/i then reject(404), enable={unicom_enable}
+response if ${unicom_enable} == true && ${url} ~= /^https?:\/\/m\.client\.10010\.com\/clientMyPage\/v\d\/api\/(myWallet|myPoints|myColorfulRingtone|newUserInfo|getDeviceInfo)/i then response.json.jq(".data={}"), enable={unicom_enable}
+request if ${unicom_enable} == true && ${url} ~= /^https?:\/\/img\.client\.10010\.com\/homejingxuan12\/js\/(pubuliu|1homeView)/i then reject(404), enable={unicom_enable}
 
 [MITM]
 hostname = *.amap.com,*.zhihu.com,112.53.55.225,113.46.225.*,114.215.255.94,116.62.28.7,116.62.47.28,116.85.*,117.51.168.*,118.31.112.221,118.31.7.235,120.241.142.*,120.241.143.*,120.27.235.201,120.55.55.115,120.55.62.124,121.196.197.147,121.196.203.183,123.207.209.*,139.199.240.84,162.14.157.*,47.110.187.87,47.75.72.47,47.96.11.46,47.96.20.45,47.96.7.91,47.97.215.55,47.98.137.249,47.98.54.106,47.99.42.29,acs.m.goofish.com,acs.m.taobao.com,activity.soulapp.cn,ad.12306.cn,afd.baidu.com,apapia-sqk-weblogic.manmanbuy.com,api-a.soulapp.cn,api-account.soulapp.cn,api-chat.soulapp.cn,api-user.soulapp.cn,api.coolapk.com,api.m.jd.com,api.pinduoduo.com,api.udache.com,api.yangkeduo.com,apimobile.meituan.com,as.xiaojukeji.com,assistify.meituan.com,chat-live.soulapp.cn,ci.rnote.com,ci.xiaohongshu.com,common.diditaxi.com.cn,conf.diditaxi.com.cn,ct.xiaojukeji.com,daijia.kuaidadi.com,ddpay.xiaojukeji.com,edith.rnote.com,edith.xiaohongshu.com,feedguess.meituan.com,freight.xiaojukeji.com,g-acs.m.goofish.com,gateway-mobile-gray.soulapp.cn,guide-acs.m.taobao.com,gw.alicdn.com,heic.alicdn.com,httpdns.meituan.com,httpdnsmultiapi.meituan.com,img.client.10010.com,in.m.jd.com,increase-openapi.soulapp.cn,lion.didialift.com,m.360buyimg.com,m.client.10010.com,m.pinduoduo.net,manhattan.webapp.xiaojukeji.com,mapi.xiaojukeji.com,mobile.12306.cn,mop.meituan.com,mt-personalcenter.meituan.com,pan.baidu.com,poplayer.template.alibaba.com,post.soulapp.cn,rec.rnote.com,rec.xiaohongshu.com,res.xiaojukeji.com,so.rnote.com,so.xiaohongshu.com,ssp.soulapp.cn,tieba.baidu.com,tiebac.baidu.com,www.123pan.com,www.coolapk.com,www.rnote.com,www.xiaohongshu.com
