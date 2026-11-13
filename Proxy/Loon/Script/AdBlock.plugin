@@ -2,6 +2,7 @@
 #!desc=拦截应用内开屏、信息流、弹窗广告与广告联盟域名
 
 [Rule]
+DOMAIN-SUFFIX,atm.youku.com, REJECT
 DOMAIN-SUFFIX,adx.dlads.cn, REJECT
 DOMAIN-SUFFIX,adx.open-adx.com, REJECT
 DOMAIN-SUFFIX,adx.pro.cn, REJECT
@@ -3099,6 +3100,8 @@ DOMAIN, mallapi2.qinlinkeji.com, REJECT // 商城页面
 DOMAIN, open-pixon.ads-pixiv.net, REJECT
 
 [Rewrite]
+^https?:\/\/imgcache\.qq\.com\/qqlive\/ reject
+^https?:\/\/r\.inews\.qq\.com\/(getBannerAds|getFullScreenPic) reject
 ^https?:\/\/iface\.iqiyi\.com\/api\/getNewAdInfo reject
 ^https?:\/\/iface2\.iqiyi\.com\/fusion\/3\.0\/fusion_switch reject
 ^https?:\/\/interface\.music\.163\.com\/eapi\/ad reject
