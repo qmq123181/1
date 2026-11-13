@@ -5441,7 +5441,6 @@ whyiyzdccidm_enable = switch,true,false,tag=网易有道词典-脚本开关
 DT = switch,false,tag=网易云音乐-[隐藏底部]笔记标签
 FX = switch,true,tag=网易云音乐-[隐藏底部]发现标签
 MY = switch,true,tag=网易云音乐-[隐藏底部]漫游标签
-whyiyyybyt_enable = switch,true,false,tag=网易云音乐-脚本开关
 lmjpxmvi_enable = switch,true,false,tag=解除微信链接限制-脚本开关
 wfnibovj_enable = switch,true,false,tag=温尼伯站-脚本开关
 xljnuiyivsuvgo_enable = switch,true,false,tag=香蕉是一种水果-脚本开关
