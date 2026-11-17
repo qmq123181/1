@@ -1,0 +1,58 @@
+#!name=波点音乐
+#!desc=过滤波点音乐广告，解锁会员功能。 使用前请在BoxJS中添加订阅https://raw.githubusercontent.com/Yuheng0101/X/main/Tasks/boxjs.json并同意相关免责声明，或添加持久化数据「KUWO_AGREE 我同意」。
+#!author=qmq123181
+#!system=ios16.0,ios17.0,ios18.0
+#!date=2026-11-17
+
+[Rewrite]
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/service\/conf\/all\? response-body-json-jq 'delpaths([["data","groupSign","adStartAppDialog"]])'
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/service\/conf\/all\? response-body-json-jq 'delpaths([["data","groupSign","adGuideTest"]])'
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/service\/conf\/all\? response-body-json-jq 'delpaths([["data","groupSign","playTips"]])'
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/service\/conf\/all\? response-body-json-jq 'delpaths([["data","groupSign","adExitChange"]])'
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/service\/conf\/all\? response-body-json-jq 'delpaths([["data","conf","adGuidePopCount"]])'
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/service\/conf\/all\? response-body-json-jq 'delpaths([["data","conf","adDownListOpen"]])'
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/service\/conf\/all\? response-body-json-jq 'if\x20((getpath(["data","conf","flowControlConfig"])\x20//\x20{})\x20|\x20has("uploadEnable"))\x20then\x20(setpath(["data","conf","flowControlConfig","uploadEnable"];\x20false))\x20else\x20.\x20end'
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/service\/conf\/all\? response-body-json-jq 'if\x20((getpath(["data","conf","flowControlConfig"])\x20//\x20{})\x20|\x20has("p2pEnable"))\x20then\x20(setpath(["data","conf","flowControlConfig","p2pEnable"];\x20false))\x20else\x20.\x20end'
+(?i)^https:\/\/ab-bodian\.kuwo\.cn\/abtest\/ui\/info\? response-body-json-jq 'delpaths([["data","mapTestInfo","CommentADPosition"]])'
+(?i)^https:\/\/ab-bodian\.kuwo\.cn\/abtest\/ui\/info\? response-body-json-jq 'delpaths([["data","mapTestInfo","DiscoverADPosition"]])'
+(?i)^https:\/\/ab-bodian\.kuwo\.cn\/abtest\/ui\/info\? response-body-json-jq 'delpaths([["data","mapTestInfo","DownloadAd"]])'
+(?i)^https:\/\/ab-bodian\.kuwo\.cn\/abtest\/ui\/info\? response-body-json-jq 'delpaths([["data","mapTestInfo","FreeModVoiceReminder"]])'
+(?i)^https:\/\/ab-bodian\.kuwo\.cn\/abtest\/ui\/info\? response-body-json-jq 'delpaths([["data","mapTestInfo","GamesTrans"]])'
+(?i)^https:\/\/ab-bodian\.kuwo\.cn\/abtest\/ui\/info\? response-body-json-jq 'delpaths([["data","mapTestInfo","bodianmvdialog"]])'
+(?i)^https:\/\/ab-bodian\.kuwo\.cn\/abtest\/ui\/info\? response-body-json-jq 'delpaths([["data","mapTestInfo","MvTryShowAds"]])'
+(?i)^https:\/\/ab-bodian\.kuwo\.cn\/abtest\/ui\/info\? response-body-json-jq 'delpaths([["data","mapTestInfo","insert"]])'
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/service\/global\/config\/scene\? response-body-json-jq 'delpaths([["data","iosP2PCacheEnable"]])'
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/service\/global\/config\/scene\? response-body-json-jq 'delpaths([["data","warmStartDialog"]])'
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/service\/global\/config\/scene\? response-body-json-jq 'delpaths([["data","adsNotFinishVipPop4DayInterval"]])'
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/service\/global\/config\/scene\? response-body-json-jq 'if\x20((getpath(["data"])\x20//\x20{})\x20|\x20has("showShopEntry"))\x20then\x20(setpath(["data","showShopEntry"];\x20false))\x20else\x20.\x20end'
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/service\/global\/config\/scene\? response-body-json-jq 'if\x20((getpath(["data"])\x20//\x20{})\x20|\x20has("iosP2pEnableSendDataLimit"))\x20then\x20(setpath(["data","iosP2pEnableSendDataLimit"];\x201))\x20else\x20.\x20end'
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/search\/topic\/word\/list\? response-body-json-jq 'delpaths([["data","hotTopic"]])'
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/search\/topic\/word\/list\? response-body-json-jq 'delpaths([["data","searchFind"]])'
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/search\/topic\/word\/list\? response-body-json-jq 'delpaths([["data","globalJumpInfo"]])'
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/search\/topic\/word\/list\? response-body-json-jq 'delpaths([["data","hotWord"]])'
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/service\/home\/index\? response-body-json-jq '.data.moduleList\x20|=\x20map(select(.type\x20|\x20tostring\x20|\x20(.\x20!=\x20"8"\x20and\x20.\x20!=\x20"5"\x20and\x20.\x20!=\x20"1"\x20and\x20.\x20!=\x20"9"\x20and\x20.\x20!=\x20"6")))'
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/service\/music\/recommendList\? response-body-json-jq '.data.musicList[]\x20|=\x20del(.showAd)'
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/comments\/v3\/topInfo\? response-body-json-jq 'delpaths([["data","putao"]])'
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/comments\/v3\/topInfo\? response-body-json-jq 'delpaths([["data","bannerVos"]])'
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/service\/resource\/recommend\? response-body-json-jq '.data.resourceList[]\x20|=\x20del(.resource)'
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/voice\/room\/v2\/sidebar response-body-json-jq '(.data)\x20=\x20{}'
+(?i)^https:\/\/ad\.tencentmusic\.com\/config\/uni mock-response-body data-type=json data="{}" status-code=200
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/(play|service|advert)\/advert\/ mock-response-body data-type=json data="{}" status-code=200
+(?i)^https?:\/\/h5s\.kuwo\.cn\/m\/bd_launch_popup\/index mock-response-body data-type=text data="" status-code=404
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/service\/banner\/ mock-response-body data-type=json data="{}" status-code=200
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/ucenter\/vip\/give\/config\? mock-response-body data-type=json data="{}" status-code=200
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/service\/home\/module\?.*&moduleId=6 mock-response-body data-type=json data="{}" status-code=200
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/advert\/earning\/app\/config\? mock-response-body data-type=json data="{}" status-code=200
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/pay\/vip\/lowPriceText\? mock-response-body data-type=json data="{}" status-code=200
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/service\/global\/config\/vipEnter\? mock-response-body data-type=json data="{}" status-code=200
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/popup\/ mock-response-body data-type=json data="{}" status-code=200
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/pay\/vip\/invitation\/swell\/popup\? mock-response-body data-type=json data="{}" status-code=200
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/service\/version\/popup\? mock-response-body data-type=json data="{}" status-code=200
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/pay\/vip\/invitation\/assist\/popup\? mock-response-body data-type=json data="{}" status-code=200
+(?i)^https:\/\/bd-api\.kuwo\.cn\/api\/pay\/h5\/common\/popup\? mock-response-body data-type=json data="{}" status-code=200
+
+[Script]
+http-response (?i)^https?:\/\/(?:(?:bd-api|h5app|bodianyin|ab-bodian)\.kuwo\.cn\/(?:api\/(?:ucenter\/users\/(?:pub|login)|play\/(?:music\/v2\/(?:audioUrl|checkRight)|advert\/info)|service\/(?:music\/(?:info|download\/(?:info|config))|home\/module|global\/config\/(?:scene|vipEnter)|banner\/positions|advert\/config)|search\/topic\/word\/list|pay\/(?:vip\/(?:invitation\/(?:assist\/popup|swell)|lowPriceText)|sp\/actVip|audition\/url)|advert\/free\/config|popup\/start\/info|abtest\/ui\/info|rec\/feed)|abtest\/ui\/info)|us\.l\.qq\.com\/exapp|xs\.gdt\.qq\.com\/style_factory\/template_list) script-path=https://raw.githubusercontent.com/qmq123181/1/main/copy/js/weigiegie_666_bdyy.js, requires-body=true, timeout=60
+
+[MitM]
+hostname = *.kuwo.cn,*.l.qq.com,ab-bodian.kuwo.cn,ad.tencentmusic.com,bd-api.kuwo.cn,bodianimgcdn.kuwo.cn,h5app.kuwo.cn,h5s.kuwo.cn,xs.gdt.qq.com
